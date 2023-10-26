@@ -18,7 +18,7 @@
 .navbar-inverse .navbar-nav>li>a:hover, 
 .navbar-inverse .navbar-nav>li>a:focus,
 .navbar-inverse .navbar-nav>.open>a:hover, 
-.navbar-inverse .navbar-nav>.open>a:focus { background:none; color:white; }
+.navbar-inverse .navbar-nav>.open>a:focus { background:none; color:black; }
 
 .navbar-inverse .navbar-nav > .active > a { background:none; color:white; }
 
