@@ -239,7 +239,7 @@ border-radius: 0;
 	padding-bottom:15px;	
 }
 .h-caption .fa {
-color: #FF4242;
+color: #ffa41d;
 font-size: 32px;
 }
 .caption h4 {
@@ -250,12 +250,12 @@ font-size: 32px;
 }
 .jumbotron p {
 	font-size: inherit;
-	color: #555;
-	font-size: 16px;
+	color: #955a01;
+	font-size: 18px;
 	padding: 0px;
 }
 .jumbotron .fa{ 
-	color:#FF4242;
+	color:#ffa915;
 	}
 .h-body {
 }
@@ -529,7 +529,7 @@ nav#filter a.current {
 	color: #FF3F3F;
 }
 .iconColor .fa {
-	color: #ee0c45;
+	color: #ee8c0c;
 }
 .portfolio-items article img {
 	width: 100%;
