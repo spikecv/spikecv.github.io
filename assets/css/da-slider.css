@@ -1,7 +1,7 @@
 .da-slider {
 	width: 100%;
-	min-width: 520px;
-	height: 420px;
+	min-width: 800px;
+	height: 560px;
 	position: relative;
 	margin: 0% auto;
 	overflow: hidden;
@@ -69,15 +69,15 @@
 }
 .da-slide .da-img {
 	text-align: center;
-	width: 30%;
-	top: 70px;
+	width: 100%;
+	top: 0px;
 	height: 256px;
 	line-height: 320px;
 	left: 110%; /*60%*/
 }
 .da-slide .da-link {
 	top: 270px; /*depends on p height*/
-	color: #fff;
+	color: #ffd670;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 	border: 3px solid rgba(255,255,255,0.8);
 	padding: 2px 20px 0px;
@@ -85,10 +85,10 @@
 	line-height: 30px;
 	width: auto;
 	text-align: center;
-	background: rgba(255,255,255,0.2);
+	background: rgba(255, 206, 72, 0.711);
 }
 .da-slide .da-link:hover {
-	background: rgba(255,255,255,0.3);
+	background: rgba(255, 206, 72, 0.711);
 }
 .da-dots {
 	width: 100%;
@@ -105,7 +105,7 @@ display: inline-block;
 position: relative;
 width: 28px;
 height: 10px;
-background: #fff;
+background: #facf6b;
 margin: 3px;
 cursor: pointer;
 box-shadow: 1px 1px 1px rgba(0,0,0,0.1) inset, 1px 1px 1px rgba(255,255,255,0.1);
@@ -171,7 +171,7 @@ height: 8px;
 	opacity: 1;
 }
 .da-slide-current .da-img {
-	left: 60%;
+	left: 0%;
 	opacity: 1;
 }
 /* Animation classes and animations */

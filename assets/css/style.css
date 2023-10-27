@@ -31,7 +31,7 @@ label {
 	color: #777;
 }
 .herotxt{
-	background:#FF4242;
+	background:#fba30c;
 }
  
 .herotxt p {
@@ -129,8 +129,8 @@ background: #85E556;
 	background-size: cover;
 	min-height: 520px;
 	text-align: center;
-	padding-top: 240px;
-	color: white;
+	padding-top: 120px;
+	color: rgb(243, 213, 143);
 	font-family: "Open sans", Helvetica, Arial;
 	font-weight: 300;
 }
@@ -143,11 +143,11 @@ background: #85E556;
 	font-family: "Open sans", Helvetica, Arial;
 	font-size: 44px;
 	margin-bottom: 6px;
-	color: white;
+	color: rgb(243, 213, 143);
 	line-height: 1.15em;
 }
 #head .tagline {
-	color: rgba(255,255,255,0.75);
+	color: rgba(252, 205, 76, 0.75);
 	margin-bottom: 25px;
 }
 #head .tagline a {
@@ -222,7 +222,7 @@ background: #85E556;
 .h-caption i {
 	display: block;
 	font-size: 46px;
-	color: #fff;
+	color: #ffdf3c;
 	float:left;	
 	margin-right: 9px; 
 }
@@ -280,10 +280,10 @@ ul.list-spaces li {
 }
 .bgColor1 {
 	background-color: #323a47;
-	color: #fff;
+	color: #f7d95f;
 }
 .bgColor1 .fa {
-	color: #fff;
+	color: #ffcc53;
 }
 /* Helpers */
 .container-full {
@@ -334,7 +334,7 @@ width: 92px;
 min-height: 50px;
 margin-right: 22px;
 text-align: center!important;
-background-color: #FFFFFF;
+background-color: #ffe371;
 padding: 20px 0;
 border: 1px solid #e6e6e6;}
 .blockquote-box.blockquote-primary{border-color:#357EBD}
@@ -655,7 +655,7 @@ background:rgba(0,0,0,0.80)	;
 	overflow: hidden;
 }
 .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
-	color: #fff;
+	color: #facd37;
 }
 #quote-carousel .carousel-indicators li {
 	display: inline-block;
