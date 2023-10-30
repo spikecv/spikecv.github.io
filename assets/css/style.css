@@ -938,7 +938,8 @@ overflow: hidden;
 position: relative;
 }
 .team-item-image img {
-width: 100%;
+width: 80%;
+margin-left: 35px;
 }
 .team-item-image::after {
 background: transparent none repeat scroll 0 0;
