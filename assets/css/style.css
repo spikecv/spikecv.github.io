@@ -628,6 +628,21 @@ position: relative;
           box-shadow: 0 0 10px 0 rgba(240, 147, 7, 0.966);
 }
 
+.blog_section .box .tiny-img-box {
+	position: relative;
+    left: 30%;
+}
+
+.tiny-img-box {
+  align-items: center;
+  justify-content: center;
+}
+
+.blog_section .box .tiny-img-box img {
+  width: 40%;
+  padding: 10px;
+}
+
 .blog_section .box .img-box {
   position: relative;
 }
