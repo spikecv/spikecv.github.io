@@ -706,7 +706,7 @@ position: relative;
 }
 
 .job_section {
-  background-color: #60c5ba;
+  background-color: #c59d60;
   color: #ffffff;
 }
 
@@ -824,7 +824,7 @@ position: relative;
   -o-transition: all .3s;
   -moz-transition: all .3s;
   transition: all .3s;
-  border: 1px solid #60c5ba;
+  border: 1px solid #fad42a;
   outline: none;
 }
 
