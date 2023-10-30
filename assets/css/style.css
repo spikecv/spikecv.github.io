@@ -1003,11 +1003,13 @@ transition: all 0.27s cubic-bezier(0, 0, 0.58, 1) 0s;
 margin: 0 0 20px;
 }
 .team-item-name {
+font-size: large;
 letter-spacing: 2px;
 margin-top: 23px;
 text-transform: uppercase;
 }
 .team-item-role {
+font-size: medium;
 color: #aaa;
 font-size: 12px;
 letter-spacing: 2px;
