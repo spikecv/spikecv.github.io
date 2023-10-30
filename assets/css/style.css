@@ -8,19 +8,14 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 */
 
 /*General*/
-h1, h2, h3, h4, h5, h6 {
-	font-family: "Open sans", Helvetica, Arial;
+@import url("../fonts/octin_sports_rg.ttf");
+body {
+  font-family: "Poppins", sans-serif;
+  color: #0c0c0c;
+  background-color: #ffffff;
+  overflow-x: hidden;
 }
-a {
-color:#FF4242;
-text-decoration: none;
-}
-p {
-	font-size: 15px;
-}
-h1, .h1, h2, .h2, h3, .h3 {
-	margin-top: 30px;
-}
+
 blockquote {
 	font-style: italic;
 	font-family: Georgia;
@@ -626,7 +621,8 @@ position: relative;
 }
 
 .blog_section .box {
-  margin-top: 55px;
+  margin-top: 25px;
+	margin-bottom: 20px;
   background-color: #ffffff;
   -webkit-box-shadow: 0 0 10px 0 rgba(240, 147, 7, 0.966);
           box-shadow: 0 0 10px 0 rgba(240, 147, 7, 0.966);
@@ -715,7 +711,7 @@ position: relative;
 }
 
 .job_section .heading_container {
-  margin-bottom: 25px;
+  margin-bottom: 0;
 }
 
 .job_section .job_container {
@@ -739,7 +735,7 @@ position: relative;
      -moz-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 20px;
+  padding: 10px;
   border: 2px solid #ffa915;
   margin-top: 25px;
   -webkit-transition: all .3s;
