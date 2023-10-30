@@ -628,12 +628,17 @@ position: relative;
 .blog_section .box {
   margin-top: 55px;
   background-color: #ffffff;
-  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 10px 0 rgba(240, 147, 7, 0.966);
+          box-shadow: 0 0 10px 0 rgba(240, 147, 7, 0.966);
 }
 
 .blog_section .box .img-box {
   position: relative;
+}
+
+.img-box {
+  align-items: center;
+  justify-content: center;
 }
 
 .blog_section .box .img-box img {
@@ -922,4 +927,11 @@ background:rgba(0,0,0,0.80)	;
 	width: 20px;
 	height: 20px;
 }
+}
+
+.center-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px; /* 设置容器的高度，可以根据需要调整 */
 }
