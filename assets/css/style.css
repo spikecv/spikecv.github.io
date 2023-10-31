@@ -1004,6 +1004,8 @@ margin: 0 0 20px;
 }
 .team-item-name {
 font-size: large;
+/* font-weight: bold; */
+color: #222;
 font-size: 18px;
 letter-spacing: 2px;
 margin-top: 23px;
@@ -1011,7 +1013,7 @@ margin-top: 23px;
 }
 .team-item-role {
 font-size: medium;
-color: #aaa;
+color: #888;
 font-size: 14px;
 letter-spacing: 2px;
 margin-top: 4px;
