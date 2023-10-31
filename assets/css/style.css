@@ -1007,7 +1007,7 @@ font-size: large;
 /* font-weight: bold; */
 color: #222;
 font-size: 18px;
-letter-spacing: 2px;
+letter-spacing: 1px;
 margin-top: 23px;
 /* text-transform: uppercase; */
 }
@@ -1015,7 +1015,7 @@ margin-top: 23px;
 font-size: medium;
 color: #888;
 font-size: 14px;
-letter-spacing: 2px;
+letter-spacing: 1px;
 margin-top: 4px;
 /* text-transform: uppercase; */
 }
