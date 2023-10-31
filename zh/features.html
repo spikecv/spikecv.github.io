@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>SpikeCV</title>
+    <link rel="icon" href="../assets/logo/spikecv.png">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-theme.css" media="screen" >
+<!--    <link rel="stylesheet" type="text/css" href="../assets/css/da-slider.css" />-->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="../assets/css/responsive.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <script src="../assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+	<!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+		  <div class="navbar-header"> 
+			<!-- Button for smallest screens -->
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			<a class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" width="239.25" height="75.75" alt="SpikeCV"></a> </div>
+		  <div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav pull-right">
+			  <li><a href="index.html">主页</a></li>
+			  <li class="active"><a href="features.html">特性</a></li>
+			  <li><a href="research_topics.html">研究主题</a></li>
+			  <li><a href="publications.html">发表文章</a></li>
+			  <li><a href="about_us.html">关于我们</a></li>
+			  <li><a href="links.html">相关链接</a></li>
+			  <li><a href="../index.html">English</a></li>
+			</ul>
+		  </div>
+		  <!--/.nav-collapse --> 
+		</div>
+	  </div>
+    <!-- /.navbar --> 
+
+	<header id="head" class="secondary"></header>
+
+	<section class="blog_section layout_padding">
+		<div class="container">
+		  <div class="heading_container">
+			<h2>
+			  特性
+			</h2>
+		  </div>
+		  <div class="row">
+			<div class="col-md-4 col-lg-4 mx-auto">
+				<div class="box">
+				  <div class="tiny-img-box">
+					<img src="../assets/images/tree@4x.png" alt="">
+				  </div>
+				  <div class="detail-box">
+					<h5>
+						易用性
+					</h5>
+					<p>
+						SpikeCV 提供了 SpikeStream 类来封装脉冲数据，提供了标准化的数据集接口，以及标准的参数传递方式，还提供了全面的模块化，使得开发人员可以轻松定制和改进算法。
+					</p>
+				  </div>
+				</div>
+			  </div>
+			  <div class="col-md-4 col-lg-4 mx-auto">
+				<div class="box">
+				  <div class="tiny-img-box">
+					<img src="../assets/images/clock@4x.png" alt="">
+				  </div>
+				  <div class="detail-box">
+					<h5>
+						实时性
+					</h5>
+					<p>
+						对于实时数据读取，SpikeCV 基于多个C++线程池使用多级线程来以高时间分辨率读取脉冲数据。对于实时推断，封装的SpikeStream实例可以供给多个不同模型的并行线程使用。
+					</p>
+				  </div>
+				</div>
+			  </div>
+			  <div class="col-md-4 col-lg-4 mx-auto">
+				<div class="box">
+				  <div class="tiny-img-box">
+					<img src="../assets/images/net@4x.png" alt="">
+				  </div>
+				  <div class="detail-box">
+					<h5>
+						脉冲生态
+					</h5>
+					<p>
+						SpikeCV 不仅提供了脉冲的处理工具和视觉算法，还提供了脉冲相机硬件接口和标准化的脉冲数据集。初学者可以全面学习什么是脉冲数据以及如何使用脉冲相机来处理视觉任务。
+					</p>
+				  </div>
+				</div>
+			  </div>
+		  </div>
+		  <div class="row">
+			<div class="col-md-6 col-lg-6 mx-auto">
+			  <div class="box">
+				<div class="img-box">
+				  <img src="../assets/images/architecture_en2.png" alt="">
+				</div>
+				<div class="detail-box">
+				  <h3>
+				   架构
+				  </h3>
+				  <!-- <p>
+					Spike coding is mainly to compress the dense binary spike streams through statistical characteristics, which is similar to the field of traditional video coding and decoding.
+				  </p> -->
+				  <ul class="list-unstyled list-spaces">
+					<li><a >数据集</a><br><span class="text-muted">SpikeCV提供了可用于验证或训练模型的标准化数据集。数据集文件包括由脉冲相机或脉冲模拟器生成的真实场景以及相应的标签信息，如视频、光流、深度和物体类别。我们还提供了用于记录脉冲数据和标签文件属性的附加配置文件</span></li>
+					<li><a >模块库</a><br><span class="text-muted">模块库包括三个类别：数据处理、视觉模型/算法和工具。数据处理模块 SpkData 包括脉冲流类、脉冲模拟器、标签加载器和用于训练模型的数据集接口。算法库 SpkProc 包含用于脉冲相机的各种视觉算法，而 Tool 是一个支持开发的工具库，负责可视化、度量和开发工具,
+						metrics, and development utensils.</span></li>
+					<li><a >硬件接口</a><br><span class="text-muted">硬件接口旨在帮助用户将基于脉冲的算法应用于实时处理硬件。目前，SpikeCV已经集成了脉冲相机的硬件接口。用户可以使用我们的脉冲相机接口来自己拍摄场景从而收集数据集或评估算法的实时性能</span></li>
+				</ul>
+				  <!-- <a href="">
+					Read More
+				  </a> -->
+				</div>
+			  </div>
+			</div>
+
+			<div class="col-md-6 col-lg-6 mx-auto">
+			  <div class="box">
+				<br>
+				<br>
+				<div class="img-box">
+				  <img src="../assets/images/realtime_pipeline.png" alt="realtime_pipeline">
+				</div>
+				<div class="detail-box">
+				  <h3>
+					实时工作流程
+				  </h3>
+				  <p>
+					我们的目标是在SpikeCV中实现数据获取和算法处理的实时方案。该流程可以从硬件的原始输出中解析用户友好的脉冲，并实时处理视觉任务。其包括两个部分：用于读取实时脉冲的多级线程和在线视觉应用。
+				  </p>
+				  <ul class="list-unstyled list-spaces">
+					<li><a >多级线程</a><br><span class="text-muted">
+						有三个线程负责在不同阶段收集脉冲。线程1获取脉冲的原始数据流，并将其打包成blocks，这些块按照一定的排列方式放入队列 LibBlockQueue 中。这些blocks包含脉冲以及帧头等其他信息。线程2解析脉冲blocks，将脉冲组装成按空间和时间顺序排列的字节流。当用户输入命令以获取相机数据时，这些字节流将不断被获取并放入队列 Lib-FramePool。线程3负责在C++库和用户的Python应用程序之间处理脉冲帧。字节流会被转换为用户友好的帧。应用程序还维护一个队列 App-FramePool，线程3会不断将数据地址从 Lib-FramePool 传递给 App-FramePool。在占用数据后，App-FramePool 会将地址释放回 Lib-FramePool。</span></li>
+					<li><a >在线视觉应用</a><br><span class="text-muted">第二部分是与 App-FramePool 协作的同时处理多个任务的实时机制。主程序总是从 App-FramePool 中取出帧。只有当三个线程都处于空闲状态时，才会处理一个帧，否则帧的指针会立即被释放回去。这样，不同任务的算法总是处理同一帧，而且 App-FramePool 不会被阻塞。</span></li>
+					
+				</ul>
+				  <!-- <a href="">
+					Read More
+				  </a> -->
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	</section>
+	
+	
+	<footer id="footer" class="top-space">
+
+		<div class="footer1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5 panel">
+						<h3 class="panel-title">最新动态</h3>
+						<div class="panel-body">
+							<p>
+                SpikeCV发布了专属网站并获得了OpenI 2023优秀孵化项目奖！               
+                            </p>
+                            <p>
+                                OpenI中的仓库链接 <a href="https://openi.org.cn/projects/spikecv/"><i class="fa fa-external-link-square"></i> </a>
+                            </p>
+						</div>
+					</div>
+
+					<div class="col-md-4 panel contact">
+						<h4 class="panel-title">联系信息</h4>
+						<div class="panel-body">
+                            <p>我们是来自北京大学计算机学院的研究者。</p>
+                            <p>欢迎通过联系我们来加入脉冲视觉的社区！</p>
+						<ul>
+<!--						  <li><i class="fa fa-phone"></i>1-123-345-6789</li>-->
+						  <li><a href="#"><i class="fa fa-envelope-o"></i> spikecv@outlook.com </a></li>
+						  <li><i class="fa fa-location-arrow"></i> 北京市海淀区颐和园路5号北京大学理科2号楼，<br>邮政编码：100871</li>
+						</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3 panel">
+						<h3 class="panel-title">加入我们的微信群聊</h3>
+						<div class="box">
+                            <div class="img-box">
+                                <img src="../assets/images/wechat.jpg" alt="" width="55%">
+                            </div>
+                        </div>
+					</div>
+
+				</div> <!-- /row of panels -->
+			</div>
+		</div>
+
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="simplenav">
+							<li class="active"><a href="index.html">主页</a> |
+							<a href="features.html">特性</a> |
+							<a href="research_topics.html">研究主题</a> |
+							<a href="publications.html">发表文章</a> |
+							<a href="about_us.html">关于我们</a> |
+							<a href="links.html">相关链接</a> |
+							<a href="../index.html">English</a>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 panel">
+						<div class="panel-body">
+							<p class="text-right">
+                                <a href="https://idm.pku.edu.cn/">Copyright © NERC of Peking University All rights reserved </a>
+							</p>
+						</div>
+					</div>
+
+				</div> <!-- /row of panels -->
+			</div>
+		</div>
+
+	</footer>
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster --> 
+<script src="../assets/js/modernizr-latest.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> 
+<script src="../assets/js/jquery.cslider.js"></script> 
+<script src="../assets/js/headroom.min.js"></script> 
+<script src="../assets/js/jQuery.headroom.min.js"></script> 
+<script src="../assets/js/custom.js"></script>
+</body>
+</html>
