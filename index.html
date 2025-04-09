@@ -36,10 +36,11 @@
     <div class="navbar-header"> 
       <!-- Button for smallest screens -->
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" width="239.25" height="75.75" alt="SpikeCV"></a> </div>
+      <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" width="210" height="70" alt="SpikeCV"></a> </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
         <li class="active"><a href="#">Home</a></li>
+         <li><a href="competition.html">Competition</a></li>
         <li><a href="features.html">Features</a></li>
         <li><a href="research_topics.html">Research Topics</a></li>
         <li><a href="publications.html">Publications</a></li>
@@ -55,28 +56,21 @@
 
 <!-- Header -->
 <header id="head">
-  
   <div class="container">
     <div class="banner-content">
-      <div id="da-slider" class="da-slider">
-<!--         style="background-color:#ffe66860"-->
-        <div class="da-slide">
-          <!-- <h2>Amazing Design</h2> -->
-          <!-- <p>The Amazing free responsive website for free</p> -->
-          <!-- <div class="da-img"><img src="assets/images/head-figure.png"></div> -->
-          <div class="da-img"><img src="assets/images/head-figure.png" height="520px" ></div>
-        </div>
-        <!-- <div class="da-slide">
-          <h2>Multipurpose Theme</h2>
-          <p>We user latest Bootstrap mobile first front-end framework.</p>
-          <div class="da-img"></div>
-        </div>
-        <div class="da-slide">
-          <h2>Latest Technology</h2>
-          <p>HTML5/CSS3 used for structuring and presenting.</p>
-          <div class="da-img"></div>
-        </div>  -->
+
+      <!-- 轮播图 -->
+      <div class="carousel-wrapper">
+          <div class="carousel-track">
+              <a href="competition.html"><img src="/assets/images/competition/spikeINFv2.png" alt="wuji1"></a>
+              <a href="#"><img src="/assets/images/head-figure.png" class="small" alt="ecosystem"></a>
+          </div>
+          <div class="carousel-dots"></div>
+          <!-- ⬅️➡️ 左右箭头 -->
+          <button class="carousel-arrow left">&#10094;</button>
+          <button class="carousel-arrow right">&#10095;</button>
       </div>
+
     </div>
   </div>
 </header>
@@ -301,5 +295,6 @@
 <script src="assets/js/headroom.min.js"></script> 
 <script src="assets/js/jQuery.headroom.min.js"></script> 
 <script src="assets/js/custom.js"></script>
+<script src="assets/js/widgets/carousel.js"></script>
 </body>
 </html>
