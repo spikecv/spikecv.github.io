@@ -188,11 +188,83 @@ Donate to remove backlink form the site
   </div>
   <!--/.container-->
 </section>
+
 <section id="rules" class="page-section" style="background:  rgb(1,22,39, 0.1); padding: 60px 20px;">
   <div class="container">
     <h2 class="text-center animated fadeInUp">📊 Scoring Rules</h2>
     <p class="text-center lead">Each track will be evaluated by a mix of automated metrics and expert reviews:</p>
   </div>
+  <head>
+    <style>
+        .ranking-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        thead {
+            background-color: #f5f5f5;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .math {
+            font-size: 1.1em;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="ranking-container">
+        <h2>Track 1 Texture Resoration</h2>
+        <ul>
+          <li>Reward participants based on their best-performing solutions</li>
+          <li>E<sub>1</sub>, E<sub>2</sub>,..., E<sub>N</sub> are ranks that have been sorted from the smallest value to the largest value. The final score is:
+            <div class="math">
+              G = Σ<sub>i=1</sub><sup>N</sup> ω<sub>i</sub>·S(E<sub>i</sub>)
+            </div>
+            The ω<sub>i</sub> and S(E<sub>i</sub>) for different i are as follows:
+          </li>
+        </ul>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>i</th>
+                    <th>ω<sub>i</sub></th>
+                    <th>E<sub>i</sub></th>
+                    <th>S(E<sub>i</sub>)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>0.6</td><td>1</td><td>5</td></tr>
+                <tr><td>2</td><td>0.3</td><td>2</td><td>4</td></tr>
+                <tr><td>3</td><td>0.1</td><td>3</td><td>3</td></tr>
+                <tr><td>4</td><td>0.1</td><td>4</td><td>2</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Tracks 2 Dataset & Benchmark</h2>
+        <ul>
+          <li>A weighted ranking rule based on expert review scores for the contribution of dataset</li>
+        </ul>
+        
+        <h2>Tracks 3 Open-Spike Research</h2>
+        <ul>
+          <li>A weighted ranking rule based on expert review scores for the innovation of research proposals</li>
+        </ul>
+    </div>
+</body>
 </section>
 
 <section id="registration" class="page-section" style="background:  rgb(1,22,39, 0.1); padding: 60px 20px;">
@@ -234,6 +306,12 @@ Donate to remove backlink form the site
         <img src="./assets_wuji/images/organizers/zr3.png" class="img-circle" alt="Organizer 3" >
          <h4 style="margin-top: 15px; font-weight: 600;">Rui Zhao</h4>
         <p>Peking University</p>
+        <div class="organizer-links">
+          <a href="https://ruizhao26.github.io/" target="_blank" title="Homepage"><i class="fa fa-home"></i></a>
+          <a href="https://scholar.google.com/citations?user=Ju7_T9cAAAAJ&hl=En" target="_blank" title="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
+          <a href="mailto:ruizhao26@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+          <a href="https://github.com/ruizhao26" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+        </div>
       </div>
       <div class="col-md-3 col-sm-6">
         <img src="./assets_wuji/images/organizers/rodrigo.jpeg" class="img-circle" alt="Organizer 4">
