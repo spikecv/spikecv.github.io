@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpikeCV Wuji Competition - Leaderboard</title>
+    <link rel="icon" href="assets/logo/spikecv.png"> <!-- Assuming assets folder is accessible -->
+
+    <!-- === CSS From Main Page REQUIRED for Navbar === -->
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"> <!-- Adjust path if needed -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css"> <!-- Adjust path if needed -->
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" > <!-- Adjust path if needed -->
+    <link rel="stylesheet" href="assets/css/style.css"> <!-- Adjust path if needed -->
+    <link href="assets/css/responsive.css" rel="stylesheet" /> <!-- Adjust path if needed -->
+    <!-- === End CSS From Main Page === -->
+
+    <style>
+        /* Custom styles for the leaderboard content */
+        body {
+            /* font-family: sans-serif; */ /* Inherits from bootstrap/theme */
+            line-height: 1.6;
+            padding-top: 100px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .leaderboard-container {
+            max-width: 960px; /* Adjusted max-width for potentially wider tables */
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative; /* Needed for positioning context */
+        }
+        @media (min-width: 1200px) { /* Example: Increase width on larger screens */
+             .leaderboard-container {
+                 max-width: 1140px;
+             }
+        }
+        h1, h2 {
+            text-align: center;
+            color: #011627;
+        }
+        /* --- Style for the Last Update Time --- */
+        .last-update-time {
+            float: right;
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        /* Ensure H1 clears the floated element */
+        .leaderboard-container h1 {
+            clear: both;
+            margin-top: 0;
+        }
+        /* --- End Style for Last Update Time --- */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            table-layout: auto; /* Allow table to adjust column widths */
+            word-wrap: break-word; /* Prevent long team names from breaking layout */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: middle; /* Align cell content vertically */
+        }
+        th {
+            background-color: #e2e2e2;
+            font-weight: bold;
+            white-space: nowrap; /* Keep headers on one line if possible */
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        /* --- REMOVED EMPTY RULESET --- */
+        /* If you want to right-align the metric columns (3rd, 4th, 5th for Track 1),
+           you would uncomment and use this:
+        td:nth-child(n+3):not(:last-child) {
+           text-align: right;
+        }
+        */
+        /* --- END REMOVAL --- */
+
+        .track-title {
+            margin-top: 40px;
+            border-bottom: 2px solid #011627;
+            padding-bottom: 5px;
+        }
+        .placeholder-notice {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: #666;
+        }
+         .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+        table + h2 {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === Navbar Copied From Main Page === -->
+    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" width="210" height="70" alt="SpikeCV"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="competition.html">Competition</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="research_topics.html">Research Topics</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="links.html">Links</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+    <!-- === End Navbar === -->
+
+    <!-- === Leaderboard Content === -->
+    <div class="leaderboard-container">
+
+        <!-- === Last Update Time Placeholder === -->
+        <p id="last-updated" class="last-update-time"></p>
+        <!-- ======================================== -->
+
+        <h1>SpikeCV Wuji Competition Leaderboard</h1>
+
+        <!-- Leaderboard for Track 1 - MODIFIED HEADERS -->
+        <h2 class="track-title">Track 1: Texture Restoration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team Name</th>
+                    <th>PSNR ↑</th> <!-- Higher is better -->
+                    <th>SSIM ↑</th> <!-- Higher is better -->
+                    <th>LPIPS ↓</th> <!-- Lower is better -->
+                    <th>Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Placeholder Data - Modified to match new headers -->
+                <tr>
+                    <td>1</td>
+                    <td>Team Visionaries</td>
+                    <td>32.50</td> <!-- Placeholder PSNR -->
+                    <td>0.915</td> <!-- Placeholder SSIM -->
+                    <td>0.085</td> <!-- Placeholder LPIPS -->
+                    <td>2025-06-28 10:00 UTC</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Spike Masters</td>
+                    <td>31.80</td> <!-- Placeholder PSNR -->
+                    <td>0.902</td> <!-- Placeholder SSIM -->
+                    <td>0.098</td> <!-- Placeholder LPIPS -->
+                    <td>2025-06-29 15:30 UTC</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Pixel Perfect</td>
+                    <td>30.50</td> <!-- Placeholder PSNR -->
+                    <td>0.880</td> <!-- Placeholder SSIM -->
+                    <td>0.110</td> <!-- Placeholder LPIPS -->
+                    <td>2025-06-27 09:15 UTC</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Neural Knights</td>
+                    <td>29.95</td> <!-- Placeholder PSNR -->
+                    <td>0.865</td> <!-- Placeholder SSIM -->
+                    <td>0.125</td> <!-- Placeholder LPIPS -->
+                    <td>2025-06-30 11:00 UTC</td>
+                </tr>
+                 <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+        <!-- Leaderboard for Track 2 - UNCHANGED -->
+        <h2 class="track-title">Track 2: Dataset & Benchmark</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team Name</th>
+                    <th>Evaluation Score</th> <!-- Example Metric -->
+                    <th>Dataset Link/Info</th> <!-- Example Column -->
+                    <th>Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Placeholder Data - Replace with actual data later -->
+                 <tr>
+                    <td>1</td>
+                    <td>Data Dynamos</td>
+                    <td>88.5</td>
+                    <td><a href="#">Dataset Alpha</a></td>
+                    <td>2025-07-01 11:00 UTC</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Benchmark Builders</td>
+                    <td>85.0</td>
+                    <td><a href="#">Benchmark Suite V1</a></td>
+                    <td>2025-07-02 09:00 UTC</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Set Creators</td>
+                    <td>82.1</td>
+                    <td><a href="#">SpikeImageNet Subset</a></td>
+                    <td>2025-06-30 16:45 UTC</td>
+                </tr>
+                 <!-- Add more rows as needed -->
+                 <tr>
+                    <td>-</td>
+                    <td>(More teams...)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- ======================================= -->
+
+        <!-- Leaderboard for Track 3 - UNCHANGED -->
+        <h2 class="track-title">Track 3: Open-Spike Innovation</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team Name</th>
+                    <th>Innovation Score</th> <!-- Example Metric -->
+                    <th>Project Description/Link</th> <!-- Example Column -->
+                    <th>Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Placeholder Data - Replace with actual data later -->
+                <tr>
+                    <td>1</td>
+                    <td>Spike Innovators</td>
+                    <td>9.2 / 10</td>
+                    <td><a href="#">Novel Spike Algo</a></td>
+                    <td>2025-07-03 14:00 UTC</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Open Frontiers</td>
+                    <td>8.8 / 10</td>
+                    <td><a href="#">Real-time Spike Demo</a></td>
+                    <td>2025-07-01 18:15 UTC</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Creative Coders</td>
+                    <td>8.5 / 10</td>
+                    <td><a href="#">Spike Compression Tech</a></td>
+                    <td>2025-07-04 10:30 UTC</td>
+                </tr>
+                <!-- Add more rows as needed -->
+                <tr>
+                    <td>-</td>
+                    <td>(More teams...)</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- ======================================= -->
+
+        <p class="placeholder-notice">
+            Note: The data shown here is for demonstration purposes only. Actual leaderboard results will be updated based on official submissions and evaluations for each track. Metrics and ranking criteria may differ between tracks. (↑ Higher is better, ↓ Lower is better).
+        </p>
+
+    </div> <!-- /leaderboard-container -->
+    <!-- === End Leaderboard Content === -->
+
+
+    <!-- === JavaScript From Main Page REQUIRED for Navbar === -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="assets/js/headroom.min.js"></script> <!-- Adjust path if needed -->
+    <script src="assets/js/jQuery.headroom.min.js"></script> <!-- Adjust path if needed -->
+    <script src="assets/js/custom.js"></script> <!-- Adjust path if needed -->
+    <!-- === End JavaScript === -->
+
+    <!-- === ADDED: Script for Last Update Time === -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const updateElement = document.getElementById('last-updated');
+        if (updateElement && document.lastModified) {
+          try {
+            const lastModifiedDate = new Date(document.lastModified);
+            const options = {
+              year: 'numeric', month: 'short', day: 'numeric',
+              hour: '2-digit', minute: '2-digit', hour12: false
+            };
+            const formattedDate = lastModifiedDate.toLocaleString('en-US', options);
+            updateElement.textContent = 'Last Updated: ' + formattedDate;
+          } catch (e) {
+            console.error("Error formatting last modified date:", e);
+            updateElement.textContent = 'Last Updated: (date unavailable)';
+          }
+        } else if (updateElement) {
+          updateElement.textContent = 'Last Updated: (date unavailable)';
+        }
+      });
+    </script>
+    <!-- ======================================== -->
+
+</body>
+</html>
