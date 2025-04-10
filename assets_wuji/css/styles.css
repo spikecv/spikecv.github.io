@@ -1755,6 +1755,19 @@ color: #FED400;
   transform: scale(1.08);
 }
 
+.organizer-links {
+  margin-top: 8px;
+}
+.organizer-links a {
+  color: #FFD700;
+  margin: 0 8px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+.organizer-links a:hover {
+  color: #ffffff;
+}
+
 
 
 
