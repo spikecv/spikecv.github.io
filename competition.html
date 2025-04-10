@@ -108,25 +108,17 @@ Donate to remove backlink form the site
             <div class="register-inline mt-3" style="text-align: center;">
 
                <!-- Corrected VERY Large Registration Button -->
-               <a href="https://your-registration-link.com" class="btn btn-primary btn-lg" target="_blank"
-                  style="padding: 20px 40px; /* Adjusted padding slightly */
-                         font-size: 1.8rem;   /* Slightly reduced font size */
-                         font-weight: bold;
-                         margin: 15px;
-                         display: inline-flex;  /* Use inline-flex */
-                         align-items: center;    /* Vertically center items */
-                         justify-content: center; /* Horizontally center items */
-                         vertical-align: middle; /* Align button nicely if wrapped */
-                         line-height: 1.3;      /* Adjust line-height for text */
-                         white-space: nowrap;   /* Prevent text wrapping */
-                         ">
-                 <i class="fa fa-pencil-square-o fa-fw" style="margin-right: 10px; font-size: 1.8rem;"></i> 
-                 <span>Register Now</span> <!-- Wrapped text in span -->
-               </a>
+               <!-- Register Button (Triggers Modal) -->
+                <button class="btn btn-primary btn-lg" onclick="openRegisterModal()"
+                        style="padding: 12px 30px; font-size: 1.8rem; font-weight: bold; margin: 15px;
+               display: inline-flex; align-items: center; justify-content: center; line-height: 1.3; white-space: nowrap;">
+                    <i class="fa fa-pencil-square-o fa-fw" style="margin-right: 10px; font-size: 1.8rem;"></i>
+                    <span>Register Now</span>
+                </button>
 
                <!-- Corrected VERY Large Leaderboard Button -->
                <a href="leaderboard.html" class="btn btn-success btn-lg" target="_blank"
-                  style="padding: 20px 40px; /* Adjusted padding slightly */
+                  style="padding: 12px 30px; /* Adjusted padding slightly */
                          font-size: 1.8rem;   /* Slightly reduced font size */
                          font-weight: bold;
                          margin: 15px;
@@ -152,15 +144,15 @@ Donate to remove backlink form the site
     <div class="wuji-track-sidebar">
       <div class="track-item active" data-index="0">
         <img src="./assets_wuji/images/track1_logo.png" alt="Track 1">
-        <p>Track 1: Texture Restoration</p>
+        <p class="track-subtitle">Track 1: Texture Restoration</p>
       </div>
       <div class="track-item" data-index="1">
         <img src="./assets_wuji/images/track2_logo.png" alt="Track 2">
-        <p>Track 2: Dataset & Benchmark</p>
+        <p class="track-subtitle">Track 2: Dataset & Benchmark</p>
       </div>
       <div class="track-item" data-index="2">
         <img src="./assets_wuji/images/track3_logo.png" alt="Track 3">
-        <p>Track 3: Open-Spike Research</p>
+        <p class="track-subtitle">Track 3: Open-Spike Research</p>
       </div>
     </div>
 
@@ -178,47 +170,57 @@ Donate to remove backlink form the site
     </div>
   </div>
 </section>
-<section id="services">
-  <div class="container" style="margin-top: 30px;">
-    <div class="row">
 
-      <!-- item -->
-      <div class="col-md-3 text-center"> <i class="fa fa-dashboard fa-2x circle"></i>
-        <h4>Track 1: <span class="id-color">Texture Restoration</span></h4>
-<!--        <p>Deblurring, deocclusion, color restoration, 3D reconstruction – enhance vision quality using hybrid spike + RGB data.</p>-->
-        <p><strong>Prize:</strong> 🥇 $4,000 🥈 $2,500 (x2) <br> 🥉 $1,500 (x3)</p>
-      </div>
-      <!-- end: -->
+<section id="prize-showcase" style="padding: 16px 0; background: rgb(1,22,39, 0.1);">
+  <div class="container">
+    <h2 class="text-center section-title-glow">💰 $15,000 Prize Allocation </h2>
+    <div class="row justify-content-center text-center mt-5">
 
-      <!-- item -->
-      <div class="col-md-3 text-center"> <i class="fa fa-database fa-2x circle"></i>
-        <h4>Track 2: <span class="id-color">Dataset & Benchmark</span></h4>
-<!--        <p>Real-world & synthetic datasets: motion detection, depth, flow. Contribute or benchmark your models.</p>-->
-        <p><strong>Best Dataset Award:</strong> 🏅 $2,000</p>
+      <!-- Track 1 -->
+      <div class="col-md-3 col-10 mb-5">
+        <div class="prize-glow-card">
+          <div class="glow-icon">🎨</div>
+<!--          <h3>Track 1</h3>-->
+            <p class="track-subtitle">Texture Restoration</p>
+            <p><span class="emoji">🥇 </span><span class="glow-amount">$4,000</span></p>
+            <p><span class="emoji">🥈 </span><span class="glow-amount">$2,500 (x2)</span></p>
+            <p><span class="emoji">🥉 </span><span class="glow-amount">$1,500 (x3)</span></p>
+        </div>
       </div>
-      <!-- end: -->
 
-      <!-- item -->
-      <div class="col-md-3 text-center"> <i class="fa fa-lightbulb-o fa-2x circle"></i>
-        <h4>Track 3: <span class="id-color">Open-Spike Innovation</span></h4>
-<!--        <p>Explore spike camera potentials in tracking, depth, fusion, or novel uses. Surprise us with creative ideas!</p>-->
-        <p><strong>Innovation Award:</strong> 🚀 $1,500</p>
+      <!-- Track 2 -->
+      <div class="col-md-3 col-10 mb-5">
+        <div class="prize-glow-card">
+          <div class="glow-icon">💾</div>
+<!--          <h4>Track 2</h4>-->
+          <p class="track-subtitle">Dataset & Benchmark</p>
+            <p class="glow-amount">🏅 Best Award: $2,000</p>
+        </div>
       </div>
-      <!-- end: -->
 
-      <!-- item -->
-      <div class="col-md-3 text-center"> <i class="fa fa-globe fa-2x circle"></i>
-        <h4><span class="id-color">Engagement</span></h4>
-<!--        <p>Community contribution</p>-->
-        <p><strong>Outstanding Participants:</strong> <br> 🏅 $300 (x5)</p>
+      <!-- Track 3 -->
+      <div class="col-md-3 col-10 mb-5">
+        <div class="prize-glow-card">
+          <div class="glow-icon">💡</div>
+<!--          <h4>Track 3</h4>-->
+          <p class="track-subtitle">Open-Spike Innovation</p>
+          <p class="glow-amount">💡 Best Award: $1,500</p>
+        </div>
       </div>
-      <!-- end: -->
+
+      <!-- Engagement -->
+      <div class="col-md-3 col-10 mb-5">
+        <div class="prize-glow-card">
+          <div class="glow-icon">🌍</div>
+<!--          <h4>Engagement</h4>-->
+          <p class="track-subtitle">Outstanding Participants</p>
+          <p class="glow-amount">🙋 $300 (x5)</p>
+        </div>
+      </div>
 
     </div>
   </div>
-  <!--/.container-->
 </section>
-
 <section id="rules" class="page-section" style="background:  rgb(1,22,39, 0.1); padding: 60px 20px;">
   <div class="container">
     <h2 class="text-center animated fadeInUp">📊 Scoring Rules</h2>
@@ -394,6 +396,27 @@ Donate to remove backlink form the site
 </section>
 <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
 
+
+<!-- 弹窗 Modal -->
+<!-- Register Modal -->
+<div id="registerModal" style="display: none;" class="modal-overlay">
+  <div class="modal-box">
+    <h3 class="modal-title">Choose Your Registration Form</h3>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSciHooonv7pk9OJBGpgWKYWAYFSraHvDw19IHdueDDaXgU-lw/viewform?usp=sharing" target="_blank" class="modal-button">
+      📝 Google Form (English)
+    </a>
+
+    <a href="https://wj.qq.com/s2/19819551/e59a/" target="_blank" class="modal-button">
+      🐧 腾讯问卷 (中文)
+    </a>
+
+    <button onclick="closeRegisterModal()" class="modal-cancel">Cancel</button>
+  </div>
+</div>
+
+
+
 <!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]--> 
 <script src="assets_wuji/js/modernizr-latest.js"></script>
 <script src="assets_wuji/js/jquery-1.8.2.min.js" type="text/javascript"></script>
@@ -442,6 +465,32 @@ Donate to remove backlink form the site
         slides[index].classList.add('active');
       });
     });
+  });
+</script>
+<!-- 加入 AOS 动画库（仅一次） -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<script>
+  function openRegisterModal() {
+    document.getElementById("registerModal").style.display = "flex";
+  }
+  function closeRegisterModal() {
+    document.getElementById("registerModal").style.display = "none";
+  }
+
+  // 防止异常显示：页面加载时强制隐藏
+  window.addEventListener('load', () => {
+    document.getElementById("registerModal").style.display = "none";
+  });
+
+  // 可选增强：点击遮罩空白关闭弹窗
+  window.addEventListener('click', function (event) {
+    const modal = document.getElementById("registerModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
   });
 </script>
 

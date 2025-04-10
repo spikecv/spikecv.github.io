@@ -318,7 +318,7 @@ h2, .h2 {
 	margin-top: 50px;
 }
 .styled {
-	margin-bottom: 55px;
+	margin-bottom: 15px;
 }
 .styled div {
 	display: inline-block;
@@ -1768,7 +1768,198 @@ color: #FED400;
   color: #ffffff;
 }
 
+.prize-card {
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+padding: 15px 15px;
+background: white;
+border-radius: 16px;
+box-shadow: 0 0 20px rgba(0,0,0,0.05);
+margin-bottom: 5px;
+}
 
+.prize-card:hover {
+transform: translateY(-10px) scale(1.03);
+box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
 
+.prize-icon {
+font-size: 3rem;
+color: #ff8800;
+margin-bottom: 15px;
+animation: pulseIcon 2s infinite;
+}
 
+@keyframes pulseIcon {
+0%, 100% { transform: scale(1); opacity: 1; }
+50% { transform: scale(1.1); opacity: 0.8; }
+}
 
+.prize-amount {
+font-size: 1.2rem;
+font-weight: bold;
+background: linear-gradient(to right, #ff6600, #ffcc00);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.id-color {
+color: #007bff;
+font-weight: 600;
+}
+
+.section-title-glow {
+  font-size: 2.8rem;
+  color: #fff;
+  text-shadow: 0 0 10px #ff9800, 0 0 30px #f44336;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* 整个 Section 高度更紧凑 */
+#prize-showcase {
+  padding: 60px 0 40px 0;
+  background: #0c0e12;
+}
+
+/* 标题效果保持但更稳重 */
+.section-title-glow {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 8px #ff9900, 0 0 12px #f44336;
+  margin-bottom: 40px;
+}
+
+/* 卡片统一最小高度并居中对齐内容 */
+.prize-glow-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 18px;
+  padding: 15px 15px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(255, 140, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.prize-glow-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 22px rgba(255, 160, 0, 0.3);
+}
+
+.glow-icon {
+  font-size: 3.8rem;
+  margin-bottom: 10px;
+  /*animation: glowPulse 2s infinite;*/
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+h4 {
+  font-size: 1.4rem;
+  color: #ddd;
+  margin-bottom: 5px;
+}
+
+.track-subtitle {
+  color: #3fa9f5;
+  font-size: 1.85rem;
+  margin-bottom: 10px;
+  font-weight: 666;
+}
+
+/* 奖金金额字体更大更突出 */
+.glow-amount {
+  font-size: 1.85rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff9500, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  animation: glowPulse 2s infinite;
+}
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px #ffcc00, 0 0 20px #ffa500;
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 16px #ffd700, 0 0 30px #ff9900;
+    transform: scale(1.06);
+  }
+}
+.sub {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* 背景遮罩层 */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Lato', 'Inter', sans-serif;
+}
+
+/* 弹窗框体 */
+.modal-box {
+  background: #fffcf0;
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+	font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+}
+
+/* 标题 */
+.modal-title {
+  font-size: 1.8rem;
+  font-weight: 888;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+/* 按钮样式 */
+.modal-button {
+  display: block;
+  margin: 10px auto;
+  background: #fbd14b;
+  padding: 12px 28px;
+  font-size: 1.5rem;
+  font-weight: 666;
+  color: #111;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.modal-button:hover {
+  background: #FFBC42;
+  transform: translateY(-2px);
+}
+
+/* 取消按钮 */
+.modal-cancel {
+  margin-top: 3px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #000000;
+  font-weight: 666;
+  cursor: pointer;
+}
