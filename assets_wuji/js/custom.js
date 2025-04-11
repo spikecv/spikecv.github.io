@@ -100,6 +100,9 @@ $('document').ready(function () {
 	 $.backstretch([
       "/assets_wuji/images/img1.png"
          , "/assets_wuji/images/img2.png"
+                  , "/assets_wuji/images/img3.png"
+         , "/assets_wuji/images/img4.png"
+         // , "/assets_wuji/images/img5.png"
   ], {duration: 3000, fade: 1250});
   
     customScripts.init();

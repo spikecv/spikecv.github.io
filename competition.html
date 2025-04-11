@@ -69,7 +69,7 @@ Donate to remove backlink form the site
 <!--    <div class="heading">-->
 <!--      <h2 class="animated fadeInUp">✨ <span style="color:#FFD500;">Wuji (无极)</span> &#45;&#45; <span style="color:#ccc;">Infinity ♾️</span></h2>-->
 <h5 class="lead animated fadeIn"
-    style="font-size: 1.6rem; font-weight: 700; color: #fff;
+    style="font-size: 1.8rem; font-weight: 700; color: #fff;
            text-shadow: 0 0 6px rgba(255,255,255,0.6), 0 0 12px rgba(255,255,255,0.4);
            margin-top: 10px;">
   🎯 3 Tracks &nbsp;|&nbsp; 🏆 <strong>13 Awards</strong> &nbsp;|&nbsp; 💰 <strong>$15,000 in Prizes</strong> &nbsp;|&nbsp; 🌐 Embracing Infinity, Exploring the Limits of Vision 🚀
@@ -241,137 +241,132 @@ Donate to remove backlink form the site
     </div>
   </div>
 </section>
-<section id="rules" class="page-section" style="background:  rgb(1,22,39, 0.1); padding: 60px 20px;">
-  <div class="container">
+<section id="rules" class="page-section" style="background: rgb(1,22,39, 0.1); padding: 60px 10px;">
+  <div class="container" style="max-width: 1400px;">
+    <h2 class="text-center animated fadeInUp" style="color:#fff; font-size: 2.8rem; font-weight: 700; letter-spacing: 0.5px;">📈 Scoring Rules</h2>
+    <p class="text-center lead" style="color: #E0E3DA; font-size: 2.0rem; margin-top: 10px; font-weight: 500">Each track will be evaluated by a mix of automated metrics and expert reviews</p>
 
-    <h2 class="text-center animated fadeInUp">📊 Scoring Rules</h2>
-    <p style="color: #eee; font-size: 20px; margin-top: 6px;" class="text-center lead">Each track will be evaluated by a mix of automated metrics and expert reviews:</p>
+    <!-- Rule Box Wrapper -->
+    <div style="background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)); padding: 40px 35px; border-radius: 20px; margin-top: 20px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.08); transition: all 0.3s ease-in-out;">
 
-  </div>
-  <head>
-    <style>
-        .ranking-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            padding: 12px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-        thead {
-            background-color: #333;
-        }
-        tr:nth-child(even) {
-            background-color: #333;
-        }
-        .math {
-            font-size: 1.1em;
-            margin: 15px 0;
-        }
-    </style>
-</head>
-<body>
-    <div  style="color: #eee; font-size: 18px; margin-top: 6px;"  class="ranking-container">
-        <h2>Track 1 Texture Resoration</h2>
-        <ul>
-          <li>Reward participants based on their best-performing solutions</li>
-          <li>For each task, multiple metrics will be announced, including reference-based and no-reference-based metrics</li>
-          <li>Participants' rankings on each metric will be weightedly summed, the weights of each metric will be announced later</li>
-          <li>The final ranking of participants in their task will be determined by the ascending order of these weighted sums</li>
-          <li>Suppose E<sub>1</sub>, E<sub>2</sub>,..., E<sub>N</sub> are ranks that have been sorted from the smallest value to the largest value. The final score is:
-            <div class="math">
-              G = Σ<sub>i=1</sub><sup>N</sup> ω<sub>i</sub>·S(E<sub>i</sub>)
-            </div>
-            The ω<sub>i</sub> and S(E<sub>i</sub>) for different i are as follows:
+      <!-- Track 1 -->
+      <div class="track1" style="margin-bottom: 30px;">
+        <h3 style="color: #fff; font-size: 2rem; margin-bottom: 20px; font-weight: 800; display: flex; align-items: center; gap: 12px;">
+          <img src="./assets_wuji/images/track1_logo.png" style="height: 28px;"> Track 1: Texture Restoration
+        </h3>
+        <ul style="color: #ddd; font-size: 1.8rem; margin-left: 22px; line-height: 1.9;">
+          <li>Reward participants based on their best-performing solutions.</li>
+          <li>For each task, multiple metrics will be announced, including reference-based and no-reference-based metrics.</li>
+          <li>Participants' rankings on each metric will be weighted; the weights will be announced later.</li>
+          <li>The final ranking is determined by the ascending order of weighted sums. Suppose E<sub>1</sub>, E<sub>2</sub>, ..., E<sub>N</sub> are ranks sorted from smallest to largest. The final score is:
+            <span class="math" style="font-size: 1.8rem; font-weight: bold; color: #ffd86b;">G = Σ<sub>i=1</sub><sup>N</sup> ω<sub>i</sub>·S(E<sub>i</sub>)</span>
           </li>
         </ul>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Index  i</th>
-                    <th>Weights  ω<sub>i</sub></th>
-                    <th>Sorted Rank  E<sub>i</sub></th>
-                    <th>Score  S(E<sub>i</sub>)</th>
-                </tr>
+        <div class="table-responsive" style="max-width: 900px; margin: 16px auto 0;">
+          <table style="width: 100%; border-collapse: separate; border-spacing: 0; font-size: 1.8rem; color: #eee; border: 2px solid #555; border-radius: 10px; overflow: hidden;">
+            <thead style="background-color: #2b2b2b;">
+              <tr>
+                  <th style="background-color: #1e1e1e; color: #ffc107; padding: 14px; font-size: 1.8rem; width: 220px; border-right: 2px double #444;">Sorted Rank E<sub>i</sub></th>
+                  <td style="padding: 12px; border-right: 2px double #444;">1</td>
+                  <td style="padding: 12px; border-right: 2px double #444;">2</td>
+                  <td style="padding: 12px; border-right: 2px double #444;">3</td>
+                  <td style="padding: 12px; border-right: 2px double #444;">4</td>
+                  <td style="padding: 12px; border-right: 2px double #444;">5</td>
+                  <td style="padding: 12px; border-right: 2px double #444;">6</td>
+                                   <td style="padding: 12px;">7+</td>
+              </tr>
             </thead>
             <tbody>
-                <tr><td>1</td><td>0.6</td><td>1</td><td>5</td></tr>
-                <tr><td>2</td><td>0.3</td><td>2</td><td>4</td></tr>
-                <tr><td>3</td><td>0.1</td><td>3</td><td>3</td></tr>
-                <tr><td>4</td><td>0.1</td><td>4</td><td>2</td></tr>
-                <tr><td>5</td><td>0.1</td><td>5</td><td>1</td></tr>
-                <tr><td>--</td><td>--</td><td>6+</td><td>0</td></tr>
+              <tr style="background-color: #111;">
+                <th style="background-color: #1e1e1e; color: #ffc107; padding: 14px; font-size: 1.8rem; border-top: 2px double #444; border-right: 2px double #444;">Score S(E<sub>i</sub>)</th>
+                <td style="padding: 12px; border-top: 2px double #444; border-right: 2px double #444;">5</td>
+                <td style="padding: 12px; border-top: 2px double #444; border-right: 2px double #444;">4</td>
+                <td style="padding: 12px; border-top: 2px double #444; border-right: 2px double #444;">3</td>
+                <td style="padding: 12px; border-top: 2px double #444; border-right: 2px double #444;">2</td>
+                <td style="padding: 12px; border-top: 2px double #444; border-right: 2px double #444;">1</td>
+                  <td style="padding: 12px; border-top: 2px double #444; border-right: 2px double #444;">1</td>
+                <td style="padding: 12px; border-top: 2px double #444;">0</td>
+              </tr>
             </tbody>
-        </table>
+          </table>
+        </div>
+      </div>
 
-        <h2>Tracks 2 Dataset & Benchmark</h2>
-        <ul>
-          <li>A weighted ranking rule based on expert review scores for the contribution of dataset</li>
-          <li>Datasets that demonstrate strong generalization performance on real-world data are highly recommended</li>
-        </ul>
-        
-        <h2>Tracks 3 Open-Spike Research</h2>
-        <ul>
-          <li>A weighted ranking rule based on expert review scores for the innovation of research proposals</li>
-          <li>Proposals that can inspire spike vision to explore broader application scenarios and further stimulate the development of subsequent tasks are highly recommended</li>
-        </ul>
+      <!-- Divider -->
+      <hr style="border-top: 2px solid rgba(255,255,255,0.2); margin: 40px 0;">
+
+      <!-- Track 2 & Track 3 -->
+      <div class="row" style="gap: 20px;">
+        <div class="col-md-6" style="padding: 0 20px;">
+          <h3 style="color: #fff; font-size: 2rem; margin-bottom: 20px; font-weight: 800; display: flex; align-items: center; gap: 12px;">
+            <img src="./assets_wuji/images/track2_logo.png" style="height: 26px;"> Track 2: Dataset & Benchmark
+          </h3>
+          <ul style="color: #ddd; font-size: 1.8rem; margin-left: 22px; line-height: 1.9;">
+            <li>A weighted ranking rule based on expert review scores for dataset contribution.</li>
+            <li>Datasets demonstrating strong generalization on real-world data are highly recommended.</li>
+          </ul>
+        </div>
+        <div class="col-md-6" style="padding: 0 20px;">
+          <h3 style="color: #fff; font-size: 2rem; margin-bottom: 20px; font-weight: 800; display: flex; align-items: center; gap: 12px;">
+            <img src="./assets_wuji/images/track3_logo.png" style="height: 26px;"> Track 3: Open-Spike Research
+          </h3>
+          <ul style="color: #ddd; font-size: 1.8rem; margin-left: 22px; line-height: 1.9;">
+            <li>A weighted ranking rule based on expert scores for research innovation.</li>
+            <li>Proposals that inspire spike vision to explore new applications and stimulate future tasks are highly recommended.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
-</body>
+  </div>
 </section>
 
 <section id="aboutUs" class="page-section" style="background:  rgb(1,22,39, 0.1);">
-  <div class="container text-center">
-    <h2 class="animated fadeInUp">Organizers</h2>
-    <div class="row" style="margin-top: 40px;">
-      <div class="col-md-3 col-sm-6">
-        <img src="./assets_wuji/images/organizers/yjzheng2.jpeg" class="img-circle" alt="Organizer 1">
-         <h4 style="margin-top: 15px; font-weight: 600;">Dr. Yajing Zheng</h4>
-        <p>Peking University </p>
-        <div class="organizer-links">
-          <a href="https://zyj061.github.io" target="_blank" title="Homepage"><i class="fa fa-home"></i></a>
-          <a href="https://scholar.google.com/citations?user=_bUM0NcAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
-          <a href="mailto:yj.zheng@pku.edu.cn" title="Email"><i class="fa fa-envelope"></i></a>
-          <a href="https://github.com/zyj061" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+  <div class="container text-center" style="max-width: 1400px;">
+    <div style="background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)); padding: 20px 30px; border-radius: 20px; margin-top: 10px; box-shadow: 0 0 18px rgba(255, 255, 255, 0.06);">
+      <h2 class="animated fadeInUp" style="color: #fff; font-weight: 800; font-size: 2.8rem; margin-bottom: 50px;">🧑‍🏫🧑‍💻 Organizers</h2>
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets_wuji/images/organizers/yjzheng2.jpeg" class="img-circle" alt="Organizer 1">
+          <h4 style="margin-top: 15px; font-weight: 600; color: #fff;">Dr. Yajing Zheng</h4>
+          <p style="font-weight: bold; color: #ffd86b;">Peking University</p>
+          <div class="organizer-links">
+            <a href="https://zyj061.github.io" target="_blank" title="Homepage"><i class="fa fa-home"></i></a>
+            <a href="https://scholar.google.com/citations?user=_bUM0NcAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
+            <a href="mailto:yj.zheng@pku.edu.cn" title="Email"><i class="fa fa-envelope"></i></a>
+            <a href="https://github.com/zyj061" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+          </div>
         </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <img src="./assets_wuji/images/organizers/htj.jpeg" class="img-circle" alt="Organizer 2">
-         <h4 style="margin-top: 15px; font-weight: 600;">Prof. Tiejun Huang</h4>
-        <p>Peking University</p>
-        <div class="organizer-links">
-          <a href="https://cs.pku.edu.cn/info/1215/1980.htm" target="_blank" title="Homepage"><i class="fa fa-home"></i></a>
-          <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=zh-CN&oi=ao" target="_blank" title="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
-          <a href="mailto:tjhuang@pku.edu.cn" title="Email"><i class="fa fa-envelope"></i></a>
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets_wuji/images/organizers/htj.jpeg" class="img-circle" alt="Organizer 2">
+          <h4 style="margin-top: 15px; font-weight: 600; color: #fff;">Prof. Tiejun Huang</h4>
+          <p style="font-weight: bold; color: #ffd86b;">Peking University</p>
+          <div class="organizer-links">
+            <a href="https://cs.pku.edu.cn/info/1215/1980.htm" target="_blank" title="Homepage"><i class="fa fa-home"></i></a>
+            <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ&hl=zh-CN&oi=ao" target="_blank" title="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
+            <a href="mailto:tjhuang@pku.edu.cn" title="Email"><i class="fa fa-envelope"></i></a>
+          </div>
         </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <img src="./assets_wuji/images/organizers/zr3.png" class="img-circle" alt="Organizer 3" >
-         <h4 style="margin-top: 15px; font-weight: 600;">Rui Zhao</h4>
-        <p>Peking University</p>
-        <div class="organizer-links">
-          <a href="https://ruizhao26.github.io/" target="_blank" title="Homepage"><i class="fa fa-home"></i></a>
-          <a href="https://scholar.google.com/citations?user=Ju7_T9cAAAAJ&hl=En" target="_blank" title="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
-          <a href="mailto:ruizhao26@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
-          <a href="https://github.com/ruizhao26" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets_wuji/images/organizers/zr3.png" class="img-circle" alt="Organizer 3">
+          <h4 style="margin-top: 15px; font-weight: 600; color: #fff;">Rui Zhao</h4>
+          <p style="font-weight: bold; color: #ffd86b;">Peking University</p>
+          <div class="organizer-links">
+            <a href="https://ruizhao26.github.io/" target="_blank" title="Homepage"><i class="fa fa-home"></i></a>
+            <a href="https://scholar.google.com/citations?user=Ju7_T9cAAAAJ&hl=En" target="_blank" title="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
+            <a href="mailto:ruizhao26@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+            <a href="https://github.com/ruizhao26" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+          </div>
         </div>
-      </div>
-      <div class="col-md-3 col-sm-6">
-        <img src="./assets_wuji/images/organizers/rodrigo.jpeg" class="img-circle" alt="Organizer 4">
-         <h4 style="margin-top: 15px; font-weight: 600;">Dr. Rodrigo Gantier</h4>
-        <p>Peking University</p>
-        <div class="organizer-links">
-          <a href="https://scholar.google.com/citations?hl=en&user=f1yOcFcAAAAJ" target="_blank" title="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
-          <a href="mailto:Rodrigo.gantier.c@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
-          <a href="https://github.com/RodrigoGantier" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+        <div class="col-md-3 col-sm-6">
+          <img src="./assets_wuji/images/organizers/rodrigo.jpeg" class="img-circle" alt="Organizer 4">
+          <h4 style="margin-top: 15px; font-weight: 600; color: #fff;">Dr. Rodrigo Gantier</h4>
+          <p style="font-weight: bold; color: #ffd86b;">Peking University</p>
+          <div class="organizer-links">
+            <a href="https://scholar.google.com/citations?hl=en&user=f1yOcFcAAAAJ" target="_blank" title="Google Scholar"><i class="fa fa-graduation-cap"></i></a>
+            <a href="mailto:Rodrigo.gantier.c@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
+            <a href="https://github.com/RodrigoGantier" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -383,44 +378,24 @@ Donate to remove backlink form the site
 <div class="container">
   <div class="row justify-content-center align-items-center" style="margin: 1px 0;">
     <div class="col-sm-4 col-4 text-center">
-      <img class="org-logo" src="/assets_wuji/images/IJCAI2025_Montreal_Logo_BN-1.png" alt="IJCAI 2025" style="height: 40px;">
-      <p style="color: #ccc; font-size: 18px; margin-top: 6px;">IJCAI 2025 Challenges</p>
+      <img class="org-logo" src="/assets_wuji/images/IJCAI2025_Montreal_Logo_BN-1.png" alt="IJCAI 2025" style="height: 50px;">
+      <p style="color: #ccc; font-size: 15px; margin-top: 6px; font-weight: bold">IJCAI 2025 Challenges</p>
     </div>
     <div class="col-sm-4 col-4 text-center">
-      <img class="org-logo" src="/assets_wuji/images/organizers/PKU_red.png" alt="Peking University" style="height: 40px;">
-      <p style="color: #ccc; font-size: 18px; margin-top: 6px;">Peking University</p>
+      <img class="org-logo" src="/assets_wuji/images/organizers/PKU_red.png" alt="Peking University" style="height: 50px;">
+      <p style="color: #ccc; font-size: 15px; margin-top: 6px; font-weight: bold">Peking University</p>
     </div>
     <div class="col-sm-4 col-4 text-center">
-      <img class="org-logo" src="/assets_wuji/images/organizers/openI-logo.svg" alt="OpenI" style="height: 40px;">
-      <p style="color: #ccc; font-size: 18px; margin-top: 6px;">OpenI</p>
+      <img class="org-logo" src="/assets_wuji/images/organizers/openI-logo.svg" alt="OpenI" style="height: 50px;">
+      <p style="color: #ccc; font-size: 15px; margin-top: 6px; font-weight: bold">OpenI Community</p>
     </div>
   </div>
+  <div class="row">
+      <div class="col-sm-12 text-center"> Copyright 2025 | All Rights Reserved -       <a href="https://github.com/Zyj061/SpikeCV"><i class="fa fa-github"></i> SpikeCV</a>
+ </div>
 </div>
-
-<!--    &lt;!&ndash; 社交媒体 &ndash;&gt;-->
-<!--    <div class="social text-center" style="margin-top: 10px;">-->
-<!--&lt;!&ndash;      <a href="#"><i class="fa fa-twitter"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;      <a href="#"><i class="fa fa-facebook"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;      <a href="#"><i class="fa fa-dribbble"></i></a>&ndash;&gt;-->
-<!--&lt;!&ndash;      <a href="#"><i class="fa fa-flickr"></i></a>&ndash;&gt;-->
-<!--      <a href="#"><i class="fa fa-github"></i></a>-->
-<!--    </div>-->
-
-<!--    <div class="clear"></div>-->
-<!--  </div>-->
 </footer>
 
-<!--/.page-section-->
-<section class="copyright">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 text-center"> Copyright 2025 | All Rights Reserved -       <a href="#"><i class="fa fa-github"></i> SpikeCV</a>
- </div>
-
-    </div>
-    <!-- / .row --> 
-  </div>
-</section>
 <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
 
 
@@ -519,6 +494,16 @@ Donate to remove backlink form the site
       modal.style.display = "none";
     }
   });
+</script>
+<script>
+  // 简单检测 IE 浏览器（IE 11 及更早）
+  function isOldIE() {
+    return /MSIE \d|Trident.*rv:/.test(navigator.userAgent);
+  }
+
+  if (isOldIE()) {
+    alert("⚠️ 您正在使用 Internet Explorer 浏览器。\n该页面可能无法正常显示。\n建议使用 Chrome、Firefox 或 Edge 获得更好的体验。");
+  }
 </script>
 
 </body>
