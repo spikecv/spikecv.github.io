@@ -20,7 +20,7 @@
         body {
             /* font-family: sans-serif; */ /* Inherits from bootstrap/theme */
             line-height: 1.6;
-            padding-top: 100px;
+            padding-top: 200px;
             background-color: #f4f4f4;
             color: #333;
         }
@@ -42,6 +42,15 @@
             text-align: center;
             color: #011627;
         }
+        /* Style for Task subheadings */
+        h3 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #011627;
+            font-size: 1.5em;
+             border-bottom: 1px solid #ccc;
+             padding-bottom: 3px;
+        }
         /* --- Style for the Last Update Time --- */
         .last-update-time {
             float: right;
@@ -59,7 +68,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 15px; /* Reduced margin-top slightly */
             table-layout: auto; /* Allow table to adjust column widths */
             word-wrap: break-word; /* Prevent long team names from breaking layout */
         }
@@ -80,20 +89,49 @@
         tr:hover {
             background-color: #f1f1f1;
         }
-        /* --- REMOVED EMPTY RULESET --- */
-        /* If you want to right-align the metric columns (3rd, 4th, 5th for Track 1),
-           you would uncomment and use this:
-        td:nth-child(n+3):not(:last-child) {
-           text-align: right;
+        /* Center align Rank and metric columns */
+        th:first-child, td:first-child { /* Rank column */
+           text-align: center;
+           width: 5%; /* Give Rank a smaller width */
         }
-        */
-        /* --- END REMOVAL --- */
+        /* Align Team Name column to the left */
+        th:nth-child(2), td:nth-child(2) {
+           text-align: left;
+        }
+        /* Center align Metric columns (3rd onwards, except last) */
+        th:nth-child(n+3):not(:last-child),
+        td:nth-child(n+3):not(:last-child) {
+           text-align: center;
+        }
+        /* Right align submission time */
+        th:last-child, td:last-child {
+            text-align: right;
+            white-space: nowrap;
+        }
+        /* Style for links in table cells */
+        td a {
+            /* Optional: Add styling if needed */
+            /* color: #0056b3; */
+            /* text-decoration: none; */
+        }
+        td a:hover {
+             /* Optional: Add hover styling */
+            /* text-decoration: underline; */
+        }
 
         .track-title {
             margin-top: 40px;
             border-bottom: 2px solid #011627;
             padding-bottom: 5px;
         }
+
+        /* Style for upcoming/dimmed tracks */
+        .track-upcoming {
+            opacity: 0.5; /* Adjust transparency level as needed */
+            pointer-events: none; /* Prevent interaction with dimmed content */
+            transition: opacity 0.3s ease-in-out;
+        }
+
         .placeholder-notice {
             text-align: center;
             margin-top: 30px;
@@ -113,9 +151,19 @@
         .back-link:hover {
             background-color: #0056b3;
         }
-        table + h2 {
+        /* Ensure H2 headers have enough top margin after tables */
+        .leaderboard-container > h2 {
             margin-top: 50px;
         }
+        /* Reduce margin between task H3 and the preceding table */
+        table + h3 {
+            margin-top: 40px;
+        }
+         /* Style for N/A entries */
+         td.na-entry {
+            color: #999;
+            text-align: center;
+         }
     </style>
 </head>
 <body>
@@ -131,6 +179,7 @@
           <ul class="nav navbar-nav pull-right">
             <li><a href="index.html">Home</a></li>
             <li><a href="competition.html">Competition</a></li>
+            <li class="active"><a href="leaderboard.html">Leaderboard</a></li> <!-- Added Leaderboard link -->
             <li><a href="features.html">Features</a></li>
             <li><a href="research_topics.html">Research Topics</a></li>
             <li><a href="publications.html">Publications</a></li>
@@ -152,153 +201,302 @@
 
         <h1>SpikeCV Wuji Competition Leaderboard</h1>
 
-        <!-- Leaderboard for Track 1 - MODIFIED HEADERS -->
+        <!-- ======================================= -->
+        <!-- === Track 1: Texture Restoration === -->
+        <!-- ======================================= -->
         <h2 class="track-title">Track 1: Texture Restoration</h2>
+
+        <!-- == Global Rank Table for Track 1 == -->
+        <h3>Overall Ranking (Track 1)</h3>
+        <p style="font-size: 0.9em; color: #555;">Overall rank based on combined performance across Track 1 tasks. Points/Scores are indicative. Team names here are not linked.</p>
         <table>
             <thead>
                 <tr>
                     <th>Rank</th>
                     <th>Team Name</th>
-                    <th>PSNR ↑</th> <!-- Higher is better -->
-                    <th>SSIM ↑</th> <!-- Higher is better -->
-                    <th>LPIPS ↓</th> <!-- Lower is better -->
+                    <th>Overall Score ↑</th>
+                    <th>Deblur Score</th>
+                    <th>Deoclusion Score</th>
+                    <th>Color Recon. Score</th>
+                    <th>3D Recon. Score</th>
+                    <th>Last Submission</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Placeholder Data - Team Names NOT linked -->
+                <tr>
+                    <td>1</td>
+                    <td>Spike Masters</td>
+                    <td>95.5</td>
+                    <td>31.80</td>
+                    <td>Rank 1</td> <!-- Example: Mixing scores and ranks -->
+                    <td>0.902</td>
+                    <td class="na-entry">N/A</td>
+                    <td>2025-06-29 15:30 UTC</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Team Visionaries</td>
+                    <td>92.0</td>
+                    <td>32.50</td>
+                    <td class="na-entry">N/A</td>
+                    <td>0.915</td>
+                    <td>85%</td> <!-- Example different score type -->
+                    <td>2025-06-28 10:00 UTC</td>
+                </tr>
+                 <tr>
+                    <td>3</td>
+                    <td>Neural Knights</td>
+                    <td>88.0</td>
+                    <td>29.95</td>
+                    <td class="na-entry">N/A</td>
+                    <td class="na-entry">N/A</td>
+                    <td>Rank 2</td>
+                    <td>2025-06-30 11:00 UTC</td>
+                </tr>
+                 <tr>
+                    <td>4</td>
+                    <td>Pixel Perfect</td>
+                    <td>85.0</td>
+                    <td class="na-entry">N/A</td>
+                    <td>Rank 2</td>
+                    <td>0.880</td>
+                    <td class="na-entry">N/A</td>
+                    <td>2025-06-27 09:15 UTC</td>
+                </tr>
+                 <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+
+        <!-- == Task 1.1: Hybrid camera deblur == -->
+        <h3>Task 1.1: Hybrid camera deblur</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team Name (Click for Report)</th> <!-- Updated Header -->
+                    <th>PSNR ↑</th>
+                    <th>SSIM ↑</th>
+                    <th>LPIPS ↓</th>
                     <th>Submission Time</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Placeholder Data - Modified to match new headers -->
+                <!-- Placeholder Data - Team Names ARE linked -->
                 <tr>
                     <td>1</td>
-                    <td>Team Visionaries</td>
-                    <td>32.50</td> <!-- Placeholder PSNR -->
-                    <td>0.915</td> <!-- Placeholder SSIM -->
-                    <td>0.085</td> <!-- Placeholder LPIPS -->
+                    <td><a href="#" title="View Technical Report for Team Visionaries - Task 1.1">Team Visionaries</a></td>
+                    <td>32.50</td>
+                    <td>0.915</td>
+                    <td>0.085</td>
                     <td>2025-06-28 10:00 UTC</td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Spike Masters</td>
-                    <td>31.80</td> <!-- Placeholder PSNR -->
-                    <td>0.902</td> <!-- Placeholder SSIM -->
-                    <td>0.098</td> <!-- Placeholder LPIPS -->
+                    <td><a href="#" title="View Technical Report for Spike Masters - Task 1.1">Spike Masters</a></td>
+                    <td>31.80</td>
+                    <td>0.902</td>
+                    <td>0.098</td>
+                    <td>2025-06-29 15:30 UTC</td>
+                </tr>
+                 <tr>
+                    <td>3</td>
+                    <td><a href="#" title="View Technical Report for Neural Knights - Task 1.1">Neural Knights</a></td>
+                    <td>29.95</td>
+                    <td>0.865</td>
+                    <td>0.125</td>
+                    <td>2025-06-30 11:00 UTC</td>
+                </tr>
+                 <!-- Add more rows -->
+            </tbody>
+        </table>
+
+        <!-- == Task 1.2: Deoclusion == -->
+        <h3>Task 1.2: Deoclusion</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team Name (Click for Report)</th> <!-- Updated Header -->
+                    <th>Metric A ↑</th> <!-- Example metric -->
+                    <th>Metric B ↓</th> <!-- Example metric -->
+                    <th>Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Placeholder Data - Team Names ARE linked -->
+                <tr>
+                    <td>1</td>
+                    <td><a href="#" title="View Technical Report for Spike Masters - Task 1.2">Spike Masters</a></td>
+                    <td>0.85</td>
+                    <td>15.2</td>
+                    <td>2025-06-29 10:00 UTC</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="#" title="View Technical Report for Pixel Perfect - Task 1.2">Pixel Perfect</a></td>
+                    <td>0.82</td>
+                    <td>18.9</td>
+                    <td>2025-06-27 09:15 UTC</td>
+                </tr>
+                <!-- Add more rows -->
+            </tbody>
+        </table>
+
+        <!-- == Task 1.3: Color reconstruction == -->
+        <h3>Task 1.3: Color reconstruction</h3>
+         <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team Name (Click for Report)</th> <!-- Updated Header -->
+                    <th>PSNR ↑</th>
+                    <th>DeltaE ↓</th> <!-- Example metric for color -->
+                    <th>Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Placeholder Data - Team Names ARE linked -->
+                 <tr>
+                    <td>1</td>
+                    <td><a href="#" title="View Technical Report for Team Visionaries - Task 1.3">Team Visionaries</a></td>
+                    <td>28.5</td>
+                    <td>2.1</td>
+                    <td>2025-06-28 09:00 UTC</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="#" title="View Technical Report for Spike Masters - Task 1.3">Spike Masters</a></td>
+                    <td>27.9</td>
+                    <td>2.5</td>
                     <td>2025-06-29 15:30 UTC</td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>Pixel Perfect</td>
-                    <td>30.50</td> <!-- Placeholder PSNR -->
-                    <td>0.880</td> <!-- Placeholder SSIM -->
-                    <td>0.110</td> <!-- Placeholder LPIPS -->
-                    <td>2025-06-27 09:15 UTC</td>
+                    <td><a href="#" title="View Technical Report for Pixel Perfect - Task 1.3">Pixel Perfect</a></td>
+                    <td>26.0</td>
+                    <td>3.0</td>
+                    <td>2025-06-26 11:00 UTC</td>
+                </tr>
+                 <!-- Add more rows -->
+            </tbody>
+        </table>
+
+        <!-- == Task 1.4: 3D reconstruction == -->
+        <h3>Task 1.4: 3D reconstruction</h3>
+         <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team Name (Click for Report)</th> <!-- Updated Header -->
+                    <th>Chamfer Distance ↓</th> <!-- Example 3D metric -->
+                    <th>Accuracy ↑</th> <!-- Example 3D metric -->
+                    <th>Submission Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Placeholder Data - Team Names ARE linked -->
+                <tr>
+                    <td>1</td>
+                    <td><a href="#" title="View Technical Report for Team Visionaries - Task 1.4">Team Visionaries</a></td> <!-- Note: Visionaries appear again -->
+                    <td>0.05</td>
+                    <td>92.1%</td>
+                    <td>2025-06-27 18:00 UTC</td>
                 </tr>
                 <tr>
-                    <td>4</td>
-                    <td>Neural Knights</td>
-                    <td>29.95</td> <!-- Placeholder PSNR -->
-                    <td>0.865</td> <!-- Placeholder SSIM -->
-                    <td>0.125</td> <!-- Placeholder LPIPS -->
+                    <td>2</td>
+                    <td><a href="#" title="View Technical Report for Neural Knights - Task 1.4">Neural Knights</a></td>
+                    <td>0.08</td>
+                    <td>89.5%</td>
                     <td>2025-06-30 11:00 UTC</td>
                 </tr>
-                 <!-- Add more rows as needed -->
+                 <!-- Add more rows -->
             </tbody>
         </table>
+        <!-- === End Track 1 === -->
 
-        <!-- Leaderboard for Track 2 - UNCHANGED -->
-        <h2 class="track-title">Track 2: Dataset & Benchmark</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team Name</th>
-                    <th>Evaluation Score</th> <!-- Example Metric -->
-                    <th>Dataset Link/Info</th> <!-- Example Column -->
-                    <th>Submission Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Placeholder Data - Replace with actual data later -->
-                 <tr>
-                    <td>1</td>
-                    <td>Data Dynamos</td>
-                    <td>88.5</td>
-                    <td><a href="#">Dataset Alpha</a></td>
-                    <td>2025-07-01 11:00 UTC</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Benchmark Builders</td>
-                    <td>85.0</td>
-                    <td><a href="#">Benchmark Suite V1</a></td>
-                    <td>2025-07-02 09:00 UTC</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Set Creators</td>
-                    <td>82.1</td>
-                    <td><a href="#">SpikeImageNet Subset</a></td>
-                    <td>2025-06-30 16:45 UTC</td>
-                </tr>
-                 <!-- Add more rows as needed -->
-                 <tr>
-                    <td>-</td>
-                    <td>(More teams...)</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- ======================================= -->
 
-        <!-- Leaderboard for Track 3 - UNCHANGED -->
-        <h2 class="track-title">Track 3: Open-Spike Innovation</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team Name</th>
-                    <th>Innovation Score</th> <!-- Example Metric -->
-                    <th>Project Description/Link</th> <!-- Example Column -->
-                    <th>Submission Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Placeholder Data - Replace with actual data later -->
-                <tr>
-                    <td>1</td>
-                    <td>Spike Innovators</td>
-                    <td>9.2 / 10</td>
-                    <td><a href="#">Novel Spike Algo</a></td>
-                    <td>2025-07-03 14:00 UTC</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Open Frontiers</td>
-                    <td>8.8 / 10</td>
-                    <td><a href="#">Real-time Spike Demo</a></td>
-                    <td>2025-07-01 18:15 UTC</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Creative Coders</td>
-                    <td>8.5 / 10</td>
-                    <td><a href="#">Spike Compression Tech</a></td>
-                    <td>2025-07-04 10:30 UTC</td>
-                </tr>
-                <!-- Add more rows as needed -->
-                <tr>
-                    <td>-</td>
-                    <td>(More teams...)</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                </tr>
-            </tbody>
-        </table>
         <!-- ======================================= -->
+        <!-- === Track 2: Dataset & Benchmark    === -->
+        <!-- ======================================= -->
+        <div class="track-upcoming"> <!-- Wrapper Div for Opacity -->
+            <h2 class="track-title">Track 2: Dataset & Benchmark</h2>
+            <p class="placeholder-notice">(Results for Track 2 will be published soon)</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team Name</th>
+                        <th>Evaluation Score</th> <!-- Example Metric -->
+                        <th>Dataset Link/Info</th> <!-- Example Column -->
+                        <th>Submission Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Placeholder Data - Replace with actual data later -->
+                     <tr>
+                        <td>-</td>
+                        <td>(Results Pending)</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                     <tr>
+                        <td>-</td>
+                        <td>...</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                     <!-- Add more placeholder rows if desired -->
+                </tbody>
+            </table>
+        </div> <!-- End track-upcoming wrapper -->
+        <!-- === End Track 2 === -->
+
+
+        <!-- ======================================= -->
+        <!-- === Track 3: Open-Spike Innovation  === -->
+        <!-- ======================================= -->
+         <div class="track-upcoming"> <!-- Wrapper Div for Opacity -->
+            <h2 class="track-title">Track 3: Open-Spike Innovation</h2>
+            <p class="placeholder-notice">(Results for Track 3 will be published soon)</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team Name</th>
+                        <th>Innovation Score</th> <!-- Example Metric -->
+                        <th>Project Description/Link</th> <!-- Example Column -->
+                        <th>Submission Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Placeholder Data - Replace with actual data later -->
+                     <tr>
+                        <td>-</td>
+                        <td>(Results Pending)</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                     <tr>
+                        <td>-</td>
+                        <td>...</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                     <!-- Add more placeholder rows if desired -->
+                </tbody>
+            </table>
+        </div> <!-- End track-upcoming wrapper -->
+        <!-- === End Track 3 === -->
+
+        <hr style="margin-top: 40px;"> <!-- Add a separator -->
 
         <p class="placeholder-notice">
-            Note: The data shown here is for demonstration purposes only. Actual leaderboard results will be updated based on official submissions and evaluations for each track. Metrics and ranking criteria may differ between tracks. (↑ Higher is better, ↓ Lower is better).
+            Note: The data shown here is for demonstration purposes only. Click on a team name in the task-specific tables to view their technical report (links are placeholders). Actual leaderboard results will be updated based on official submissions and evaluations. Global ranking calculation methodology may vary. (↑ Higher is better, ↓ Lower is better). N/A indicates no participation in a specific task.
         </p>
 
     </div> <!-- /leaderboard-container -->
@@ -322,9 +520,16 @@
             const lastModifiedDate = new Date(document.lastModified);
             const options = {
               year: 'numeric', month: 'short', day: 'numeric',
-              hour: '2-digit', minute: '2-digit', hour12: false
+              hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' // Added timeZoneName
             };
-            const formattedDate = lastModifiedDate.toLocaleString('en-US', options);
+            // Attempt to get locale-specific format, fallback to en-US
+            let formattedDate;
+            try {
+                 formattedDate = lastModifiedDate.toLocaleString(navigator.language || 'en-US', options);
+            } catch (localeError) {
+                console.warn("Could not format date using browser locale, falling back to en-US.");
+                formattedDate = lastModifiedDate.toLocaleString('en-US', options);
+            }
             updateElement.textContent = 'Last Updated: ' + formattedDate;
           } catch (e) {
             console.error("Error formatting last modified date:", e);
