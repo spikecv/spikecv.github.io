@@ -98,10 +98,13 @@ var customScripts = {
 }
 $('document').ready(function () {
 	 $.backstretch([
-      "/assets_wuji/images/img1.png"
-         , "/assets_wuji/images/img2.png"
-                  , "/assets_wuji/images/img3.png"
-         , "/assets_wuji/images/img4.png"
+      "/assets_wuji/images/bg/red.png"
+         , "/assets_wuji/images/bg/orange.png"
+                  , "/assets_wuji/images/bg/yellow.png"
+         , "/assets_wuji/images/bg/green.png"
+         ,"/assets_wuji/images/bg/cyan-blue.png"
+         ,"/assets_wuji/images/bg/blue.png"
+         ,"/assets_wuji/images/bg/purple.png"
          // , "/assets_wuji/images/img5.png"
   ], {duration: 3000, fade: 1250});
   
