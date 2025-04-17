@@ -1,90 +1,101 @@
-<!-- 
-Author URI: http://webthemez.com/ 
+<!--
+Author URI: http://webthemez.com/
 Donate to remove backlink form the site
 -->
 <!doctype html>
-<!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en-gb" class="no-js" xmlns="http://www.w3.org/1999/html">
-<!--<![endif]-->
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<!--[if lt IE 9]> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <![endif]-->
-<title>SpikeCV-WUJI</title>
-      <link rel="icon" href="assets/logo/spikecv.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>SpikeCV-WUJI</title>
+  <link rel="icon" href="assets/logo/spikecv.png">
 
-<meta name="description" content="">
-<meta name="author" content="WebThemez">
-<!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-<!--[if lte IE 8]>
-		<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
-	<![endif]-->
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="./assets_wuji/css/bootstrap.min.css" />
   <link href="./assets_wuji/css/animate.css" rel="stylesheet" media="screen">
-<link rel="stylesheet" href="./assets_wuji/css/styles.css" />
-  <link href="./assets_wuji/font/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets_wuji/css/styles.css" />
+  <link rel="stylesheet" href="./assets_wuji/font/css/font-awesome.min.css" />
+
+    <!-- Responsive Fixes -->
+  <style>
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    .top-banner-bar {
+      background: white;
+      padding: 10px;
+    }
+    .topbar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .topbar-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .competition-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: black;
+    }
+    @media (min-width: 768px) {
+      .competition-title {
+        font-size: 1.6rem;
+      }
+    }
+    .video-promo-container video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+  </style>
 </head>
-
 <body>
-
-<div class="top-banner-bar">
-  <div class="topbar-container">
-    <div class="topbar-left">
-      <a href="index.html">
-        <img src="./assets/images/logo.png" alt="logo" class="logo-img me-3" />
-      </a>
-      <span class="competition-title">
-        IJCAI 2025 | The First SpikeCV Competition : Wuji (无极) -- Infinity
-      </span>
-    </div>
-
-    <div class="topbar-center" style="display: flex; align-items: center; gap: 8px;">
-      <!-- 中文版按钮 -->
-      <a href="./zh/competition.html" style="
-        font-size: 11px;
-        padding: 2px 6px;
-        color: black;
-        border: 1px solid #ccc;
-        background-color: #f5f5f5;
-        font-weight: 500;
-        border-radius: 4px;
-        text-decoration: none;
-        line-height: 1.5;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      ">
-        【中文版】
-      </a>
-
-      <!-- 两张图 -->
-      <img src="./assets_wuji/images/IJCAI2025_Montreal_Logo_BN-1.png" alt="Guangzhou Skyline" class="landmark-logo" style="height: 24px;">
-      <img src="./assets_wuji/images/guangzhou.png" alt="IJCAI 2025 Logo" class="landmark-logo animated fadeInRight" style="animation-delay: 0.5s; height: 24px;">
+  <div class="top-banner-bar">
+    <div class="topbar-container">
+      <div class="topbar-left">
+        <a href="index.html">
+          <img src="./assets/images/logo.png" alt="logo" class="logo-img me-3" />
+        </a>
+        <span class="competition-title">
+          IJCAI 2025 | The First SpikeCV Competition : Wuji (无极) -- Infinity
+        </span>
+      </div>
+      <div class="topbar-center" style="display: flex; align-items: center; gap: 8px;">
+        <a href="./zh/competition.html" style="font-size: 11px; padding: 2px 6px; color: black; border: 1px solid #ccc; background-color: #f5f5f5; font-weight: 500; border-radius: 4px; text-decoration: none; line-height: 1.5; height: 20px; display: flex; align-items: center; justify-content: center;">【中文版】</a>
+        <img src="./assets_wuji/images/IJCAI2025_Montreal_Logo_BN-1.png" alt="Guangzhou Skyline" class="landmark-logo" style="height: 24px;">
+        <img src="./assets_wuji/images/guangzhou.png" alt="IJCAI 2025 Logo" class="landmark-logo animated fadeInRight" style="animation-delay: 0.5s; height: 24px;">
+      </div>
     </div>
   </div>
-</div>
 
-
-<nav id="mainNav">
-  <div id="menuToggle"><i class="fa fa-bars"></i></div>
-  <ul class="menuLinks">
-    <li class="active" id="firstLink"><a href="#home" class="scroll-link">Home</a></li>
-      <li><a href="#time-register-board">Timeline & Register</a> </li>
+  <nav id="mainNav">
+    <div id="menuToggle"><i class="fa fa-bars"></i></div>
+    <ul class="menuLinks">
+      <li class="active"><a href="#home" class="scroll-link">Home</a></li>
+      <li><a href="#time-register-board">Timeline & Register</a></li>
       <li><a href="#wujiSlides" class="scroll-link">Tracks</a></li>
       <li><a href="#prize-showcase" class="scroll-link">Awards</a></li>
       <li><a href="#rules" class="scroll-link">Rules</a></li>
       <li><a href="#aboutUs" class="scroll-link">Organizers</a></li>
-      <li><a href="index.html">Back to SpikeCV</a> </li>
-  </ul>
-</nav>
+      <li><a href="index.html">Back to SpikeCV</a></li>
+    </ul>
+  </nav>
 
 <!--/.header-->
 <div id="top" style="height: 30px;"></div>
@@ -158,7 +169,7 @@ Donate to remove backlink form the site
                          line-height: 1.3;      /* Adjust line-height for text */
                          white-space: nowrap;   /* Prevent text wrapping */
                          ">
-                  <i class="fa fa-trophy fa-fw" style="margin-right: 10px; font-size: 1.8rem;"></i> 
+                  <i class="fa fa-trophy fa-fw" style="margin-right: 10px; font-size: 1.8rem;"></i>
                   <span>View Leaderboard</span> <!-- Wrapped text in span -->
                </a>
             </div>
@@ -317,11 +328,11 @@ Donate to remove backlink form the site
           </table>
           <li>Participants's final score in <b>Track 1</b> is the sum of the points they get on each task.</li>
           <li>If multiple teams get the same final score in <b>Track 1</b>, <b>they will equally share the total amount of the tied prizes</b>, and the team with fewer participants will be ranked higher on the leaderboard. </li>
-          <li>For example, a team challenges three tasks on <b>Track 1</b>, and get <b>2nd</b> on Hybrid Camera Deblur, 
-            <b>3rd</b> on Deocclusion, <b>5th</b> on Color Reconstruction, their final score is 11+5+1=17. 
+          <li>For example, a team challenges three tasks on <b>Track 1</b>, and get <b>2nd</b> on Hybrid Camera Deblur,
+            <b>3rd</b> on Deocclusion, <b>5th</b> on Color Reconstruction, their final score is 11+5+1=17.
         </ul>
         <div class="table-responsive" style="max-width: 900px; margin: 16px auto 0;">
-          
+
         </div>
       </div>
 
@@ -631,18 +642,44 @@ Donate to remove backlink form the site
   </div>
 </div>
 
+<script src="./assets_wuji/js/modernizr-latest.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="./assets_wuji/js/bootstrap.min.js"></script>
+<script src="./assets_wuji/js/jquery.nav.js"></script>
+<script src="./assets_wuji/js/waypoints.js"></script>
+<script src="./assets_wuji/js/Backstretch.js"></script>
+<script src="./assets_wuji/js/custom.js"></script>
+<script src="./assets_wuji/js/jquery.countdown.js"></script>
+<script src="./assets_wuji/js/simpleCountdown.js"></script>
+
+<script>
+  $(function () {
+    const $menuToggle = $('#menuToggle');
+    const $menuLinks = $('.menuLinks');
+
+    // 切换菜单显示
+    $menuToggle.on('click', function () {
+      $menuLinks.toggleClass('show');
+    });
+
+    // 点击菜单项后自动关闭（移动端）
+    $menuLinks.on('click', 'a', function () {
+      if (window.matchMedia('(max-width: 991.98px)').matches) {
+        $menuLinks.removeClass('show');
+      }
+    });
+
+    // 可选：窗口尺寸变化时重置菜单状态
+    $(window).on('resize', function () {
+      if (window.matchMedia('(min-width: 992px)').matches) {
+        $menuLinks.removeClass('show');
+      }
+    });
+  });
+</script>
 
 
-<!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]--> 
-<script src="assets_wuji/js/modernizr-latest.js"></script>
-<script src="assets_wuji/js/jquery-1.8.2.min.js" type="text/javascript"></script>
-<script src="assets_wuji/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets_wuji/js/jquery.nav.js" type="text/javascript"></script>
-<script src="assets_wuji/js/waypoints.js"></script>
-<script src="assets_wuji/js/Backstretch.js" type="text/javascript"></script>
-<script src="assets_wuji/js/custom.js" type="text/javascript"></script>
-<script type="text/javascript" src="assets_wuji/js/jquery.countdown.js"></script>
-<script type="text/javascript" src="assets_wuji/js/simpleCountdown.js"></script>
+<!-- 倒计时初始化 -->
 <script>
   $(document).ready(function () {
     console.log("⏳ 新倒计时初始化");
@@ -652,8 +689,8 @@ Donate to remove backlink form the site
   });
 </script>
 
+<!-- 滚动触发动画 -->
 <script>
-  // Scroll-in animation if needed
   $(window).on('scroll', function () {
     $('.feature-box').each(function () {
       if ($(this).offset().top < $(window).scrollTop() + $(window).height() - 100) {
@@ -663,58 +700,47 @@ Donate to remove backlink form the site
   });
 </script>
 
+<!-- Wuji track 切换交互 -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const trackItems = document.querySelectorAll('.track-item');
-    const slides = document.querySelectorAll('.wuji-slide');
-
-    trackItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const index = parseInt(item.getAttribute('data-index'));
-
-        // 取消所有 active 状态
-        trackItems.forEach(i => i.classList.remove('active'));
-        slides.forEach(s => s.classList.remove('active'));
-
-        // 设置当前激活项
-        item.classList.add('active');
-        slides[index].classList.add('active');
-      });
+  $(document).ready(function () {
+    $('.track-item').on('click', function () {
+      const index = $(this).data('index');
+      $('.track-item').removeClass('active');
+      $('.wuji-slide').removeClass('active');
+      $(this).addClass('active');
+      $('.wuji-slide').eq(index).addClass('active');
     });
   });
 </script>
-<!-- 加入 AOS 动画库（仅一次） -->
+
+<!-- 注册弹窗逻辑 -->
+<script>
+  function openRegisterModal() {
+    $("#registerModal").fadeIn();
+  }
+  function closeRegisterModal() {
+    $("#registerModal").fadeOut();
+  }
+  $(window).on('load', function () {
+    $('#registerModal').hide();
+  });
+  $(window).on('click', function (event) {
+    if ($(event.target).is('#registerModal')) {
+      $('#registerModal').fadeOut();
+    }
+  });
+</script>
+
+<!-- AOS 动画库加载 -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
 
+<!-- IE 检测 -->
 <script>
-  function openRegisterModal() {
-    document.getElementById("registerModal").style.display = "flex";
-  }
-  function closeRegisterModal() {
-    document.getElementById("registerModal").style.display = "none";
-  }
-
-  // 防止异常显示：页面加载时强制隐藏
-  window.addEventListener('load', () => {
-    document.getElementById("registerModal").style.display = "none";
-  });
-
-  // 可选增强：点击遮罩空白关闭弹窗
-  window.addEventListener('click', function (event) {
-    const modal = document.getElementById("registerModal");
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-</script>
-<script>
-  // 简单检测 IE 浏览器（IE 11 及更早）
   function isOldIE() {
     return /MSIE \d|Trident.*rv:/.test(navigator.userAgent);
   }
-
   if (isOldIE()) {
     alert("⚠️ 您正在使用 Internet Explorer 浏览器。\n该页面可能无法正常显示。\n建议使用 Chrome、Firefox 或 Edge 获得更好的体验。");
   }
