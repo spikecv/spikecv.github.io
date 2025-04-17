@@ -300,6 +300,7 @@ Donate to remove backlink form the site
           <li> <b>Track 1</b> includes four tasks: Hybrid Camera Deblur, Deocclusion, Color Reconstruction and 3D Reconstruction.</li>
           <li>For each task, multiple metrics and their weights will be announced, including reference-based and no-reference-based metrics.</li>
           <li>Participants' score of each task will be based on the rank they get on the corresponding task, as listed below:</li>
+          <div class="table-responsive">
           <table style="width: 80%; border-collapse: separate; border-spacing: 0; font-size: 1.8rem; color: #eee; border: 2px solid #555; border-radius: 10px; overflow: hidden;">
             <thead style="background-color: #2b2b2b;">
               <tr>
@@ -326,6 +327,7 @@ Donate to remove backlink form the site
               </tr>
             </tbody>
           </table>
+          </div>
           <li>Participants's final score in <b>Track 1</b> is the sum of the points they get on each task.</li>
           <li>If multiple teams get the same final score in <b>Track 1</b>, <b>they will equally share the total amount of the tied prizes</b>, and the team with fewer participants will be ranked higher on the leaderboard. </li>
           <li>For example, a team challenges three tasks on <b>Track 1</b>, and get <b>2nd</b> on Hybrid Camera Deblur,
@@ -736,14 +738,15 @@ Donate to remove backlink form the site
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
 
-<!-- IE 检测 -->
 <script>
-  function isOldIE() {
-    return /MSIE \d|Trident.*rv:/.test(navigator.userAgent);
-  }
-  if (isOldIE()) {
-    alert("⚠️ 您正在使用 Internet Explorer 浏览器。\n该页面可能无法正常显示。\n建议使用 Chrome、Firefox 或 Edge 获得更好的体验。");
-  }
+  $(document).ready(function () {
+    function adjustPadding() {
+      const topBarHeight = $('.top-banner-bar').outerHeight() || $('.top-bar').outerHeight() || 0;
+      $('body').css('padding-top', topBarHeight + 'px');
+    }
+    adjustPadding();
+    $(window).on('resize', adjustPadding);
+  });
 </script>
 
 </body>

@@ -381,8 +381,11 @@ h2, .h2 {
 }
 /* 菜单按钮 */
 #menuToggle {
-  position: fixed;
-  top: 72px;
+	display: flex;
+	align-items: center;
+  justify-content: center;
+	position: fixed;
+  top: 152px;
   right: 16px;
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
@@ -2003,3 +2006,13 @@ h4 {
   justify-content: center;
 }
 
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.score-rule-table {
+  min-width: 600px; /* 根据你的表格内容长度微调 */
+  border-collapse: collapse;
+}
