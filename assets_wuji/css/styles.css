@@ -1208,7 +1208,7 @@ color: #FED400;
 .divider {
   width: 1px;
   background: rgba(255, 255, 255, 0.2);
-  height: 240px;
+  height: 300px;
   margin: 0 20px;
   animation: fadeIn 1s ease-in-out;
 }
