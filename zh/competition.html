@@ -40,10 +40,29 @@ Donate to remove backlink form the site
       <a href="index.html"><img src="../assets/images/logo.png" alt="logo" class="logo-img me-3" /></a>
       <span class="competition-title"> IJCAI 2025 | 第一届SpikeCV竞赛 : 无极 (Wuji) -- Infinity</span>
     </div>
-    <div class="topbar-center">
-      <h5 class="active"> <a href="../competition.html">【English Version】</a></span>
-      <img src="../assets_wuji/images/IJCAI2025_Montreal_Logo_BN-1.png" alt="Guangzhou Skyline" class="landmark-logo">
-      <img src="../assets_wuji/images/guangzhou.png" alt="IJCAI 2025 Logo" class="landmark-logo" class="landmark-logo animated fadeInRight" style="animation-delay: 0.5s;">
+    <div class="topbar-center" style="display: flex; align-items: center; gap: 8px;">
+      <!-- 中文版按钮 -->
+      <a href="../competition.html" style="
+        font-size: 11px;
+        padding: 2px 6px;
+        color: black;
+        border: 1px solid #ccc;
+        background-color: #f5f5f5;
+        font-weight: 800;
+        border-radius: 4px;
+        text-decoration: none;
+        line-height: 1.5;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      ">
+        [English Version]
+      </a>
+
+      <!-- 两张图 -->
+      <img src="../assets_wuji/images/IJCAI2025_Montreal_Logo_BN-1.png" alt="Guangzhou Skyline" class="landmark-logo" style="height: 24px;">
+      <img src="../assets_wuji/images/guangzhou.png" alt="IJCAI 2025 Logo" class="landmark-logo animated fadeInRight" style="animation-delay: 0.5s; height: 24px;">
     </div>
   </div>
 </div>
@@ -80,7 +99,7 @@ Donate to remove backlink form the site
         <!-- 插入视频 -->
   <div class="video-promo-container">
     <video autoplay loop muted playsinline style="max-width: 100%; height: auto; border-radius: 12px; margin-top: 10px;">
-      <source src="../assets_wuji/images/spikecv_challenges.mp4" type="video/mp4">
+      <source src="../assets_wuji/images/spikecv_IJCAI2025.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -88,59 +107,81 @@ Donate to remove backlink form the site
 </section>
 
 <section id="time-register-board">
-    <div class="row">
-        <div class="d-flex flex-wrap justify-content-center align-items-start timeline-countdown-wrap" style="margin-top: 0px;">
-          <!-- Timeline -->
-          <div class="timeline-section animated fadeInUp" id="timeline">
-            <h2><span class="emoji">📅</span> 竞赛时间安排 </h2>
-            <ul class="timeline">
-              <li><span class="emoji">📢</span><strong> 2025年4月18日:</strong> 竞赛公告与注册</li>
-              <li><span class="emoji">📝</span><strong> 2025年5月1日:</strong> 开放提交(赛道1开始排名)</li>
-              <li><span class="emoji">⏰</span><strong> 2025年6月30日:</strong> 所有三条赛道的截止日期，提交展示视频+代码/数据</li>
-              <li><span class="emoji">🏆</span><strong> 2025年7月15日:</strong> 结果公布</li>
-              <li><span class="emoji">🎉</span><strong> 2025年8月28日-31日:</strong> 颁奖仪式 @ IJCAI Satellite Event, 广州</li>
-            </ul>
-          </div>
-          <!-- Divider -->
-          <div class="divider-line"></div>
+  <div class="row">
+    <div class="d-flex flex-wrap justify-content-center align-items-start timeline-countdown-wrap" style="margin-top: 0px;">
 
-          <!-- Countdown -->
-          <div class="countdown-wrapper">
-            <div class="countdown-heading">⏳ 距离竞赛开始还有</div>
-            <div class="countdown styled"></div>
-            <!-- === MODIFIED BUTTONS START === -->
-            <div class="register-inline mt-3" style="text-align: center;">
-
-               <!-- Corrected VERY Large Registration Button -->
-               <!-- Register Button (Triggers Modal) -->
-                <button class="btn btn-primary btn-lg" onclick="openRegisterModal()"
-                        style="padding: 12px 30px; font-size: 1.8rem; font-weight: bold; margin: 15px;
-               display: inline-flex; align-items: center; justify-content: center; line-height: 1.3; white-space: nowrap;">
-                    <i class="fa fa-pencil-square-o fa-fw" style="margin-right: 10px; font-size: 1.8rem;"></i>
-                    <span>注册链接</span>
-                </button>
-
-               <!-- Corrected VERY Large Leaderboard Button -->
-               <a href="leaderboard.html" class="btn btn-success btn-lg" target="_blank"
-                  style="padding: 12px 30px; /* Adjusted padding slightly */
-                         font-size: 1.8rem;   /* Slightly reduced font size */
-                         font-weight: bold;
-                         margin: 15px;
-                         display: inline-flex;  /* Use inline-flex */
-                         align-items: center;    /* Vertically center items */
-                         justify-content: center; /* Horizontally center items */
-                         vertical-align: middle; /* Align button nicely if wrapped */
-                         line-height: 1.3;      /* Adjust line-height for text */
-                         white-space: nowrap;   /* Prevent text wrapping */
-                         ">
-                  <i class="fa fa-trophy fa-fw" style="margin-right: 10px; font-size: 1.8rem;"></i> 
-                  <span>查看排行榜</span> <!-- Wrapped text in span -->
-               </a>
+      <!-- Timeline -->
+      <div class="timeline-section animated fadeInUp" id="timeline">
+        <h2><span class="emoji">📅</span> 竞赛时间安排</h2>
+        <ul class="timeline">
+          <li style="text-decoration: line-through; opacity: 0.6;">
+            <span class="emoji">📢</span><strong> 2025年4月18日:</strong> 竞赛公告与开始注册
+          </li>
+          <li><span class="emoji">📝</span><strong> 2025年5月1日:</strong> 开放提交 (比赛相关数据集请在 <a href="https://openi.pcl.ac.cn/Cordium/SpikeCV/datasets">OpenI</a> 下载)
+            <div style="margin-left: 2.2em;">
+              比赛系统现已上线，入口请点击
+              <a href="https://app-kyxt.pcl.ac.cn/competitions/group/fm259hja" target="_blank">这里</a> <span class="emoji">💻</span>，请参赛选手在平台中点击“立即报名”以提交作品
             </div>
-          </div>
+          </li>
+          <li><span class="emoji">⏰</span><strong> 2025年7月10日:</strong> 所有三条赛道的截止日期，需提交展示视频 + 代码/数据</li>
+          <li><span class="emoji">🏆</span><strong> 2025年7月25日:</strong> 结果公布</li>
+          <li><span class="emoji">🎉</span><strong> 2025年8月28日-31日:</strong> 颁奖典礼 @ IJCAI 卫星会场，广州</li>
+        </ul>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider-line"></div>
+
+      <!-- Countdown & Register -->
+      <div class="countdown-wrapper d-flex flex-column justify-content-start" style="margin-top: 10px;">
+        <div>
+          <div class="countdown-heading" style="margin-bottom: -15px;">⏳ 距离竞赛结束还有</div>
+          <div class="countdown styled" style="margin-bottom: 20px;"></div>
         </div>
+
+        <!-- Register + Leaderboard buttons -->
+        <div class="register-inline mt-1 mb-2" style="text-align: center;">
+          <button class="btn btn-primary btn-lg" onclick="openRegisterModal()"
+            style="padding: 12px 30px; font-size: 1.8rem; font-weight: bold; margin: 15px;
+              display: inline-flex; align-items: center; justify-content: center; line-height: 1.3; white-space: nowrap;">
+            <i class="fa fa-pencil-square-o fa-fw" style="margin-right: 10px; font-size: 1.8rem;"></i>
+            <span>注册链接</span>
+          </button>
+
+          <a href="leaderboard.html" class="btn btn-success btn-lg" target="_blank"
+            style="padding: 12px 30px; font-size: 1.8rem; font-weight: bold; margin: 15px;
+              display: inline-flex; align-items: center; justify-content: center;
+              vertical-align: middle; line-height: 1.3; white-space: nowrap;">
+            <i class="fa fa-trophy fa-fw" style="margin-right: 10px; font-size: 1.8rem;"></i>
+            <span>查看排行榜</span>
+          </a>
+        </div>
+
+        <!-- Important Notice (Chinese) -->
+        <div style="
+            margin: 10px auto 0 auto;
+            padding: 20px 26px;
+            background: #fff3cd;
+            color: #856404;
+            border: 1.5px solid #ffeeba;
+            border-radius: 10px;
+            font-size: 1.25rem;
+            max-width: 580px;
+            text-align: left;
+            line-height: 1.65;
+            box-shadow: 0 0 10px rgba(0,0,0,0.06);">
+          <div style="font-weight: bold; font-size: 1.35rem; margin-bottom: 10px;">
+            <span style="margin-right: 8px;">📌</span>重要提示
+          </div>
+          所有脉冲数据集及代码资源（例如，模拟器，重构模型等）请参考 <a href="https://openi.pcl.ac.cn/Cordium/SpikeCV" target="_blank" style="font-weight: bold; color: #d35400;">SpikeCV 仓库</a><br>
+          赛道一的详细数据集与提交说明请访问 <a href="https://openi.pcl.ac.cn/IJCAl2025/WUJI_INF/src/branch/master#user-content-wuji-inf" target="_blank" style="font-weight: bold; color: #d35400;">此链接</a><br>
+          <strong>注意：</strong>数据较大，请选手尽早下载并熟悉。
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
 <section id="wujiSlides" style="background: rgb(1,22,39, 0.1);">
     <div class="container">
@@ -203,9 +244,9 @@ Donate to remove backlink form the site
           <div class="glow-icon">🎨</div>
 <!--          <h3>Track 1</h3>-->
             <p class="track-subtitle">纹理恢复</p>
-            <p><span class="emoji">🥇 </span><span class="glow-amount">$4,000</span></p>
-            <p><span class="emoji">🥈 </span><span class="glow-amount">$2,500 (x2)</span></p>
-            <p><span class="emoji">🥉 </span><span class="glow-amount">$1,500 (x3)</span></p>
+            <p><span class="emoji">🥇 </span><span class="glow-amount">$3,000</span></p>
+            <p><span class="emoji">🥈 </span><span class="glow-amount">$2,000 (x2)</span></p>
+            <p><span class="emoji">🥉 </span><span class="glow-amount">$1,000 (x3)</span></p>
         </div>
       </div>
 
@@ -471,7 +512,7 @@ Donate to remove backlink form the site
     <img src="../assets/logo/spikecv.png" alt="SpikeCV Logo" style="height: 24px;"> SpikeCV竞赛委员会
   </h3>
   <p style="color: #ccc; font-size: 1.6rem; font-weight: 600;">
-    郑雅菁，赵睿，保罗（Rodrigo Gantier），郑凌骁，刘紫嫣
+    郑雅菁，赵睿，保罗（Rodrigo Gantier），郑凌骁，刘紫嫣，刘俣伽，李琦玥
   </p>
 
   <h3 style="color: #ffd86b; font-weight: 700; font-size: 2rem; margin-top: 30px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 10px;">
@@ -479,7 +520,9 @@ Donate to remove backlink form the site
   </h3>
   <p style="color: #ccc; font-size: 1.6rem; font-weight: 600;">
     <a href="https://scholar.google.com/citations?user=qtkIMd4AAAAJ&hl=zh-CN&oi=ao">郭懿嘉</a>,
-    <a href="https://scholar.google.com/citations?user=1-kNC7oAAAAJ&hl=zh-CN&oi=ao">董彦辰</a>
+    <a href="https://scholar.google.com/citations?user=1-kNC7oAAAAJ&hl=zh-CN&oi=ao">董彦辰</a>,
+        <a href="https://scholar.google.com/citations?hl=zh-CN&user=M-2vW7cAAAAJ">胡力文</a>
+
   </p>
 </div>
 
@@ -490,26 +533,52 @@ Donate to remove backlink form the site
 </section>
 
 <footer>
-  <!-- Organizer Logos Row (Centered & Hover Effect) -->
-<div class="container">
-  <div class="row justify-content-center align-items-center" style="margin: 1px 0;">
-    <div class="col-sm-4 col-4 text-center">
-      <img class="org-logo" src="../assets_wuji/images/IJCAI2025_Montreal_Logo_BN-1.png" alt="IJCAI 2025" style="height: 50px;">
-      <p style="color: #ccc; font-size: 15px; margin-top: 6px; font-weight: bold">IJCAI 2025 Challenges</p>
+  <div class="container" style="margin-top: 30px;">
+    <div style="
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 20px;
+      width: 100%;
+    ">
+
+      <!-- IJCAI -->
+      <div style="text-align: center; flex: 1; min-width: 180px;">
+        <img src="/assets_wuji/images/IJCAI2025_Montreal_Logo_BN-1.png" alt="IJCAI 2025" style="height: 50px;">
+        <p style="color: #ccc; font-size: 14px; margin-top: 6px; font-weight: bold;">IJCAI 2025 挑战赛</p>
+      </div>
+
+      <!-- PKU -->
+      <div style="text-align: center; flex: 1; min-width: 220px;">
+        <img src="/assets_wuji/images/organizers/PKU_red.png" alt="Peking University" style="height: 50px;">
+        <p style="color: #ccc; font-size: 14px; margin-top: 6px; font-weight: bold;">
+          北京大学 <br> 多媒体信息处理全国重点实验室
+        </p>
+      </div>
+
+      <!-- OpenI -->
+      <div style="text-align: center; flex: 1; min-width: 160px;">
+        <img src="/assets_wuji/images/organizers/openI-logo.svg" alt="OpenI" style="height: 50px;">
+        <p style="color: #ccc; font-size: 14px; margin-top: 6px; font-weight: bold;">启智社区</p>
+      </div>
+
+      <!-- CSIG -->
+      <div style="text-align: center; flex: 1; min-width: 220px;">
+        <img src="/assets_wuji/images/organizers/csig_logo.png" alt="CSIG" style="height: 50px;">
+        <p style="color: #ccc; font-size: 14px; margin-top: 6px; font-weight: bold;">
+          中国图象图形学会 <br> 类脑视觉专委会
+        </p>
+      </div>
+
     </div>
-    <div class="col-sm-4 col-4 text-center">
-      <img class="org-logo" src="../assets_wuji/images/organizers/PKU_red.png" alt="北京大学" style="height: 50px;">
-      <p style="color: #ccc; font-size: 15px; margin-top: 6px; font-weight: bold">北京大学</p>
-    </div>
-    <div class="col-sm-4 col-4 text-center">
-      <img class="org-logo" src="../assets_wuji/images/organizers/openI-logo.svg" alt="OpenI" style="height: 50px;">
-      <p style="color: #ccc; font-size: 15px; margin-top: 6px; font-weight: bold">启智社区</p>
+
+    <!-- Copyright -->
+    <div style="text-align: center; color: #999; font-size: 13px; margin-top: 20px;">
+      © 2025 | All Rights Reserved -
+      <a href="https://github.com/Zyj061/SpikeCV" style="color: #ccc;"><i class="fa fa-github"></i> SpikeCV</a>
     </div>
   </div>
-  <div class="row">
-      <div class="col-sm-12 text-center"> Copyright 2025 | All Rights Reserved -       <a href="https://github.com/Zyj061/SpikeCV"><i class="fa fa-github"></i> SpikeCV</a>
- </div>
-</div>
 </footer>
 
 <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
@@ -525,7 +594,7 @@ Donate to remove backlink form the site
       📝 Google Form (English)
     </a>
 
-    <a href="https://wj.qq.com/s2/19819551/e59a/" target="_blank" class="modal-button">
+    <a href="https://wj.qq.com/s2/21205733/678f/" target="_blank" class="modal-button">
       🐧 腾讯问卷 (中文)
     </a>
 
@@ -549,7 +618,7 @@ Donate to remove backlink form the site
   $(document).ready(function () {
     console.log("⏳ 新倒计时初始化");
     $('.countdown.styled').simpleCountdown({
-      date: '2025-05-01T08:08:00'
+      date: '2025-07-10T23:58:00'
     });
   });
 </script>

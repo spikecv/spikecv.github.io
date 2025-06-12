@@ -372,41 +372,59 @@ h2, .h2 {
 ----------------------------------------------*/
 #mainNav {
 	position: fixed;
-	right: -200px;
-	width: 200px;
+	right: 0;
+	width: 100px;
 	height: 100%;
 	top: 52px;
 	z-index: 10;
 	text-align: left;
 }
+/* 菜单按钮 */
 #menuToggle {
-	position: absolute;
-	left: -47px;
-	z-index: 999;
-	background: rgba(0, 0, 0, 0.30);
-	top: 13px;
-	cursor: pointer;
+	display: flex;
+	align-items: center;
+  justify-content: center;
+	position: fixed;
+  top: 152px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 10000;
+  transition: background 0.3s ease;
 }
-#menuToggle .fa {
-	font-size: 18px;
-	margin: 7px 10px;
-	color: #fff;
+#menuToggle:hover {
+  background: rgba(0, 0, 0, 0.6);
 }
-#menuToggle:hover .fa {
-	color: #888;
+#menuToggle i.fa-bars {
+  font-size: 20px;
+  color: #fff;
 }
+
+/* 菜单列表 */
 .menuLinks {
-	position: absolute;
-	top: 0;
-	right: 0px;
-	background: rgba(0, 0, 0, 0.9);
-	width: 200px;
-	height: 100%;
-	z-index: 999;
-	padding: 10px 0 0 0
+  position: fixed;
+  top: 152px;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  padding-top: 60px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
 }
+.menuLinks.show {
+  transform: translateX(0);
+}
+
 .menuLinks li {
-	list-style: none;
+  list-style: none;
 }
 .menuLinks li a {
 	margin-left: 20px;
@@ -420,6 +438,7 @@ h2, .h2 {
 .menuLinks li a:hover {
 	color: #888;
 }
+
 /*home*/
 
 #home .heading h2 {
@@ -1189,7 +1208,7 @@ color: #FED400;
 .divider {
   width: 1px;
   background: rgba(255, 255, 255, 0.2);
-  height: 240px;
+  height: 300px;
   margin: 0 20px;
   animation: fadeIn 1s ease-in-out;
 }
@@ -1962,4 +1981,38 @@ h4 {
   color: #000000;
   font-weight: 666;
   cursor: pointer;
+}
+.organizer-card {
+  min-height: 320px; /* 保证三行人统一高度，可微调 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.organizer-card img {
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.organizer-card h4,
+.organizer-card p {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.organizer-links {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.score-rule-table {
+  min-width: 600px; /* 根据你的表格内容长度微调 */
+  border-collapse: collapse;
 }
