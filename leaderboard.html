@@ -201,218 +201,375 @@
 
         <h1>SpikeCV Wuji Competition Leaderboard</h1>
 
+<!-- ★ Prominent English notice for missing submissions -->
+<div style="background-color: #ffefc2; border: 2px solid #ffcc00; padding: 12px; border-radius: 6px; text-align: center; margin-bottom: 20px; font-size: 1.1em; font-weight: bold; color: #663300;">
+  If you have submitted and do NOT see your result here, please re-submit a correctly formatted result ASAP!
+</div>
+
         <!-- ======================================= -->
         <!-- === Track 1: Texture Restoration === -->
         <!-- ======================================= -->
         <h2 class="track-title">Track 1: Texture Restoration</h2>
 
-        <!-- == Global Rank Table for Track 1 == -->
-        <h3>Overall Ranking (Track 1)</h3>
-        <p style="font-size: 0.9em; color: #555;">Overall rank based on combined performance across Track 1 tasks. Points/Scores are indicative. Team names here are not linked.</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team Name</th>
-                    <th>Overall Score ↑</th>
-                    <th>Deblur Score</th>
-                    <th>Deoclusion Score</th>
-                    <th>Color Recon. Score</th>
-                    <th>3D Recon. Score</th>
-                    <th>Last Submission</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Placeholder Data - Team Names NOT linked -->
-                <tr>
-                    <td>1</td>
-                    <td>Spike Masters</td>
-                    <td>95.5</td>
-                    <td>31.80</td>
-                    <td>Rank 1</td> <!-- Example: Mixing scores and ranks -->
-                    <td>0.902</td>
-                    <td class="na-entry">N/A</td>
-                    <td>2025-06-29 15:30 UTC</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Team Visionaries</td>
-                    <td>92.0</td>
-                    <td>32.50</td>
-                    <td class="na-entry">N/A</td>
-                    <td>0.915</td>
-                    <td>85%</td> <!-- Example different score type -->
-                    <td>2025-06-28 10:00 UTC</td>
-                </tr>
-                 <tr>
-                    <td>3</td>
-                    <td>Neural Knights</td>
-                    <td>88.0</td>
-                    <td>29.95</td>
-                    <td class="na-entry">N/A</td>
-                    <td class="na-entry">N/A</td>
-                    <td>Rank 2</td>
-                    <td>2025-06-30 11:00 UTC</td>
-                </tr>
-                 <tr>
-                    <td>4</td>
-                    <td>Pixel Perfect</td>
-                    <td>85.0</td>
-                    <td class="na-entry">N/A</td>
-                    <td>Rank 2</td>
-                    <td>0.880</td>
-                    <td class="na-entry">N/A</td>
-                    <td>2025-06-27 09:15 UTC</td>
-                </tr>
-                 <!-- Add more rows as needed -->
-            </tbody>
-        </table>
+        <!-- == Overall Ranking (Track 1) == -->
+<h3>Overall Ranking (Track 1)</h3>
+<p style="font-size:0.9em; color:#555;">
+Overall rank based on combined performance across Track 1 tasks. Points per task: 1st→23, 2nd→11, 3rd→5, 4th→2, 5th→1, 6th→1, 7th+→0.
+</p>
+<table style="font-size:0.83em; table-layout:fixed; word-wrap:break-word;">
+  <thead>
+    <tr>
+      <th style="width:4%;">Rank</th>
+      <th style="width:20%;">Team Name</th>
+      <th style="width:8%;">Overall ↑</th>
+      <th style="width:8%;">Task 1</th>
+      <th style="width:8%;">Task 2</th>
+      <th style="width:8%;">Task 3</th>
+      <th style="width:8%;">Task 4</th>
+      <th style="width:25%;">Submission IDs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>勤天队</td>
+      <td>48</td>
+      <td>0</td>
+      <td>11</td>
+      <td>23</td>
+      <td>23</td>
+      <td>92j4, vr29, kcle</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>NoWeiNoGame</td>
+      <td>46</td>
+      <td>23</td>
+      <td>23</td>
+      <td>0</td>
+      <td>0</td>
+      <td>pqyj, zbp8</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>nanhu</td>
+      <td>11</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>vs6n</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Spike_King</td>
+      <td>11</td>
+      <td>0</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7pui</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 
         <!-- == Task 1.1: Hybrid camera deblur == -->
-        <h3>Task 1.1: Hybrid camera deblur</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team Name (Click for Report)</th> <!-- Updated Header -->
-                    <th>PSNR ↑</th>
-                    <th>SSIM ↑</th>
-                    <th>LPIPS ↓</th>
-                    <th>Submission Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Placeholder Data - Team Names ARE linked -->
-                <tr>
-                    <td>1</td>
-                    <td><a href="#" title="View Technical Report for Team Visionaries - Task 1.1">Team Visionaries</a></td>
-                    <td>32.50</td>
-                    <td>0.915</td>
-                    <td>0.085</td>
-                    <td>2025-06-28 10:00 UTC</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><a href="#" title="View Technical Report for Spike Masters - Task 1.1">Spike Masters</a></td>
-                    <td>31.80</td>
-                    <td>0.902</td>
-                    <td>0.098</td>
-                    <td>2025-06-29 15:30 UTC</td>
-                </tr>
-                 <tr>
-                    <td>3</td>
-                    <td><a href="#" title="View Technical Report for Neural Knights - Task 1.1">Neural Knights</a></td>
-                    <td>29.95</td>
-                    <td>0.865</td>
-                    <td>0.125</td>
-                    <td>2025-06-30 11:00 UTC</td>
-                </tr>
-                 <!-- Add more rows -->
-            </tbody>
-        </table>
+<h3>Task 1.1: Hybrid camera deblur</h3>
+<table style="font-size:0.83em; table-layout: fixed; word-wrap: break-word;">
+  <thead>
+    <tr>
+      <th rowspan="2" style="width:4%;">Rank</th>
+      <th rowspan="2" style="width:13%;">Team Name (Click for Report)</th>
+      <th rowspan="2" style="width:8%;">Submit ID</th>
+      <th colspan="3" style="width:12%;">GOPRO</th>
+      <th colspan="3" style="width:12%;">X4K1000FPS</th>
+      <th colspan="3" style="width:12%;">Real Data</th>
+      <th rowspan="2" style="width:6%;">Avg Rank</th>
+    </tr>
+    <tr>
+      <th style="width:4%;">PSNR ↑</th>
+      <th style="width:4%;">SSIM ↑</th>
+      <th style="width:4%;">LPIPS ↓</th>
+      <th style="width:4%;">PSNR ↑</th>
+      <th style="width:4%;">SSIM ↑</th>
+      <th style="width:4%;">LPIPS ↓</th>
+      <th style="width:4%;">NIQE ↓</th>
+      <th style="width:4%;">BRISQUE ↓</th>
+      <th style="width:4%;">LIQE ↓</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>
+        <a href="#" title="View Technical Report for NoWeiNoGame – Task 1.1">
+          NoWeiNoGame
+        </a>
+      </td>
+      <td>pqyj</td>
+      <td>37.34</td>
+      <td>0.97</td>
+      <td>0.03</td>
+      <td>37.65</td>
+      <td>0.94</td>
+      <td>0.06</td>
+      <td>7.94</td>
+      <td>44.37</td>
+      <td>1.03</td>
+      <td>1.22</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>
+        <a href="#" title="View Technical Report for nanhu – Task 1.1">
+          nanhu
+        </a>
+      </td>
+      <td>vs6n</td>
+      <td>34.09</td>
+      <td>0.95</td>
+      <td>0.05</td>
+      <td>26.32</td>
+      <td>0.84</td>
+      <td>0.18</td>
+      <td>7.32</td>
+      <td>50.99</td>
+      <td>1.01</td>
+      <td>1.78</td>
+    </tr>
+  </tbody>
+</table>
 
         <!-- == Task 1.2: Deoclusion == -->
-        <h3>Task 1.2: Deoclusion</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team Name (Click for Report)</th> <!-- Updated Header -->
-                    <th>Metric A ↑</th> <!-- Example metric -->
-                    <th>Metric B ↓</th> <!-- Example metric -->
-                    <th>Submission Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Placeholder Data - Team Names ARE linked -->
-                <tr>
-                    <td>1</td>
-                    <td><a href="#" title="View Technical Report for Spike Masters - Task 1.2">Spike Masters</a></td>
-                    <td>0.85</td>
-                    <td>15.2</td>
-                    <td>2025-06-29 10:00 UTC</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><a href="#" title="View Technical Report for Pixel Perfect - Task 1.2">Pixel Perfect</a></td>
-                    <td>0.82</td>
-                    <td>18.9</td>
-                    <td>2025-06-27 09:15 UTC</td>
-                </tr>
-                <!-- Add more rows -->
-            </tbody>
-        </table>
+<h3>Task 1.2: Deoclusion</h3>
+<table style="font-size:0.83em; table-layout: fixed; word-wrap: break-word;">
+  <thead>
+    <tr>
+      <th style="width:4%;">Rank</th>
+      <th style="width:13%;">Team Name (Click for Report)</th>
+      <th style="width:8%;">Submit ID</th>
+      <th style="width:6%;">PSNR ↑</th>
+      <th style="width:6%;">SSIM ↑</th>
+      <th style="width:6%;">LPIPS ↓</th>
+      <th style="width:6%;">NIQE ↓</th>
+      <th style="width:6%;">BRISQUE ↓</th>
+      <th style="width:6%;">LIQE ↓</th>
+      <th style="width:6%;">Avg Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><a href="#" title="View Technical Report for NoWeiNoGame – Task 1.2">NoWeiNoGame</a></td>
+      <td>zbp8</td>
+      <td>20.90</td>
+      <td>0.59</td>
+      <td>0.22</td>
+      <td>4.52</td>
+      <td>26.20</td>
+      <td>1.07</td>
+      <td>1.33</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><a href="#" title="View Technical Report for Spike_King – Task 1.2">Spike_King</a></td>
+      <td>7pui</td>
+      <td>20.20</td>
+      <td>0.58</td>
+      <td>0.24</td>
+      <td>4.56</td>
+      <td>26.89</td>
+      <td>1.06</td>
+      <td>2.67</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><a href="#" title="View Technical Report for Spike_King – Task 1.2">Spike_King</a></td>
+      <td>hr85</td>
+      <td>19.93</td>
+      <td>0.58</td>
+      <td>0.26</td>
+      <td>4.84</td>
+      <td>29.02</td>
+      <td>1.04</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">勤天队</a></td>
+      <td>92j4</td>
+      <td>16.16</td>
+      <td>0.39</td>
+      <td>0.19</td>
+      <td>3.83</td>
+      <td>24.12</td>
+      <td>1.56</td>
+      <td>3.00</td>
+    </tr>
+  </tbody>
+</table>
+
 
         <!-- == Task 1.3: Color reconstruction == -->
-        <h3>Task 1.3: Color reconstruction</h3>
-         <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team Name (Click for Report)</th> <!-- Updated Header -->
-                    <th>PSNR ↑</th>
-                    <th>DeltaE ↓</th> <!-- Example metric for color -->
-                    <th>Submission Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Placeholder Data - Team Names ARE linked -->
-                 <tr>
-                    <td>1</td>
-                    <td><a href="#" title="View Technical Report for Team Visionaries - Task 1.3">Team Visionaries</a></td>
-                    <td>28.5</td>
-                    <td>2.1</td>
-                    <td>2025-06-28 09:00 UTC</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><a href="#" title="View Technical Report for Spike Masters - Task 1.3">Spike Masters</a></td>
-                    <td>27.9</td>
-                    <td>2.5</td>
-                    <td>2025-06-29 15:30 UTC</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td><a href="#" title="View Technical Report for Pixel Perfect - Task 1.3">Pixel Perfect</a></td>
-                    <td>26.0</td>
-                    <td>3.0</td>
-                    <td>2025-06-26 11:00 UTC</td>
-                </tr>
-                 <!-- Add more rows -->
-            </tbody>
-        </table>
+<h3>Task 1.3: Color reconstruction</h3>
+<table style="font-size:0.83em; table-layout: fixed; word-wrap: break-word;">
+  <thead>
+    <tr>
+      <th style="width:4%;">Rank</th>
+      <th style="width:13%;">Team Name (Click for Report)</th>
+      <th style="width:8%;">Submit ID</th>
+      <th style="width:6%;">PSNR ↑</th>
+      <th style="width:6%;">SSIM ↑</th>
+      <th style="width:6%;">LPIPS ↓</th>
+      <th style="width:6%;">NIQE ↓</th>
+      <th style="width:6%;">BRISQUE ↓</th>
+      <th style="width:6%;">LIQE ↓</th>
+      <th style="width:6%;">Avg Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">勤天队</a></td>
+      <td>vr29</td>
+      <td>28.10</td>
+      <td>0.78</td>
+      <td>0.25</td>
+      <td>4.67</td>
+      <td>32.87</td>
+      <td>1.01</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">勤天队</a></td>
+      <td>3cpn</td>
+      <td>23.36</td>
+      <td>0.63</td>
+      <td>0.40</td>
+      <td>23.02</td>
+      <td>43.46</td>
+      <td>1.00</td>
+      <td>2.33</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">勤天队</a></td>
+      <td>sn9e</td>
+      <td>23.36</td>
+      <td>0.63</td>
+      <td>0.40</td>
+      <td>23.02</td>
+      <td>43.46</td>
+      <td>1.00</td>
+      <td>2.33</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">勤天队</a></td>
+      <td>xq4c</td>
+      <td>23.54</td>
+      <td>0.63</td>
+      <td>0.38</td>
+      <td>22.91</td>
+      <td>43.46</td>
+      <td>1.01</td>
+      <td>2.50</td>
+    </tr>
+  </tbody>
+</table>
+
 
         <!-- == Task 1.4: 3D reconstruction == -->
-        <h3>Task 1.4: 3D reconstruction</h3>
-         <table>
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team Name (Click for Report)</th> <!-- Updated Header -->
-                    <th>Chamfer Distance ↓</th> <!-- Example 3D metric -->
-                    <th>Accuracy ↑</th> <!-- Example 3D metric -->
-                    <th>Submission Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Placeholder Data - Team Names ARE linked -->
-                <tr>
-                    <td>1</td>
-                    <td><a href="#" title="View Technical Report for Team Visionaries - Task 1.4">Team Visionaries</a></td> <!-- Note: Visionaries appear again -->
-                    <td>0.05</td>
-                    <td>92.1%</td>
-                    <td>2025-06-27 18:00 UTC</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td><a href="#" title="View Technical Report for Neural Knights - Task 1.4">Neural Knights</a></td>
-                    <td>0.08</td>
-                    <td>89.5%</td>
-                    <td>2025-06-30 11:00 UTC</td>
-                </tr>
-                 <!-- Add more rows -->
-            </tbody>
-        </table>
+<h3>Task 1.4: 3D reconstruction</h3>
+<table style="font-size:0.83em; table-layout:fixed; word-wrap:break-word;">
+  <thead>
+    <tr>
+      <th style="width:4%;">Rank</th>
+      <th style="width:13%;">Team Name (Click for Report)</th>
+      <th style="width:8%;">Submit ID</th>
+      <th style="width:4%;">PSNR ↑</th>
+      <th style="width:4%;">SSIM ↑</th>
+      <th style="width:4%;">LPIPS ↓</th>
+      <th style="width:4%;">NIQE ↓</th>
+      <th style="width:4%;">BRISQUE ↓</th>
+      <th style="width:4%;">LIQE ↓</th>
+      <th style="width:6%;">Avg Rank</th>
+      <th style="width:15%;">Remark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.4">勤天队</a></td>
+      <td>kcle</td>
+      <td>34.70</td>
+      <td>0.97</td>
+      <td>0.03</td>
+      <td>7.18</td>
+      <td>56.35</td>
+      <td>1.03</td>
+      <td>1.33</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.4">勤天队</a></td>
+      <td>slha</td>
+      <td>34.70</td>
+      <td>0.97</td>
+      <td>0.03</td>
+      <td>10.09</td>
+      <td>47.05</td>
+      <td>1.08</td>
+      <td>1.50</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.4">勤天队</a></td>
+      <td>3749</td>
+      <td>34.70</td>
+      <td>0.97</td>
+      <td>0.03</td>
+      <td>10.12</td>
+      <td>46.50</td>
+      <td>1.11</td>
+      <td>1.67</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td><a href="#" title="View Technical Report for Spike_King – Task 1.4">Spike_King</a></td>
+      <td>4963</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td>Wrong format</td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td><a href="#" title="View Technical Report for Spike_King – Task 1.4">Spike_King</a></td>
+      <td>8g63</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td>Wrong format</td>
+    </tr>
+  </tbody>
+</table>
+
         <!-- === End Track 1 === -->
 
 
@@ -496,7 +653,7 @@
         <hr style="margin-top: 40px;"> <!-- Add a separator -->
 
         <p class="placeholder-notice">
-            Note: The data shown here is for demonstration purposes only. Click on a team name in the task-specific tables to view their technical report (links are placeholders). Actual leaderboard results will be updated based on official submissions and evaluations. Global ranking calculation methodology may vary. (↑ Higher is better, ↓ Lower is better). N/A indicates no participation in a specific task.
+            Note:  ↑ Higher is better, ↓ Lower is better. N/A indicates no participation in a specific task.
         </p>
 
     </div> <!-- /leaderboard-container -->
