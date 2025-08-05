@@ -248,7 +248,7 @@ Overall rank based on combined performance across Track 1 tasks. Points per task
       <td>11</td>
       <td>23</td>
       <td>11</td>
-      <td>7pui, vr29, slha</td>
+      <td>7pui, vr29, kcle</td>
     </tr>
     <tr>
       <td>3</td>
@@ -645,7 +645,7 @@ Overall rank based on combined performance across Track 1 tasks. Points per task
   <thead>
     <tr>
       <th style="width:4%;">Rank</th>
-      <th style="width:8%;">Team Name<br>(Click for Report)</th>
+      <th style="width:13%;">Team Name<br>(Click for Report)</th>
       <th style="width:5%;">Submit ID</th>
       <th style="width:6%;">PSNR ↑</th>
       <th style="width:6%;">SSIM ↑</th>
@@ -658,6 +658,7 @@ Overall rank based on combined performance across Track 1 tasks. Points per task
     </tr>
   </thead>
   <tbody>
+        <!-- NoWeiNoGame best -->
     <tr>
       <td>1</td>
       <td><a href="#" title="View Technical Report for NoWeiNoGame – Task 1.4">NoWeiNoGame</a></td>
@@ -668,9 +669,10 @@ Overall rank based on combined performance across Track 1 tasks. Points per task
       <td>6.6899</td>
       <td>56.1346</td>
       <td>1.0282</td>
-      <td>1.67</td>
+      <td>1.33</td>
       <td></td>
     </tr>
+    <!-- NoWeiNoGame duplicate -->
     <tr>
       <td>--</td>
       <td><a href="#" title="View Technical Report for NoWeiNoGame – Task 1.4">NoWeiNoGame</a></td>
@@ -681,11 +683,27 @@ Overall rank based on combined performance across Track 1 tasks. Points per task
       <td>6.6899</td>
       <td>56.1346</td>
       <td>1.0282</td>
+      <td>1.33</td>
+      <td>duplicate</td>
+    </tr>
+
+    <!-- 勤天队 best -->
+    <tr>
+      <td>2</td>
+      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.4">勤天队</a></td>
+      <td>kcle</td>
+      <td>34.7024</td>
+      <td>0.9672</td>
+      <td>0.0271</td>
+      <td>7.1768</td>
+      <td>56.3527</td>
+      <td>1.0297</td>
       <td>1.67</td>
       <td></td>
     </tr>
+    <!-- 勤天队 duplicates -->
     <tr>
-      <td>2</td>
+      <td>--</td>
       <td><a href="#" title="View Technical Report for 勤天队 – Task 1.4">勤天队</a></td>
       <td>slha</td>
       <td>34.7024</td>
@@ -695,20 +713,7 @@ Overall rank based on combined performance across Track 1 tasks. Points per task
       <td>47.0518</td>
       <td>1.0790</td>
       <td>2.00</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.4">勤天队</a></td>
-      <td>kcle</td>
-      <td>34.7024</td>
-      <td>0.9672</td>
-      <td>0.0271</td>
-      <td>7.1768</td>
-      <td>56.3527</td>
-      <td>1.0297</td>
-      <td>2.00</td>
-      <td></td>
+      <td>duplicate</td>
     </tr>
     <tr>
       <td>--</td>
@@ -721,8 +726,23 @@ Overall rank based on combined performance across Track 1 tasks. Points per task
       <td>46.4963</td>
       <td>1.1118</td>
       <td>2.17</td>
-      <td></td>
+      <td>duplicate</td>
     </tr>
+    <!-- Partial real-world results -->
+    <tr>
+      <td>–</td>
+      <td><a href="#" title="View Technical Report for 大脑皮层的褶皱被抚平了 – Task 1.4">大脑皮层的褶皱被抚平了</a></td>
+      <td>e0801</td>
+      <td>33.9755</td>
+      <td>0.9637</td>
+      <td>0.0329</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td class="na-entry">–</td>
+      <td>Missing real-world results</td>
+    </tr>
+    <!-- Invalid submissions at bottom -->
     <tr>
       <td>–</td>
       <td><a href="#" title="View Technical Report for Spike_King – Task 1.4">Spike_King</a></td>
@@ -751,8 +771,6 @@ Overall rank based on combined performance across Track 1 tasks. Points per task
     </tr>
   </tbody>
 </table>
-
-
 
         <!-- === End Track 1 === -->
 
@@ -836,9 +854,10 @@ Overall rank based on combined performance across Track 1 tasks. Points per task
 
         <hr style="margin-top: 40px;"> <!-- Add a separator -->
 
-        <p class="placeholder-notice">
-            Note:  ↑ Higher is better, ↓ Lower is better. N/A indicates no participation in a specific task.
-        </p>
+        <div style="background-color: #eef7ff; border-left: 4px solid #007bff; padding: 15px; margin-top: 40px; font-size: 0.95em; line-height: 1.5;">
+  <strong>Note:</strong> ↑ Higher is better, ↓ Lower is better. N/A indicates no participation in a specific task.<br>
+  <strong>E-ID submissions</strong> (marked with an “E-” prefix) were sent by email. If you cannot upload via the web system, please email your results to <a href="mailto:spikecv@outlook.com">spikecv@outlook.com</a>.
+</div>
 
     </div> <!-- /leaderboard-container -->
     <!-- === End Leaderboard Content === -->
