@@ -27,6 +27,110 @@
 	<script src="../assets/js/html5shiv.js"></script>
 	<script src="../assets/js/respond.min.js"></script>
 	<![endif]-->
+	<style>
+  /* === About page tidy styles === */
+
+  /* 适度的区块间距（不过度压缩） */
+  #team.section-padding{padding:50px 0 40px;}
+  #team .section-title{margin:0 0 16px;}
+  #team .section-title h2{font-size:32px; margin:0 0 6px;}
+  #team .section-title h4 p{margin:6px 0 0;}
+
+  /* 关闭主题里图片上的橙色遮罩/悬浮层（防止“整张变黄”） */
+  .team-item-image:before,
+  .team-item-image:after,
+  .team-item .team-item-detail{display:none !important;}
+
+  /* 头像与照片：不裁剪、不拉伸，保持原比例；限制最大高度防止过大 */
+  .team-item-image img{
+    width:100%;
+    height:auto;
+    max-height:340px;      /* 可按素材改为 300~360 */
+    object-fit:contain;    /* 保持完整显示 */
+    border-radius:6px;
+  }
+  /* Founder 图更小一点、更居中 */
+  .founder-card .team-item-image img{
+    max-height:300px;
+    margin:0 auto;
+    display:block;
+  }
+
+  /* 名称/头衔排版 */
+  .team-item-descr{padding-top:8px; text-align:center;}
+  .team-item-name{font-size:17px; font-weight:700;}
+  .team-item-role{font-size:13.5px; color:#666;}
+
+  /* 每张卡片底部留一点间距 */
+  .team-item{margin-bottom:18px;}
+
+  /* 简洁的文字列表（Advisory / 额外 on-board） */
+  .list-compact{line-height:1.75; font-size:16px; margin:0; font-weight:500;}
+
+  /* Acknowledgment 更醒目一些 */
+  .ack-list{line-height:1.9; font-size:17px; font-weight:500; margin:0;}
+
+  /* 栅格间距略收紧 */
+  @media (min-width:992px){ .grid-tight>[class*="col-"]{padding-left:12px; padding-right:12px;} }
+
+  /* 头像统一大小（如需圆形可改为 border-radius:50%） */
+  .team-item img,
+  .organizer img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto;
+      display: block;
+  }
+
+  /* 姓名和头衔 */
+  .team-item-name,
+  .organizer h4 {
+      font-size: 17px;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 10px;
+  }
+
+  .team-item-role,
+  .organizer p {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      margin-top: 5px;
+  }
+
+  /* 板块标题缩小字号 */
+  .section-title h2 {
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 15px;
+      color: #222;
+      letter-spacing: 1px;
+  }
+
+  .section-title h4 {
+      font-size: 16px;
+      font-weight: 400;
+      color: #555;
+      margin-bottom: 10px;
+  }
+
+  /* Acknowledgment 名单更清晰 */
+  .acknowledgment-list {
+      font-size: 15px;
+      font-weight: 500;
+      text-align: center;
+      margin: 10px 0;
+      letter-spacing: 0.5px;
+  }
+
+  /* 控制板块间距 */
+  #team .row { margin-top: 20px; }
+</style>
 </head>
 
 <body>

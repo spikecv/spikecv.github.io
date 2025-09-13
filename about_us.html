@@ -27,6 +27,113 @@
 	<script src="assets/js/html5shiv.js"></script>
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
+<style>
+  /* === About page tidy styles === */
+
+  /* 适度的区块间距（不过度压缩） */
+  #team.section-padding{padding:50px 0 40px;}
+  #team .section-title{margin:0 0 16px;}
+  #team .section-title h2{font-size:32px; margin:0 0 6px;}
+  #team .section-title h4 p{margin:6px 0 0;}
+
+  /* 关闭主题里图片上的橙色遮罩/悬浮层（防止“整张变黄”） */
+  .team-item-image:before,
+  .team-item-image:after,
+  .team-item .team-item-detail{display:none !important;}
+
+  /* 头像与照片：不裁剪、不拉伸，保持原比例；限制最大高度防止过大 */
+  .team-item-image img{
+    width:100%;
+    height:auto;
+    max-height:340px;      /* 根据你素材大小可调为 300~360 */
+    object-fit:contain;    /* 保持完整显示 */
+    border-radius:6px;
+  }
+  /* Founder 图更小一点、更居中 */
+  .founder-card .team-item-image img{
+    max-height:300px;
+    margin:0 auto;
+    display:block;
+  }
+
+  /* 名称/头衔排版 */
+  .team-item-descr{padding-top:8px; text-align:center;}
+  .team-item-name{font-size:17px; font-weight:700;}
+  .team-item-role{font-size:13.5px; color:#666;}
+
+  /* 每张卡片底部留一点间距 */
+  .team-item{margin-bottom:18px;}
+
+  /* 简洁的文字列表（Advisory / 额外 on-board） */
+  .list-compact{line-height:1.75; font-size:16px; margin:0; font-weight:500;}
+
+  /* Acknowledgment 更醒目一些 */
+  .ack-list{line-height:1.9; font-size:17px; font-weight:500; margin:0;}
+
+  /* 栅格间距略收紧 */
+  @media (min-width:992px){ .grid-tight>[class*="col-"]{padding-left:12px; padding-right:12px;} }
+
+      /* 头像统一大小 */
+    .team-item img,
+    .organizer img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* 姓名和头衔 */
+    .team-item-name,
+    .organizer h4 {
+        font-size: 17px;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .team-item-role,
+    .organizer p {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    /* 板块标题缩小字号 */
+    .section-title h2 {
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 15px;
+        color: #222;
+        letter-spacing: 1px;
+    }
+
+    .section-title h4 {
+        font-size: 16px;
+        font-weight: 400;
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    /* Acknowledgment 名单更清晰 */
+    .acknowledgment-list {
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        margin: 10px 0;
+        letter-spacing: 0.5px;
+    }
+
+    /* 控制板块间距 */
+    #team .row {
+        margin-top: 20px;
+    }
+</style>
+
 </head>
 
 <body>
@@ -58,377 +165,184 @@
 
 	<header id="head" class="secondary"></header>
 
-		<section id="team" class="team section-padding">
-			<div class="container">
-			<div class="row">
-				<div class="section-title text-center">
-					<h2>Main Team Members</h2>
-					<span></span>
-					<h4>
-						<p>Our main team members come from Peking University, including Boya postdoc Yajing Zheng and Ph.D. students Jiyuan Zhang, Rui Zhao, Shiyan Chen and Jianhao Ding.</p>
-					</h4>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-image">
-						<img src="assets/images/developer/zyj.jpg" alt="">
-						<div class="team-item-detail">
-							<h3 class="font-alt normal">郑雅菁</h3>
-							<p>
-								Post Doctor, School of Computer Science, Peking University
-							</p>
-							<ul class="social-share-new">
-								<a href="#" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="btn-social btn-google-plus"><i class="fa fa-google-plus"></i></a>
-								<!-- <a href="#" class="btn-social btn-instagram"><i class="fa fa-instagram"></i></a> -->
-								<a href="#" class="btn-social btn-linkedin"><i class="fa fa-linkedin"></i></a>
-								<a href="#" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
-							</ul>
-						</div>
-						</div>
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Yajing Zheng 郑雅菁
-						</div>
-						<div class="team-item-role">
-							Developer
-						</div>
-						</div>
-					</div>
-				</div>
+<section id="team" class="team section-padding">
+  <div class="container">
 
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-image">
-						<img src="assets/images/developer/zjy2.jpg" alt="">
-						<div class="team-item-detail">
-							<h3 class="font-alt normal">张济远</h3>
-							<p>
-								Ph.D. Student, School of Computer Science, Peking University
-							</p>
-							<ul class="social-share-new">
-								<a href="#" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="btn-social btn-google-plus"><i class="fa fa-google-plus"></i></a>
-								<!-- <a href="#" class="btn-social btn-instagram"><i class="fa fa-instagram"></i></a> -->
-								<a href="#" class="btn-social btn-linkedin"><i class="fa fa-linkedin"></i></a>
-								<a href="#" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
-							</ul>
-						</div>
-						</div>
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Jiyuan Zhang 张济远
-						</div>
-						<div class="team-item-role">
-							Developer
-						</div>
-						</div>
-					</div>
-				</div>
+    <!-- Founder & Inventor -->
+      <div style="text-align: center; margin-bottom: 20px;">
+  <h2 style="font-size: 28px; font-weight: 700;">FOUNDER & INVENTOR</h2>
+  <p style="font-size: 18px; color: #555;">Spike camera inventor and project initiator.</p>
+      </div>
+      <div class="founder-wrap col-md-12">
+        <div class="team-item founder-card">
+          <div class="team-item-image">
+            <img src="./assets_wuji/images/organizers/htj.jpeg" alt="Tiejun Huang">
+          </div>
+          <div class="team-item-descr font-alt text-center">
+            <div class="team-item-name">Prof. Tiejun Huang</div>
+            <div class="team-item-role"> Professor at the School of Computer Science, Peking University<br>
+Director of the State Key Lab of Multimedia Info Processing<br>
+Chairman of BAAI<br>
+</div>
+            <div style="margin-top:6px;">
+              <a href="https://cs.pku.edu.cn/info/1215/1980.htm" target="_blank"><i class="fa fa-home"></i></a>
+              &nbsp;
+              <a href="https://scholar.google.com/citations?user=knvEK4AAAAAJ" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+              &nbsp;
+              <a href="mailto:tjhuang@pku.edu.cn"><i class="fa fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-image">
-						<img src="assets/images/developer/zr2.jpg" alt="">
-						<div class="team-item-detail">
-							<h3 class="font-alt normal">赵睿</h3>
-							<p>
-								Ph.D. Student, School of Computer Science, Peking University
-							</p>
-							<ul class="social-share-new">
-								<a href="#" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="btn-social btn-google-plus"><i class="fa fa-google-plus"></i></a>
-								<!-- <a href="#" class="btn-social btn-instagram"><i class="fa fa-instagram"></i></a> -->
-								<a href="#" class="btn-social btn-linkedin"><i class="fa fa-linkedin"></i></a>
-								<a href="#" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
-							</ul>
-						</div>
-						</div>
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Rui Zhao 赵睿
-						</div>
-						<div class="team-item-role">
-							Developer
-						</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-image">
-						<img src="assets/images/developer/csy.jpg" alt="">
-						<div class="team-item-detail">
-							<h3 class="font-alt normal">陈世炎</h3>
-							<p>
-								Ph.D. Student, School of Computer Science, Peking University
-							</p>
-							<ul class="social-share-new">
-								<a href="#" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="btn-social btn-google-plus"><i class="fa fa-google-plus"></i></a>
-								<!-- <a href="#" class="btn-social btn-instagram"><i class="fa fa-instagram"></i></a> -->
-								<a href="#" class="btn-social btn-linkedin"><i class="fa fa-linkedin"></i></a>
-								<a href="#" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
-							</ul>
-						</div>
-						</div>
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Shiyan Chen 陈世炎
-						</div>
-						<div class="team-item-role">
-							Developer
-						</div>
-						</div>
-					</div>
-				</div>
-			
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-image">
-						<img src="assets/images/developer/djh.jpg" alt="">
-						<div class="team-item-detail">
-							<h3 class="font-alt normal">丁健豪</h3>
-							<p>
-								Ph.D. Student, School of Computer Science, Peking University
-							</p>
-							<ul class="social-share-new">
-								<a href="#" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="btn-social btn-google-plus"><i class="fa fa-google-plus"></i></a>
-								<!-- <a href="#" class="btn-social btn-instagram"><i class="fa fa-instagram"></i></a> -->
-								<a href="#" class="btn-social btn-linkedin"><i class="fa fa-linkedin"></i></a>
-								<a href="#" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
-							</ul>
-						</div>
-						</div>
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Jianhao Ding 丁健豪
-						</div>
-						<div class="team-item-role">
-							Developer
-						</div>
-						</div>
-					</div>
-				</div>
-			
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-image">
-						<img src="assets/images/developer/wwj.jpg" alt="">
-						<div class="team-item-detail">
-							<h3 class="font-alt normal">吴伟建</h3>
-							<p>
-								Engineer, SpikeSee (Beijing) Technology
-							</p>
-							<ul class="social-share-new">
-								<a href="#" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-								<a href="#" class="btn-social btn-google-plus"><i class="fa fa-google-plus"></i></a>
-								<!-- <a href="#" class="btn-social btn-instagram"><i class="fa fa-instagram"></i></a> -->
-								<a href="#" class="btn-social btn-linkedin"><i class="fa fa-linkedin"></i></a>
-								<a href="#" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a>
-							</ul>
-						</div>
-						</div>
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							WeiJian Wu 吴伟建
-						</div>
-						<div class="team-item-role">
-							Hardware Engineer
-						</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="section-title text-center">
-				<br>
-				<h2>Acknowledgment</h2>
-				<span></span>
-				<h4>
-					<p>Thanks to the following researchers and engineers for their support and contributions to this project.</p>
-					<p>(The following are in alphabetical order by last name)</p>
-				</h4>
+    <!-- Core Team (Onboard) -->
+    <div class="row block-gap">
+      <div class="section-title text-center">
+            <h2 style="font-size: 26px; font-weight: 700;">Core Team</h2>
+                      <h2 style="font-size: 20px; font-weight: 700; margin-top:5px">Onboard</h2>
 
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Kang Chen 陈康
-						</div>
-						<div class="team-item-role">
-							Peking University
-						</div>
-						</div>
-					</div>
-				</div>
+      </div>
+      <div class="grid-tight">
+        <!-- Yajing Zheng -->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="team-item">
+            <div class="team-item-image">
+              <img src="./assets_wuji/images/organizers/yjzheng2.jpeg" alt="Yajing Zheng">
+            </div>
+            <div class="team-item-descr font-alt text-center">
+              <div class="team-item-name">Dr. Yajing Zheng</div>
+              <div class="team-item-role">Boya Postdoctoral Researcher, Peking University</div>
+              <div style="margin-top:6px;">
+                <a href="https://zyj061.github.io" target="_blank"><i class="fa fa-home"></i></a>
+                &nbsp;<a href="https://scholar.google.com/citations?user=_bUM0NcAAAAJ" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                &nbsp;<a href="mailto:yj.zheng@pku.edu.cn"><i class="fa fa-envelope"></i></a>
+                &nbsp;<a href="https://github.com/zyj061" target="_blank"><i class="fa fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Rui Zhao -->
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="team-item">
+            <div class="team-item-image">
+              <img src="assets/images/developer/zr2.jpg" alt="Rui Zhao">
+            </div>
+            <div class="team-item-descr font-alt text-center">
+              <div class="team-item-name">Dr. Rui Zhao</div>
+              <div class="team-item-role">Postdoctoral Research Fellow, Nanyang Technological University (Singapore)</div>
+              <div style="margin-top:6px;">
+                <a href="https://ruizhao26.github.io/" target="_blank"><i class="fa fa-home"></i></a>
+                &nbsp;<a href="https://scholar.google.com/citations?user=Ju7_T9cAAAAJ" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                &nbsp;<a href="mailto:ruizhao26@gmail.com"><i class="fa fa-envelope"></i></a>
+                &nbsp;<a href="https://github.com/ruizhao26" target="_blank"><i class="fa fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Ziluo Ding 丁刚
-						</div>
-						<div class="team-item-role">
-							BAAI
-						</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Yanchen Dong 董彦辰
-						</div>
-						<div class="team-item-role">
-							Peking University
-						</div>
-						</div>
-					</div>
-				</div>
+    <!-- Alumni (moved before Advisory Board) -->
+    <div class="row block-gap">
+      <div class="section-title text-center">
+            <h2 style="font-size: 20px; font-weight: 700; margin-top:5px">Alumni</h2>
+      </div>
+      <div class="grid-tight">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="team-item">
+            <div class="team-item-image"><img src="assets/images/developer/zjy2.jpg" alt="Jiyuan Zhang"></div>
+            <div class="team-item-descr font-alt text-center">
+                <div class="team-item-name">Dr. Jiyuan Zhang</div>
+                  <div class="team-item-role">Graduated in Summer 2025 · Now in Industry</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="team-item">
+            <div class="team-item-image"><img src="assets/images/developer/djh.jpg" alt="Jianhao Ding"></div>
+            <div class="team-item-descr font-alt text-center">
+              <div class="team-item-name">Dr. Jianhao Ding</div>
+              <div class="team-item-role">Graduated in Summer 2025 · Now is Postdoctoral Researcher in Peking University</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="team-item">
+            <div class="team-item-image"><img src="assets/images/developer/csy.jpg" alt="Shiyan Chen"></div>
+            <div class="team-item-descr font-alt text-center">
+              <div class="team-item-name">Dr. Shiyan Chen</div>
+                  <div class="team-item-role">Graduated in Summer 2025 · Now in Industry</div>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
 
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Yijia Guo 郭懿嘉
-						</div>
-						<div class="team-item-role">
-							Peking University
-						</div>
-						</div>
-					</div>
-				</div>
+      <!-- Engineer -->
+    <div class="row block-gap">
+          <div class="section-title text-center">
+              <h2 style="font-size: 20px; font-weight: 700;">Engineer</h2>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4">
+              <div class="team-item">
+                  <div class="team-item-image"><img src="assets/images/developer/wwj.jpg" alt="Weijian Wu"></div>
+                  <div class="team-item-descr font-alt text-center">
+                      <div class="team-item-name">Weijian Wu 吴伟建</div>
+                      <div class="team-item-role">Hardware Engineer, SpikeSee (Beijing) Technology</div>
+                  </div>
+              </div>
+          </div>
+          </div>
 
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Jin Han 韩金
-						</div>
-						<div class="team-item-role">
-							University of Tokyo
-						</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Jinting Hou	侯金亭
-						</div>
-						<div class="team-item-role">
-							SpikeSee Technology
-						</div>
-						</div>
-					</div>
-				</div>
-				
+    <!-- Advisory Board (names only) -->
+    <div class="row block-gap">
+      <div class="section-title text-center">
+            <h2 style="font-size: 26px; font-weight: 700;">Advisory Board</h2>
+      </div>
+      <div class="col-md-12">
+        <ul class="list-unstyled list-compact text-center">
+          <li>Prof. Tiejun Huang — Peking University</li>
+          <li>Prof. Boxin Shi — Peking University</li>
+          <li>Prof. Ruiqing Xiong — Peking University</li>
+          <li>Prof. Lin Zhu — Beijing Institute of Technology</li>
+        </ul>
+      </div>
+    </div>
 
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Liwen Hu 胡力文
-						</div>
-						<div class="team-item-role">
-							Peking University
-						</div>
-						</div>
-					</div>
-				</div>
+      <!-- Additional Onboard Contributors -->
+    <div class="row block-gap">
+      <div class="section-title text-center">
+            <h2 style="font-size: 26px; font-weight: 700;">Onboard (Additional Contributors)</h2>
+      </div>
+      <div class="col-md-12">
+        <ul class="list-unstyled list-compact text-center">
+          <li>Lingxiao Zheng - PhD student, Peking University</li>
+          <li>Yanchen Dong - PhD student, Peking University</li>
+        </ul>
+      </div>
+    </div>
 
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Jianing Li 李家宁
-						</div>
-						<div class="team-item-role">
-							Qiyuan Laboratory
-						</div>
-						</div>
-					</div>
-				</div>
+<!-- Acknowledgment Section -->
+<div style="text-align: center; margin-top: 0px;">
+  <h2 style="font-size: 26px; font-weight: 700;">ACKNOWLEDGMENT</h2>
+  <p style="font-size: 16px; margin-bottom: 20px;">(The following are listed in alphabetical order by <strong>first name</strong>)</p>
+  <div style="display: inline-block; text-align: left; font-size: 16px; line-height: 1.8;">
+    Jianing Li — Qiyuan Laboratory<br>
+    Jin Han — University of Tokyo<br>
+    Jing Zhao — National Internet Emergency Center<br>
+    Jinting Hou — SpikeSee Technology<br>
+    Junwei Zhao — Peking University<br>
+    Kang Chen — Peking University<br>
+    Liwen Hu — Peking University<br>
+    Lujie Xia — Peking University<br>
+    Xijie Xiang — Shanghai Jiao Tong University<br>
+    Yijia Guo — Peking University<br>
+    Ziluo Ding — BAAI
+  </div>
+</div>
+  </div>
+</section>
 
-				
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Lujie Xia 夏禄杰
-						</div>
-						<div class="team-item-role">
-							Peking University
-						</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Xijie Xiang 项锡捷
-						</div>
-						<div class="team-item-role">
-							Shanghai Jiao Tong University
-						</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Jing Zhao 赵菁
-						</div>
-						<div class="team-item-role">
-							National Internet<br>Emergency Center
-						</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Junwei Zhao 赵君伟
-						</div>
-						<div class="team-item-role">
-							Peking University
-						</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-sm-3 col-xs-12">
-					<div class="team-item">
-						<div class="team-item-descr font-alt">
-						<div class="team-item-name">
-							Lin Zhu 朱林
-						</div>
-						<div class="team-item-role">
-							Beijing Institute of Technology
-						</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			</div>
-		</section>
-		<!-- End Team -->
-
-	<!-- container -->
 	<!-- /container -->
 	
 	<footer id="footer" class="top-space">
