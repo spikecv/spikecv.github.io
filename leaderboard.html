@@ -1,1343 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SpikeCV Wuji Competition - Leaderboard</title>
-    <link rel="icon" href="assets/logo/spikecv.png"> <!-- Assuming assets folder is accessible -->
+    <link rel="icon" href="assets/logo/spikecv.png" />
 
     <!-- === CSS From Main Page REQUIRED for Navbar === -->
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css"> <!-- Adjust path if needed -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css"> <!-- Adjust path if needed -->
-    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" > <!-- Adjust path if needed -->
-    <link rel="stylesheet" href="assets/css/style.css"> <!-- Adjust path if needed -->
-    <link href="assets/css/responsive.css" rel="stylesheet" /> <!-- Adjust path if needed -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="assets/css/responsive.css" rel="stylesheet" />
     <!-- === End CSS From Main Page === -->
 
     <style>
-        /* Custom styles for the leaderboard content */
-        body {
-            /* font-family: sans-serif; */ /* Inherits from bootstrap/theme */
-            line-height: 1.6;
-            padding-top: 200px;
-            background-color: #f4f4f4;
-            color: #333;
+        body{
+            line-height:1.6;
+            padding-top:90px;
+            background:#f4f4f4;
+            color:#333;
         }
-        .leaderboard-container {
-            max-width: 960px; /* Adjusted max-width for potentially wider tables */
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            position: relative; /* Needed for positioning context */
-        }
-        @media (min-width: 1200px) { /* Example: Increase width on larger screens */
-             .leaderboard-container {
-                 max-width: 1140px;
-             }
-        }
-        h1, h2 {
-            text-align: center;
-            color: #011627;
-        }
-        /* Style for Task subheadings */
-        h3 {
-            margin-top: 30px;
-            margin-bottom: 10px;
-            color: #011627;
-            font-size: 1.5em;
-             border-bottom: 1px solid #ccc;
-             padding-bottom: 3px;
-        }
-        /* --- Style for the Last Update Time --- */
-        .last-update-time {
-            float: right;
-            font-size: 0.85em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-        /* Ensure H1 clears the floated element */
-        .leaderboard-container h1 {
-            clear: both;
-            margin-top: 0;
-        }
-        /* --- End Style for Last Update Time --- */
+        /* 让容器成为定位上下文 */
+        /* 小屏再紧一点 */
+@media (max-width: 991px){
+  body{ padding-top: 70px; }
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px; /* Reduced margin-top slightly */
-            table-layout: auto; /* Allow table to adjust column widths */
-            word-wrap: break-word; /* Prevent long team names from breaking layout */
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px 12px;
-            text-align: left;
-            vertical-align: middle; /* Align cell content vertically */
-        }
-        th {
-            background-color: #e2e2e2;
-            font-weight: bold;
-            white-space: nowrap; /* Keep headers on one line if possible */
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-        /* Center align Rank and metric columns */
-        th:first-child, td:first-child { /* Rank column */
-           text-align: center;
-           width: 5%; /* Give Rank a smaller width */
-        }
-        /* Align Team Name column to the left */
-        th:nth-child(2), td:nth-child(2) {
-           text-align: left;
-        }
-        /* Center align Metric columns (3rd onwards, except last) */
-        th:nth-child(n+3):not(:last-child),
-        td:nth-child(n+3):not(:last-child) {
-           text-align: center;
-        }
-        /* Right align submission time */
-        th:last-child, td:last-child {
-            text-align: right;
-            white-space: nowrap;
-        }
-        /* Style for links in table cells */
-        td a {
-            /* Optional: Add styling if needed */
-            /* color: #0056b3; */
-            /* text-decoration: none; */
-        }
-        td a:hover {
-             /* Optional: Add hover styling */
-            /* text-decoration: underline; */
-        }
+/* 容器顶边距也压缩一点（可选） */
+.leaderboard-container{
+  margin-top: 8px;
+}
+.leaderboard-container{
+  position: relative;   /* ⬅ 新增 */
+}
 
-        .track-title {
-            margin-top: 40px;
-            border-bottom: 2px solid #011627;
-            padding-bottom: 5px;
-        }
+/* 让更新时间绝对定位到右上角，不再占据行内宽度 */
+.last-update-time{
+  position: absolute;   /* ⬅ 改为绝对定位 */
+  right: 16px;
+  top: 12px;
+  float: none;          /* ⬅ 移除浮动影响 */
+  font-size: .85em;
+  color: #666;
+  margin: 0;            /* 确保不顶起标题 */
+}
 
-        /* Style for upcoming/dimmed tracks */
-        .track-upcoming {
-            opacity: 0.5; /* Adjust transparency level as needed */
-            pointer-events: none; /* Prevent interaction with dimmed content */
-            transition: opacity 0.3s ease-in-out;
-        }
+/* 保证标题在容器中真正水平居中 */
+.leaderboard-container h1{
+  text-align: center;
+  margin-top: 0.6rem;   /* 适当留白 */
+}
 
-        .placeholder-notice {
-            text-align: center;
-            margin-top: 30px;
-            font-style: italic;
-            color: #666;
+        .leaderboard-container{
+            max-width:1140px;
+            margin:20px auto;
+            background:#fff;
+            padding:24px;
+            border-radius:8px;
+            box-shadow:0 0 10px rgba(0,0,0,.1);
         }
-         .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
+        h1,h2{ text-align:center; color:#011627; }
+        .track-title{
+            margin-top:40px;
+            border-bottom:2px solid #011627;
+            padding-bottom:6px;
         }
-        .back-link:hover {
-            background-color: #0056b3;
+        .last-update-time{
+            float:right;
+            font-size:.85em;
+            color:#666;
+            margin-bottom:5px;
         }
-        /* Ensure H2 headers have enough top margin after tables */
-        .leaderboard-container > h2 {
-            margin-top: 50px;
+        table{ width:100%; border-collapse:collapse; margin-top:14px; table-layout:auto; word-wrap:break-word; }
+        th,td{ border:1px solid #ddd; padding:10px 12px; vertical-align:middle; }
+        th{ background:#eaeaea; white-space:nowrap; }
+        tr:nth-child(even){ background:#fafafa; }
+        tr:hover{ background:#f1f1f1; }
+        .col-rank{ width:70px; text-align:center; }
+        .note{
+            background:#eef7ff; border-left:4px solid #007bff; padding:15px;
+            margin-top:40px; font-size:.95em; line-height:1.5;
         }
-        /* Reduce margin between task H3 and the preceding table */
-        table + h3 {
-            margin-top: 40px;
-        }
-         /* Style for N/A entries */
-         td.na-entry {
-            color: #999;
-            text-align: center;
-         }
     </style>
 </head>
 <body>
 
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
-        <div class="container">
-            <div class="navbar-header">
-            <!-- Button for smallest screens -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" width="180" height="60" alt="vOne HTML5 template"></a> </div>
-            <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav pull-right">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="competition.html">Competition</a></li>
-                <li><a href="features.html">Intro</a></li>
-                <li><a href="research_topics.html">Research Topics</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li class="active"><a href="links.html">Links</a></li>
-                <li><a href="zh/index.html">中文</a></li>
-            </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top headroom">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" width="180" height="60" alt="SpikeCV"></a>
     </div>
-    <!-- /.navbar -->
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="competition.html">Competition</a></li>
+        <li><a href="features.html">Intro</a></li>
+        <li><a href="research_topics.html">Research Topics</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li class="active"><a href="links.html">Links</a></li>
+        <li><a href="zh/index.html">中文</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- /.navbar -->
 
-    <!-- === Leaderboard Content === -->
-    <div class="leaderboard-container">
+<div class="leaderboard-container">
+  <p id="last-updated" class="last-update-time"></p>
+  <h1>SpikeCV Wuji Competition Leaderboard</h1>
 
-        <!-- === Last Update Time Placeholder === -->
-        <p id="last-updated" class="last-update-time"></p>
-        <!-- ======================================== -->
+  <!-- =============================== -->
+  <!-- Track 1: Awards-style leaderboard -->
+  <!-- =============================== -->
+  <h2 class="track-title">Track 1: Texture Restoration — Final Awards</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="col-rank">Rank</th>
+        <th>Team Name</th>
+        <th>Affiliations</th>
+        <th>Completed Tasks</th>
+        <th>Awards</th>
+        <th>Members</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-rank">1</td>
+        <td>NoWeiNoGame</td>
+        <td>Capital Medical University; Beihang University</td>
+        <td>1/2/3/4</td>
+        <td>First Prize</td>
+        <td>Zixuan Jiao; JiaHui Lv; Tianyu Li; Yuyun Xiao; ZheHao Chen; Xinyu Zhang; Yuxin Dai; Miao Yang; Wenyan Liu; Dawei Weng; Qingjie Liu</td>
+      </tr>
+      <tr>
+        <td class="col-rank">2</td>
+        <td>Yurion</td>
+        <td>Peking University</td>
+        <td>1/2/3</td>
+        <td>Second Prize</td>
+        <td>Yuliang Zhou</td>
+      </tr>
+      <tr>
+        <td class="col-rank">3</td>
+        <td>Chopstick-Brothers</td>
+        <td>Chongqing University of Posts and Telecommunications</td>
+        <td>1/2/3</td>
+        <td>Second Prize</td>
+        <td>Tianhao You; Taixing Jiang; Yihan Liu</td>
+      </tr>
+      <tr>
+        <td class="col-rank">4</td>
+        <td>Qin Tian</td>
+        <td>China Nanhu Academy of Electronics and Information Technology</td>
+        <td>2/3/4</td>
+        <td>Third Prize</td>
+        <td>Huilin Cheng; Lianjie Jiang; Jiayang Li; Xu Liu; Shuaishuai Wang; Qihang Zhan; Siming Zeng; Xiangsheng Meng</td>
+      </tr>
+      <tr>
+        <td class="col-rank">5</td>
+        <td>Ironed Cortical Folds</td>
+        <td>Sichuan University</td>
+        <td>4</td>
+        <td>Third Prize</td>
+        <td>Yufei Deng; Yuanjian Wang; Zihui Zhang; Feiyu An; Rong Xiao</td>
+      </tr>
+      <tr>
+        <td class="col-rank">6</td>
+        <td>Spike King</td>
+        <td>Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences; Institute of Automation, Chinese Academy of Sciences; Hebei University of Technology; Southern Medical University; Delft University of Technology; ShanghaiTech University</td>
+        <td>1/2/3</td>
+        <td>Third Prize</td>
+        <td>Binghao Ye; Yuji Li; Ziyi Shen; Bin Liu; Jiaming Yan; Zewen Chen; Ruibo Wang; Junran Yang; Changhui Su; Juan Wang; Wenjuan Li; Kun Shang</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="margin-top:8px; color:#555; font-size:.9em;">
+    Note: Detailed per-task scoreboards (Tasks 1.1–1.4) have been removed per finalization; the table above reflects the final awards and ordering.
+  </p>
 
-        <h1>SpikeCV Wuji Competition Leaderboard</h1>
+  <!-- =============================== -->
+  <!-- Track 2 -->
+  <!-- =============================== -->
+  <h2 class="track-title">Track 2: Dataset &amp; Benchmark — Final Awards</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Award</th>
+        <th>Team Name</th>
+        <th>Members</th>
+        <th>Affiliations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Best Dataset &amp; Benchmark Award</td>
+        <td>SDTrack-Team</td>
+        <td>Yimeng Shan; Haodi Wu; Wei Zheng; Zhenbang Ren; Wenjie Wei; Shuai Wang; Malu Zhang</td>
+        <td>University of Electronic Science and Technology of China; Liaoning Technical University</td>
+      </tr>
+    </tbody>
+  </table>
 
-<!-- ★ Prominent English notice for missing submissions -->
-<!--<div style="background-color: #ffefc2; border: 2px solid #ffcc00; padding: 12px; border-radius: 6px; text-align: center; margin-bottom: 20px; font-size: 1.05em; font-weight: bold; color: #663300;">-->
-<!--  Note: Some results submitted on Aug 10 are still under evaluation due to a temporary system issue. They will be updated here soon.-->
-<!--</div>-->
+  <!-- =============================== -->
+  <!-- Track 3 -->
+  <!-- =============================== -->
+  <h2 class="track-title">Track 3: Open-Spike Innovation — Final Awards</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Award</th>
+        <th>Team Name</th>
+        <th>Members</th>
+        <th>Affiliations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Outstanding Participation Award</td>
+        <td>Zevu-Team</td>
+        <td>Zeyu Xiao</td>
+        <td>National University of Singapore</td>
+      </tr>
+      <tr>
+        <td>Outstanding Participation Award</td>
+        <td>Spike Symphony</td>
+        <td>Alejandro Jiménez Rodríguez; Muhammad Aitsam; Syed Saad Hassan</td>
+        <td>Sheffield Hallam University; Sapienza University of Rome</td>
+      </tr>
+    </tbody>
+  </table>
 
-        <!-- ======================================= -->
-        <!-- === Track 1: Texture Restoration === -->
-        <!-- ======================================= -->
-        <h2 class="track-title">Track 1: Texture Restoration</h2>
-
-        <!-- == Overall Ranking (Track 1) == -->
-<!-- == Overall Ranking (Track 1) — updated Task 4 points with joint-1st split ( (23+11)/2 = 17 ) == -->
-<h3>Overall Ranking (Track 1)</h3>
-<p style="font-size:0.9em; color:#555;">
-Overall rank based on combined performance across Track 1 tasks. Points per task: 1st→23, 2nd→11, 3rd→5, 4th→2, 5th→1, 6th→1, 7th+→0. (For ties in a task, tied places share the average of the tied points.)
-</p>
-<table style="font-size:0.83em; table-layout:fixed; word-wrap:break-word;">
-  <thead>
-    <tr>
-      <th style="width:4%;">Rank</th>
-      <th style="width:20%;">Team Name</th>
-      <th style="width:8%;">Overall ↑</th>
-      <th style="width:8%;">Task 1</th>
-      <th style="width:8%;">Task 2</th>
-      <th style="width:8%;">Task 3</th>
-      <th style="width:8%;">Task 4</th>
-      <th style="width:25%;">Submission IDs</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- 1 -->
-    <tr>
-      <td>1</td>
-      <td>NoWeiNoGame</td>
-      <td>62</td> <!-- 59 - 23 + 17 -->
-      <td>11</td>
-      <td>23</td>
-      <td>11</td>
-      <td>17</td>
-      <td>e0806-1, zbp8, e0810-3a, zvbx</td>
-    </tr>
-    <!-- 2 -->
-    <tr>
-      <td>2</td>
-      <td>Yurion</td>
-      <td>39</td>
-      <td>5</td>
-      <td>11</td>
-      <td>23</td>
-      <td>0</td>
-      <td>e0804-1, e0810-2b, e0809-3a</td>
-    </tr>
-    <!-- 3 -->
-    <tr>
-      <td>3</td>
-      <td>Chopstick-Brothers</td>
-      <td>29</td>
-      <td>23</td>
-      <td>1</td>
-      <td>5</td>
-      <td>0</td>
-      <td>e0809-1, e0808, e0807-3b</td>
-    </tr>
-    <!-- 4 -->
-    <tr>
-      <td>4</td>
-      <td>大脑皮层的褶皱被抚平了</td>
-      <td>17</td> <!-- 1 + 17 -->
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>17</td>
-      <td>e0810-4a</td>
-    </tr>
-    <!-- 5 -->
-    <tr>
-      <td>4</td>
-      <td>勤天队</td>
-      <td>17</td> <!-- 18 - 11 + 5 -->
-      <td>2</td>
-      <td>2</td>
-      <td>2</td>
-      <td>11</td>
-      <td>vs6n, 92j4, vr29, kcle</td>
-    </tr>
-    <!-- 6 -->
-    <tr>
-      <td>6</td>
-      <td>Spike_King</td>
-      <td>7</td>
-      <td>1</td>
-      <td>5</td>
-      <td>1</td>
-      <td>0</td>
-      <td>e0810-1a, 7pui, e0809-3b</td>
-    </tr>
-    <!-- 7 -->
-    <tr>
-      <td>7</td>
-      <td>UESTC-SNNers-2</td>
-      <td>4</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-      <td>e0810-2c, e0810-3b, e0810-4b</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-
-
-
-        <!-- == Task 1.1: Hybrid camera deblur == -->
-<h3>Task 1.1: Hybrid camera deblur</h3>
-<table style="font-size:0.83em; table-layout: fixed; word-wrap: break-word;">
-  <thead>
-    <tr>
-      <th rowspan="2" style="width:4%;">Rank</th>
-      <th rowspan="2" style="width:8%;">Team Name<br>(Click for Report)</th>
-      <th rowspan="2" style="width:5%;">Submit ID</th>
-      <th colspan="3" style="width:12%;">GOPRO</th>
-      <th colspan="3" style="width:12%;">X4K1000FPS</th>
-      <th colspan="3" style="width:12%;">Real Data</th>
-      <th rowspan="2" style="width:6%;">Avg Rank</th>
-      <th rowspan="2" style="width:6%;">Remark</th>
-    </tr>
-    <tr>
-      <th style="width:4%;">PSNR ↑</th>
-      <th style="width:4%;">SSIM ↑</th>
-      <th style="width:4%;">LPIPS ↓</th>
-      <th style="width:4%;">PSNR ↑</th>
-      <th style="width:4%;">SSIM ↑</th>
-      <th style="width:4%;">LPIPS ↓</th>
-      <th style="width:4%;">NIQE ↓</th>
-      <th style="width:4%;">BRISQUE ↓</th>
-      <th style="width:4%;">LIQE ↓</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>
-        <a href="#" title="View Technical Report for NoWeiNoGame – Task 1.1">
-          Chopstick-Brothers
-        </a>
-      </td>
-      <td>e0809-3a</td>
-      <td>37.8813</td>
-      <td>0.9733</td>
-      <td>0.0356</td>
-      <td>37.6524</td>
-      <td>0.9416</td>
-      <td>0.0629</td>
-      <td>5.4039</td>
-      <td>40.792</td>
-      <td>1.0075</td>
-      <td>2.33</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>
-        <a href="#" title="View Technical Report for NoWeiNoGame – Task 1.1">
-          NoWeiNoGame
-        </a>
-      </td>
-      <td>e0806-1</td>
-      <td>37.4043</td>
-      <td>0.9741</td>
-      <td>0.0303</td>
-      <td>37.6463</td>
-      <td>0.9431</td>
-      <td>0.0581</td>
-      <td>7.4479</td>
-      <td>44.2412</td>
-      <td>1.0143</td>
-      <td>2.89</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td>
-        <a href="#" title="View Technical Report for NoWeiNoGame – Task 1.1">
-          Chopstick-Brothers
-        </a>
-      </td>
-      <td>e0808-1</td>
-      <td>37.4909</td>
-      <td>0.9711</td>
-      <td>0.0377</td>
-      <td>37.3716</td>
-      <td>0.9398</td>
-      <td>0.0647</td>
-      <td>5.403</td>
-      <td>40.7755</td>
-      <td>1.0074</td>
-      <td>2.89</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td>
-        <a href="#" title="View Technical Report for NoWeiNoGame – Task 1.1">
-          NoWeiNoGame
-        </a>
-      </td>
-      <td>pqyj</td>
-      <td>37.3404</td>
-      <td>0.9737</td>
-      <td>0.031</td>
-      <td>37.6463</td>
-      <td>0.9431</td>
-      <td>0.0581</td>
-      <td>7.9443</td>
-      <td>44.3671</td>
-      <td>1.0299</td>
-      <td>3.67</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>
-        <a href="#" title="View Technical Report for Task 1.1">
-          Yurion
-        </a>
-      </td>
-      <td>e0804-1</td>
-      <td>36.8214</td>
-      <td>0.9685</td>
-      <td>0.0397</td>
-      <td>37.1992</td>
-      <td>0.9384</td>
-      <td>0.0659</td>
-      <td>5.5216</td>
-      <td>39.1213</td>
-      <td>1.0079</td>
-      <td>4.56</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>
-        <a href="#" title="View Technical Report for Task 1.1">
-          Chopstick_Brothers
-        </a>
-      </td>
-      <td>e0807-1</td>
-      <td>36.8211</td>
-      <td>0.9685</td>
-      <td>0.0396</td>
-      <td>37.1998</td>
-      <td>0.9384</td>
-      <td>0.0659</td>
-      <td>7.356</td>
-      <td>51.0255</td>
-      <td>1.0076</td>
-      <td>5.22</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>
-        <a href="#" title="View Technical Report for Task 1.1">
-          勤天队
-        </a>
-      </td>
-      <td>vs6n</td>
-      <td>34.0877</td>
-      <td>0.9511</td>
-      <td>0.0465</td>
-      <td>26.3233</td>
-      <td>0.8412</td>
-      <td>0.1769</td>
-      <td>7.3199</td>
-      <td>50.9899</td>
-      <td>1.0077</td>
-      <td>6.56</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>
-        <a href="#" title="View Technical Report for Task 1.1">
-          Spike_King
-        </a>
-      </td>
-      <td>e0810_1a</td>
-      <td>31.9518</td>
-      <td>0.9638</td>
-      <td>0.0415</td>
-      <td>19.5759</td>
-      <td>0.6502</td>
-      <td>0.2575</td>
-      <td>7.8877</td>
-      <td>47.625</td>
-      <td>1.0112</td>
-      <td>7.22</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td>
-        <a href="#" title="View Technical Report for Task 1.1">
-          NoWeiNoGame
-        </a>
-      </td>
-      <td>4j78</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Wrong format</td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td>
-        <a href="#" title="View Technical Report for Task 1.1">
-          NoWeiNoGame
-        </a>
-      </td>
-      <td>f4ig</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Wrong format</td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td>
-        <a href="#" title="View Technical Report for Task 1.1">
-          DAWN
-        </a>
-      </td>
-      <td>tvz8</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Wrong format</td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td>
-        <a href="#" title="View Technical Report for Task 1.1">
-          UESTC-SNNers-2
-        </a>
-      </td>
-      <td>e0810_1b</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Unreasonable</td>
-    </tr>
-  </tbody>
-</table>
-
-        <!-- == Task 1.2: Deoclusion == -->
-<h3>Task 1.2: Deocclusion</h3>
-<table style="font-size:0.83em; table-layout: fixed; word-wrap: break-word;">
-  <thead>
-    <tr>
-      <th style="width:4%;">Rank</th>
-      <th style="width:8%;">Team Name<br>(Click for Report)</th>
-      <th style="width:5%;">Submit ID</th>
-      <th style="width:6%;">PSNR ↑</th>
-      <th style="width:6%;">SSIM ↑</th>
-      <th style="width:6%;">LPIPS ↓</th>
-      <th style="width:6%;">NIQE ↓</th>
-      <th style="width:6%;">BRISQUE ↓</th>
-      <th style="width:6%;">LIQE ↓</th>
-      <th style="width:6%;">Avg Rank</th>
-      <th style="width:6%;">Remark</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><a href="#" title="View Technical Report for NoWeiNoGame – Task 1.2">NoWeiNoGame</a></td>
-      <td>zbp8</td>
-      <td>20.9016</td>
-      <td>0.5888</td>
-      <td>0.2182</td>
-      <td>4.517</td>
-      <td>26.1978</td>
-      <td>1.0714</td>
-      <td>4.5</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for Spike_King – Task 1.2">NoWeiNoGame</a></td>
-      <td>e0803-2</td>
-      <td>21.0033</td>
-      <td>0.5955</td>
-      <td>0.2277</td>
-      <td>4.6628</td>
-      <td>27.3131</td>
-      <td>1.0647</td>
-      <td>4.67</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Yurion</a></td>
-      <td>e0810_2b</td>
-      <td>21.5587</td>
-      <td>0.5927</td>
-      <td>0.2046</td>
-      <td>5.1793</td>
-      <td>31.7055</td>
-      <td>1.1179</td>
-      <td>6</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Spike_King</a></td>
-      <td>7pui</td>
-      <td>20.2041</td>
-      <td>0.5758</td>
-      <td>0.2384</td>
-      <td>4.555</td>
-      <td>26.8891</td>
-      <td>1.0624</td>
-      <td>6.17</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Yurion</a></td>
-      <td>e0810-2a</td>
-      <td>21.6248</td>
-      <td>0.5951</td>
-      <td>0.2853</td>
-      <td>6.0637</td>
-      <td>37.2932</td>
-      <td>1.031</td>
-      <td>6.33</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Yurion</a></td>
-      <td>e0809-2</td>
-      <td>20.8585</td>
-      <td>0.5714</td>
-      <td>0.1599</td>
-      <td>5.1995</td>
-      <td>24.9167</td>
-      <td>1.3042</td>
-      <td>6.67</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Yurion</a></td>
-      <td>e0807-2</td>
-      <td>20.7095</td>
-      <td>0.5726</td>
-      <td>0.1821</td>
-      <td>5.0341</td>
-      <td>27.1156</td>
-      <td>1.1296</td>
-      <td>6.67</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Yurion</a></td>
-      <td>e0804-2</td>
-      <td>21.6692</td>
-      <td>0.5911</td>
-      <td>0.3428</td>
-      <td>6.1899</td>
-      <td>42.1754</td>
-      <td>1.0142</td>
-      <td>6.83</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Spike_King</a></td>
-      <td>e0807-2b</td>
-      <td>20.0502</td>
-      <td>0.5837</td>
-      <td>0.2325</td>
-      <td>4.5356</td>
-      <td>29.6231</td>
-      <td>1.0727</td>
-      <td>6.83</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td><a href="#" title="View Technical Report for Spike_King – Task 1.2">勤天队</a></td>
-      <td>92j4</td>
-      <td>16.1638</td>
-      <td>0.3916</td>
-      <td>0.1931</td>
-      <td>3.8261</td>
-      <td>24.115</td>
-      <td>1.5594</td>
-      <td>7</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Spike_King</a></td>
-      <td>hr85</td>
-      <td>19.9291</td>
-      <td>0.5777</td>
-      <td>0.2643</td>
-      <td>4.8395</td>
-      <td>29.0213</td>
-      <td>1.038</td>
-      <td>7.17</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Chopstick-Brothers</a></td>
-      <td>e0808-2</td>
-      <td>17.2469</td>
-      <td>0.5303</td>
-      <td>0.5402</td>
-      <td>7.5435</td>
-      <td>48.8539</td>
-      <td>1.0134</td>
-      <td>10.17</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">Chopstick-Brothers</a></td>
-      <td>e0810-2c</td>
-      <td>16.0301</td>
-      <td>0.3446</td>
-      <td>0.4276</td>
-      <td>9.3427</td>
-      <td>33.7219</td>
-      <td>1.1519</td>
-      <td>12</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.2">勤天队</a></td>
-      <td>bw7v</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Wrong format</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        <!-- == Task 1.3: Color reconstruction == -->
-<h3>Task 1.3: Color reconstruction</h3>
-<table style="font-size:0.83em; table-layout: fixed; word-wrap: break-word;">
-  <thead>
-    <tr>
-      <th style="width:4%;">Rank</th>
-      <th style="width:8%;">Team Name<br>(Click for Report)</th>
-      <th style="width:5%;">Submit ID</th>
-      <th style="width:6%;">PSNR ↑</th>
-      <th style="width:6%;">SSIM ↑</th>
-      <th style="width:6%;">LPIPS ↓</th>
-      <th style="width:6%;">NIQE ↓</th>
-      <th style="width:6%;">BRISQUE ↓</th>
-      <th style="width:6%;">LIQE ↓</th>
-      <th style="width:6%;">Avg Rank</th>
-      <th style="width:6%;">Remark</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">Yurion</a></td>
-      <td>e0809-3a</td>
-      <td>31.148</td>
-      <td>0.8668</td>
-      <td>0.1569</td>
-      <td>4.9562</td>
-      <td>29.3362</td>
-      <td>1.1158</td>
-      <td>5.5</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">NoWeiNoGame</a></td>
-      <td>e0810-3a</td>
-      <td>32.7802</td>
-      <td>0.8927</td>
-      <td>0.0947</td>
-      <td>5.5595</td>
-      <td>48.4852</td>
-      <td>1.4004</td>
-      <td>5.67</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">NoWeiNoGame</a></td>
-      <td>e0809-3b</td>
-      <td>32.7802</td>
-      <td>0.8927</td>
-      <td>0.0947</td>
-      <td>5.5606</td>
-      <td>48.4982</td>
-      <td>1.4003</td>
-      <td>5.83</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">Chopstick-Brothers</a></td>
-      <td>e0807-3b</td>
-      <td>30.0387</td>
-      <td>0.8494</td>
-      <td>0.1442</td>
-      <td>5.4185</td>
-      <td>30.8676</td>
-      <td>1.1676</td>
-      <td>6.17</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">Chopstick-Brothers</a></td>
-      <td>e0808</td>
-      <td>30.2287</td>
-      <td>0.8475</td>
-      <td>0.1447</td>
-      <td>5.4185</td>
-      <td>30.8676</td>
-      <td>1.1676</td>
-      <td>6.33</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">勤天队</a></td>
-      <td>vr29</td>
-      <td>28.10</td>
-      <td>0.78</td>
-      <td>0.25</td>
-      <td>4.67</td>
-      <td>32.87</td>
-      <td>1.01</td>
-      <td>6.33</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">NoWeiNoGame</a></td>
-      <td>e-0803-3</td>
-      <td>32.7802</td>
-      <td>0.8927</td>
-      <td>0.0947</td>
-      <td>5.562</td>
-      <td>48.5468</td>
-      <td>1.4008</td>
-      <td>6.5</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">NoWeiNoGame</a></td>
-      <td>e-0805-3a</td>
-      <td>32.7802</td>
-      <td>0.8927</td>
-      <td>0.0947</td>
-      <td>5.562</td>
-      <td>48.5468</td>
-      <td>1.4008</td>
-      <td>6.5</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">NoWeiNoGame</a></td>
-      <td>e-0806-3a</td>
-      <td>32.7802</td>
-      <td>0.8927</td>
-      <td>0.0947</td>
-      <td>5.562</td>
-      <td>48.5468</td>
-      <td>1.4008</td>
-      <td>6.5</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">UESTC-SNNers-2</a></td>
-      <td>e0810_3b</td>
-      <td>7.058</td>
-      <td>0.2878</td>
-      <td>0.7696</td>
-      <td>4.7968</td>
-      <td>30.9956</td>
-      <td>1.0101</td>
-      <td>9.83</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">勤天队</a></td>
-      <td>3cpn</td>
-      <td>23.36</td>
-      <td>0.63</td>
-      <td>0.40</td>
-      <td>23.02</td>
-      <td>43.46</td>
-      <td>1.00</td>
-      <td>10</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">勤天队</a></td>
-      <td>sn9e</td>
-      <td>23.36</td>
-      <td>0.63</td>
-      <td>0.40</td>
-      <td>23.02</td>
-      <td>43.46</td>
-      <td>1.00</td>
-      <td>10</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">勤天队</a></td>
-      <td>xq4c</td>
-      <td>23.54</td>
-      <td>0.63</td>
-      <td>0.38</td>
-      <td>22.91</td>
-      <td>43.46</td>
-      <td>1.01</td>
-      <td>10</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">Chopstick_Brothers</a></td>
-      <td>e0806-3b</td>
-      <td>25.5391</td>
-      <td>0.6884</td>
-      <td>0.3873</td>
-      <td>7.7345</td>
-      <td>47.1649</td>
-      <td>1.0348</td>
-      <td>10</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">NoWeiNoGame</a></td>
-      <td>e0807-3a</td>
-      <td>19.1837</td>
-      <td>0.4194</td>
-      <td>0.5657</td>
-      <td>8.355</td>
-      <td>33.8791</td>
-      <td>1.0491</td>
-      <td>11.33</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">Spike_King</a></td>
-      <td>e0809-3b</td>
-      <td>10.8662</td>
-      <td>0.0415</td>
-      <td>0.6758</td>
-      <td>13.8658</td>
-      <td>43.4565</td>
-      <td>1.0661</td>
-      <td>12.83</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">大脑皮层的褶皱被抚平了
-</a></td>
-      <td>e0801</td>
-      <td>8.713</td>
-      <td>0.2135</td>
-      <td>0.5914</td>
-      <td>5.5855</td>
-      <td>48.7172</td>
-      <td>1.4073</td>
-      <td>15.33</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>-</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.3">Spike_King</a></td>
-      <td>e0808-3a</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>Wrong format</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        <!-- == Task 1.4: 3D reconstruction == -->
-<h3>Task 1.4: 3D reconstruction</h3>
-<table style="font-size:0.83em; table-layout:fixed; word-wrap:break-word;">
-  <thead>
-    <tr>
-      <th style="width:4%;">Rank</th>
-      <th style="width:13%;">Team Name<br>(Click for Report)</th>
-      <th style="width:5%;">Submit ID</th>
-      <th style="width:6%;">PSNR ↑</th>
-      <th style="width:6%;">SSIM ↑</th>
-      <th style="width:6%;">LPIPS ↓</th>
-      <th style="width:6%;">NIQE ↓</th>
-      <th style="width:6%;">BRISQUE ↓</th>
-      <th style="width:6%;">LIQE ↓</th>
-      <th style="width:6%;">Avg Rank</th>
-      <th style="width:15%;">Remark</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- Ranked: best single submission per team -->
-    <tr>
-      <td>1</td>
-      <td><a href="#" title="View Technical Report for NoWeiNoGame – Task 1.4">NoWeiNoGame</a></td>
-      <td>zvbx</td>
-      <td>33.8921</td>
-      <td>0.9699</td>
-      <td>0.0275</td>
-      <td>6.6899</td>
-      <td>56.1346</td>
-      <td>1.0282</td>
-      <td>2.17</td>
-      <td>tie-break via SSIM</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td><a href="#" title="View Technical Report for 大脑皮层的褶皱被抚平了 – Task 1.4">大脑皮层的褶皱被抚平了</a></td>
-      <td>e0810-4a</td>
-      <td>33.9755</td>
-      <td>0.9637</td>
-      <td>0.0329</td>
-      <td>8.7604</td>
-      <td>38.4836</td>
-      <td>1.0208</td>
-      <td>2.17</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.4">勤天队</a></td>
-      <td>kcle</td>
-      <td>34.7024</td>
-      <td>0.9672</td>
-      <td>0.0271</td>
-      <td>7.1768</td>
-      <td>56.3527</td>
-      <td>1.0297</td>
-      <td>2.33</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><a href="#" title="View Technical Report for UESTC-SNNers-2 – Task 1.4">UESTC-SNNers-2</a></td>
-      <td>e0810-4b</td>
-      <td>18.3844</td>
-      <td>0.0894</td>
-      <td>0.1475</td>
-      <td>11.7829</td>
-      <td>46.4670</td>
-      <td>1.0220</td>
-      <td>3.33</td>
-      <td></td>
-    </tr>
-
-    <!-- Unranked duplicates kept for record -->
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for NoWeiNoGame – Task 1.4">NoWeiNoGame</a></td>
-      <td>l6w9</td>
-      <td>33.8921</td>
-      <td>0.9699</td>
-      <td>0.0275</td>
-      <td>6.6899</td>
-      <td>56.1346</td>
-      <td>1.0282</td>
-      <td class="na-entry">–</td>
-      <td>duplicate of zvbx</td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.4">勤天队</a></td>
-      <td>slha</td>
-      <td>34.7024</td>
-      <td>0.9672</td>
-      <td>0.0271</td>
-      <td>10.0914</td>
-      <td>47.0518</td>
-      <td>1.0790</td>
-      <td class="na-entry">–</td>
-      <td>duplicate</td>
-    </tr>
-    <tr>
-      <td>--</td>
-      <td><a href="#" title="View Technical Report for 勤天队 – Task 1.4">勤天队</a></td>
-      <td>3749</td>
-      <td>34.7024</td>
-      <td>0.9672</td>
-      <td>0.0271</td>
-      <td>10.1183</td>
-      <td>46.4963</td>
-      <td>1.1118</td>
-      <td class="na-entry">–</td>
-      <td>duplicate</td>
-    </tr>
-
-    <!-- Earlier partial submission kept for record -->
-    <tr>
-      <td>–</td>
-      <td><a href="#" title="View Technical Report for 大脑皮层的褶皱被抚平了 – Task 1.4">大脑皮层的褶皱被抚平了</a></td>
-      <td>e0801</td>
-      <td>33.9755</td>
-      <td>0.9637</td>
-      <td>0.0329</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td>Missing real-world metrics</td>
-    </tr>
-
-    <!-- Invalid submissions at bottom -->
-    <tr>
-      <td>–</td>
-      <td><a href="#" title="View Technical Report for Spike_King – Task 1.4">Spike_King</a></td>
-      <td>4963</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td>Wrong format</td>
-    </tr>
-    <tr>
-      <td>–</td>
-      <td><a href="#" title="View Technical Report for Spike_King – Task 1.4">Spike_King</a></td>
-      <td>8g63</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td class="na-entry">–</td>
-      <td>Wrong format</td>
-    </tr>
-  </tbody>
-</table>
-
-
-        <!-- === End Track 1 === -->
-
-
-        <!-- ======================================= -->
-        <!-- === Track 2: Dataset & Benchmark    === -->
-        <!-- ======================================= -->
-        <div class="track-upcoming"> <!-- Wrapper Div for Opacity -->
-            <h2 class="track-title">Track 2: Dataset & Benchmark</h2>
-            <p class="placeholder-notice">(Results for Track 2 will be published soon)</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Team Name</th>
-                        <th>Evaluation Score</th> <!-- Example Metric -->
-                        <th>Dataset Link/Info</th> <!-- Example Column -->
-                        <th>Submission Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Placeholder Data - Replace with actual data later -->
-                     <tr>
-                        <td>-</td>
-                        <td>(Results Pending)</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                     <tr>
-                        <td>-</td>
-                        <td>...</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                     <!-- Add more placeholder rows if desired -->
-                </tbody>
-            </table>
-        </div> <!-- End track-upcoming wrapper -->
-        <!-- === End Track 2 === -->
-
-
-        <!-- ======================================= -->
-        <!-- === Track 3: Open-Spike Innovation  === -->
-        <!-- ======================================= -->
-         <div class="track-upcoming"> <!-- Wrapper Div for Opacity -->
-            <h2 class="track-title">Track 3: Open-Spike Innovation</h2>
-            <p class="placeholder-notice">(Results for Track 3 will be published soon)</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Team Name</th>
-                        <th>Innovation Score</th> <!-- Example Metric -->
-                        <th>Project Description/Link</th> <!-- Example Column -->
-                        <th>Submission Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Placeholder Data - Replace with actual data later -->
-                     <tr>
-                        <td>-</td>
-                        <td>(Results Pending)</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                     <tr>
-                        <td>-</td>
-                        <td>...</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                     <!-- Add more placeholder rows if desired -->
-                </tbody>
-            </table>
-        </div> <!-- End track-upcoming wrapper -->
-        <!-- === End Track 3 === -->
-
-        <hr style="margin-top: 40px;"> <!-- Add a separator -->
-
-        <div style="background-color: #eef7ff; border-left: 4px solid #007bff; padding: 15px; margin-top: 40px; font-size: 0.95em; line-height: 1.5;">
-  <strong>Note:</strong> ↑ Higher is better, ↓ Lower is better. N/A indicates no participation in a specific task.<br>
-  <strong>E-ID submissions</strong> (marked with an “E-” prefix) were sent by email. If you cannot upload via the web system, please email your results to <a href="mailto:spikecv@outlook.com">spikecv@outlook.com</a>.
+  <div class="note">
+    <strong>Note:</strong> This page lists final awards for each track. If you have any question, please contact us at
+    <a href="mailto:spikecv@outlook.com">spikecv@outlook.com</a>.
+  </div>
 </div>
 
-    </div> <!-- /leaderboard-container -->
-    <!-- === End Leaderboard Content === -->
+<!-- === JavaScript From Main Page REQUIRED for Navbar === -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="assets/js/headroom.min.js"></script>
+<script src="assets/js/jQuery.headroom.min.js"></script>
+<script src="assets/js/custom.js"></script>
 
-
-    <!-- === JavaScript From Main Page REQUIRED for Navbar === -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="assets/js/headroom.min.js"></script> <!-- Adjust path if needed -->
-    <script src="assets/js/jQuery.headroom.min.js"></script> <!-- Adjust path if needed -->
-    <script src="assets/js/custom.js"></script> <!-- Adjust path if needed -->
-    <!-- === End JavaScript === -->
-
-    <!-- === ADDED: Script for Last Update Time === -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const updateElement = document.getElementById('last-updated');
-        if (updateElement && document.lastModified) {
-          try {
-            const lastModifiedDate = new Date(document.lastModified);
-            const options = {
-              year: 'numeric', month: 'short', day: 'numeric',
-              hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' // Added timeZoneName
-            };
-            // Attempt to get locale-specific format, fallback to en-US
-            let formattedDate;
-            try {
-                 formattedDate = lastModifiedDate.toLocaleString(navigator.language || 'en-US', options);
-            } catch (localeError) {
-                console.warn("Could not format date using browser locale, falling back to en-US.");
-                formattedDate = lastModifiedDate.toLocaleString('en-US', options);
-            }
-            updateElement.textContent = 'Last Updated: ' + formattedDate;
-          } catch (e) {
-            console.error("Error formatting last modified date:", e);
-            updateElement.textContent = 'Last Updated: (date unavailable)';
-          }
-        } else if (updateElement) {
-          updateElement.textContent = 'Last Updated: (date unavailable)';
-        }
-      });
-    </script>
-    <!-- ======================================== -->
-
+<!-- Last updated stamp -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const el = document.getElementById('last-updated');
+    if (!el) return;
+    try {
+      const d = new Date(document.lastModified);
+      const opts = {year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false,timeZoneName:'short'};
+      el.textContent = 'Last Updated: ' + d.toLocaleString(navigator.language || 'en-US', opts);
+    } catch {
+      el.textContent = 'Last Updated: (date unavailable)';
+    }
+  });
+</script>
 </body>
 </html>
