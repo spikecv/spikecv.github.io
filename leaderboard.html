@@ -83,6 +83,65 @@
             background:#eef7ff; border-left:4px solid #007bff; padding:15px;
             margin-top:40px; font-size:.95em; line-height:1.5;
         }
+        /* --- Mobile-friendly tables --- */
+@media (max-width: 768px){
+  /* 隐藏表头，用卡片展示 */
+  .leaderboard-container table.responsive thead{ display:none; }
+
+  .leaderboard-container table.responsive,
+  .leaderboard-container table.responsive tbody,
+  .leaderboard-container table.responsive tr,
+  .leaderboard-container table.responsive td{
+    display:block; width:100%;
+  }
+
+  .leaderboard-container table.responsive tr{
+    margin:12px 0;
+    border:1px solid #eee;
+    border-radius:8px;
+    box-shadow:0 1px 4px rgba(0,0,0,.04);
+    background:#fff;
+  }
+
+  .leaderboard-container table.responsive td{
+    border:none;
+    border-bottom:1px solid #f2f2f2;
+    padding:10px 14px;
+    font-size:14px;
+    word-break:break-word;
+  }
+  .leaderboard-container table.responsive td:last-child{
+    border-bottom:none;
+  }
+
+  /* 每个格子的行内标签 —— 自动由 JS 写入 */
+  .leaderboard-container table.responsive td::before{
+    content: attr(data-label);
+    display:block;
+    font-weight:600;
+    color:#555;
+    margin-bottom:4px;
+  }
+
+  /* Rank 列更紧凑点（若存在） */
+  .leaderboard-container table.responsive td[data-label="Rank"],
+  .leaderboard-container table.responsive td[data-label="Completed Tasks"]{
+    font-weight:600;
+  }
+
+  /* 卡片化时整体留白更紧 */
+  .leaderboard-container{ padding:18px; }
+}
+
+/* 超小屏再缩小字距一些 */
+@media (max-width: 420px){
+  .leaderboard-container table.responsive td{
+    padding:8px 12px;
+    font-size:13px;
+    line-height:1.45;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -99,11 +158,11 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav pull-right">
         <li><a href="index.html">Home</a></li>
-        <li><a href="competition.html">Competition</a></li>
+        <li class="active"><a href="competition.html">Competition</a></li>
         <li><a href="features.html">Intro</a></li>
         <li><a href="research_topics.html">Research Topics</a></li>
         <li><a href="publications.html">Publications</a></li>
-        <li class="active"><a href="links.html">Links</a></li>
+        <li><a href="links.html">Links</a></li>
         <li><a href="zh/index.html">中文</a></li>
       </ul>
     </div>
@@ -224,7 +283,7 @@
     <tbody>
       <tr>
         <td>Outstanding Participation Award</td>
-        <td>Zevu-Team</td>
+        <td>Zeyu-Team</td>
         <td>Zeyu Xiao</td>
         <td>National University of Singapore</td>
       </tr>
@@ -264,5 +323,26 @@
     }
   });
 </script>
+<script>
+  (function(){
+    var tables = document.querySelectorAll('.leaderboard-container table');
+    tables.forEach(function(tbl){
+      // 只处理列结构规整的奖项表
+      var heads = Array.from(tbl.querySelectorAll('thead th')).map(function(th){
+        return th.textContent.trim();
+      });
+      if (!heads.length) return;            // 没有表头就跳过
+      tbl.classList.add('responsive');      // 标记为可响应
+
+      tbl.querySelectorAll('tbody tr').forEach(function(tr){
+        Array.from(tr.children).forEach(function(td, idx){
+          // 写入 data-label，移动端用作“左侧标签”
+          td.setAttribute('data-label', heads[idx] || '');
+        });
+      });
+    });
+  })();
+</script>
+
 </body>
 </html>
