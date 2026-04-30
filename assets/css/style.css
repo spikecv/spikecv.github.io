@@ -1305,6 +1305,15 @@ color: #fab028;
 	background-color: transparent !important;
 }
 
+/* Remove default focus ring for contribution tabs/panes to avoid black border on click. */
+#contributionTabs li a:focus,
+#contributionTabs li a:active,
+#contributionTabs li.active a:focus,
+#contributionTabContent .tab-pane:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
 #contributionTabs ~ div.tab-content{
 	background: #fff;
 	padding: 20px; 	

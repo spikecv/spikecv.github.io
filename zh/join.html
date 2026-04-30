@@ -105,6 +105,7 @@
         <ul class="nav navbar nav-justified" id="contributionTabs" style="margin-bottom: 20px; border-bottom: 2px solid #eec338;">
             <li class="active"><a href="#dependency" data-toggle="tab">管理依赖</a></li>
             <li><a href="#algorithm" data-toggle="tab">贡献脉冲算法</a></li>
+            <li><a href="#cli" data-toggle="tab">贡献 CLI</a></li>
         </ul>
         <div class="tab-content" id="contributionTabContent">
             <!-- 贡献算法选项卡 -->
@@ -138,6 +139,36 @@
                         </ul>
                         <p>我们在 <a href="https://github.com/Zyj061/SpikeCV?tab=contributing-ov-file#%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84%E5%8F%82%E8%80%83" target="_blank">CONTRIBUTING.md</a> 中提供了文档的参考模板。</p>
                         <p>之后，您的文档会被整合至 SpikeCV <a href="https://spikecv.readthedocs.io" target="_blank">官方文档</a>中。</p>
+                    </div>
+                </div>
+            </div>
+            <!-- CLI 贡献选项卡 -->
+            <div class="tab-pane" id="cli">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 1em; margin-top: 2em;">
+                            <h3><i style="color: #ffa915; margin-right: 0.3em;" class="fa fa-terminal"></i> CLI 接入位置</h3>
+                        </div>
+                        <p>如果您希望将算法接入 SpikeCV 的命令行工具（CLI），请按命令类型修改对应模块，例如：</p>
+                        <ul>
+                            <li>数据处理命令：<code>SpikeCV/cli/data.py</code></li>
+                            <li>算法处理/执行命令：<code>SpikeCV/cli/proc.py</code></li>
+                            <li>跟踪子命令：<code>SpikeCV/cli/cliProc/track.py</code></li>
+                            <li>重建子命令：<code>SpikeCV/cli/cliProc/reconst.py</code></li>
+                        </ul>
+                        <p>SpikeCV 使用 <code>typer</code> 构建层级命令，请将新命令添加到正确的子命令组中。</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 1em; margin-top: 2em;">
+                            <h3><i style="color: #ffa915; margin-right: 0.3em;" class="fa fa-check-circle"></i> 开发规范</h3>
+                        </div>
+                        <ul>
+                            <li>算法相关库必须在命令函数内部导入（懒加载），避免 CLI 启动变慢。</li>
+                            <li>使用 <code>rich_help_panel="Algorithms"</code> 对算法命令分组。</li>
+                            <li>保留 <code>agent_used</code> 参数，并在开启该参数时输出结构化 JSON 结果。</li>
+                            <li>中间日志与进度输出到 <code>stderr</code>，Agent 模式下仅将结构化结果输出到 <code>stdout</code>。</li>
+                        </ul>
+                        <p>完整模板和提交流程请参考 <a href="https://github.com/Zyj061/SpikeCV/blob/main/CONTRIBUTING.md#CLI工具贡献规范" target="_blank">CONTRIBUTING.md</a> 对应章节。</p>
                     </div>
                 </div>
             </div>

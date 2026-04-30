@@ -104,6 +104,7 @@
         <ul class="nav navbar nav-justified" id="contributionTabs" style="margin-bottom: 20px; border-bottom: 2px solid #eec338;">
             <li class="active"><a href="#dependency" data-toggle="tab">Manage Dependencies</a></li>
             <li><a href="#algorithm" data-toggle="tab">Contribute Spike Algorithms</a></li>
+            <li><a href="#cli" data-toggle="tab">Contribute CLI</a></li>
         </ul>
         <div class="tab-content" id="contributionTabContent">
             <!-- Contribute Algorithm Tab -->
@@ -137,6 +138,36 @@
                         </ul>
                         <p>We provide a documentation template reference in <a href="https://github.com/Zyj061/SpikeCV/blob/main/CONTRIBUTING_en.md#Documentation-Structure-Reference" target="_blank">CONTRIBUTING.md</a>.</p>
                         <p>Your documentation will then be integrated into the SpikeCV <a href="https://spikecv.readthedocs.io" target="_blank">official documentation</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- CLI Contribution Tab -->
+            <div class="tab-pane" id="cli">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 1em; margin-top: 2em;">
+                            <h3><i style="color: #ffa915; margin-right: 0.3em;" class="fa fa-terminal"></i> CLI Entry Points</h3>
+                        </div>
+                        <p>If you want to integrate your algorithm into SpikeCV CLI, update the corresponding command module, for example:</p>
+                        <ul>
+                            <li>Data processing commands: <code>SpikeCV/cli/data.py</code></li>
+                            <li>Algorithm processing/execution commands: <code>SpikeCV/cli/proc.py</code></li>
+                            <li>Tracking subcommands: <code>SpikeCV/cli/cliProc/track.py</code></li>
+                            <li>Reconstruction subcommands: <code>SpikeCV/cli/cliProc/reconst.py</code></li>
+                        </ul>
+                        <p>We use <code>typer</code> to build hierarchical CLI commands, so add your command to the correct sub-Typer app.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div style="margin-bottom: 1em; margin-top: 2em;">
+                            <h3><i style="color: #ffa915; margin-right: 0.3em;" class="fa fa-check-circle"></i> Development Rules</h3>
+                        </div>
+                        <ul>
+                            <li>Lazy import algorithm libraries <strong>inside command functions</strong> to reduce CLI startup latency.</li>
+                            <li>Use <code>rich_help_panel="Algorithms"</code> to group algorithm commands.</li>
+                            <li>Keep the <code>agent_used</code> parameter and return structured JSON when this flag is enabled.</li>
+                            <li>Send logs/progress to <code>stderr</code>; reserve <code>stdout</code> for structured output in agent mode.</li>
+                        </ul>
+                        <p>Please follow the full CLI contribution checklist and template in <a href="https://github.com/Zyj061/SpikeCV/blob/main/CONTRIBUTING_en.md#cli-contribution-guidelines" target="_blank">CONTRIBUTING_en.md</a>.</p>
                     </div>
                 </div>
             </div>
